@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2019-06-21T00:00:00.000Z",
+    "mene": [
+      {
+        "name": "leg extension",
+        "weight": [40],
+        "times": 10,
+        "setCount": [2]
+      },
+      {
+        "name": "leg curl",
+        "weight": [30],
+        "times": 10,
+        "setCount": [2]
+      },
+      {
+        "name": "chest press",
+        "weight": [50],
+        "times": 10,
+        "setCount": [2]
+      },
+      {
+        "name": "lat pull down",
+        "weight": [40, 35],
+        "times": 10,
+        "setCount": [1, 1]
+      },
+      {
+        "name": "crunch",
+        "times": [15],
+        "setCount": [2]
+      }
+    ],
+    "memo": "今まで手加減して筋トレしてたっぽい。クランチ最後の方できなかった。"
+  },
+  {
+    "date": "2019-06-24T00:00:00.000Z",
+    "mene": [
+      {
+        "name": "leg extension",
+        "weight": [40],
+        "times": 10,
+        "setCount": [3]
+      },
+      {
+        "name": "leg curl",
+        "weight": [30],
+        "times": 10,
+        "setCount": [3]
+      },
+      {
+        "name": "chest press",
+        "weight": [50],
+        "times": 10,
+        "setCount": [3]
+      },
+      {
+        "name": "lat pull down",
+        "weight": [40],
+        "times": 10,
+        "setCount": [3]
+      },
+      {
+        "name": "crunch",
+        "times": [15],
+        "setCount": [3]
+      }
+    ],
+    "memo": "前回より苦しくないということは、フォームがおかしいということ。次回確認して修正する。"
+  }
+]
