@@ -6,6 +6,10 @@
   />
 </template>
 
+<script lang="ts">
+export default {}
+</script>
+
 <style>
 .VuetifyLogo {
   width: 180px;
