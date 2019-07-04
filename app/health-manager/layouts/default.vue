@@ -4,7 +4,7 @@
       タイトル
     </v-toolbar>
     <v-content>
-      <v-container>
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-content>

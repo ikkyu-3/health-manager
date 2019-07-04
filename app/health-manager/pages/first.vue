@@ -1,5 +1,3 @@
 <template>
-  <div>
-    First
-  </div>
+  <div>Hoge</div>
 </template>
