@@ -15,7 +15,7 @@
         absolute
         color="transparent"
       >
-        <v-btn to="/" color="teal" flat value="recent">
+        <v-btn to="/training" color="teal" flat value="recent">
           <span>Recent</span>
           <v-icon>history</v-icon>
         </v-btn>
