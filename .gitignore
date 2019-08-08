@@ -58,4 +58,6 @@ typings/
 .env
 
 # next.js build output
-app/health-manager/.nuxt
+app/.nuxt
+
+.DS_Store
