@@ -12,12 +12,12 @@ module.exports = ({ config }) => {
         options: {
           appendTsSuffixTo: [/\.vue$/],
           transpileOnly: true
-        },
+        }
       }
-    ],
+    ]
   })
 
   config.plugins.push(new ForkTsCheckerWebpackPlugin())
 
-  return config;
-};
+  return config
+}

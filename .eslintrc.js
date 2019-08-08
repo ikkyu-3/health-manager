@@ -13,12 +13,9 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier',
     'prettier/vue',
-    'prettier/@typescript-eslint',
+    'prettier/@typescript-eslint'
   ],
-  plugins: [
-    'prettier',
-    '@typescript-eslint'
-  ],
+  plugins: ['prettier', '@typescript-eslint'],
   // add your custom rules here
   rules: {
     'no-unused-vars': 'off'
