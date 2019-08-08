@@ -58,6 +58,6 @@ typings/
 .env
 
 # next.js build output
-app/.nuxt
+.nuxt
 
 .DS_Store
