@@ -32,6 +32,7 @@
     "@storybook/addon-links": "^5.1.10",
     "@storybook/addons": "^5.1.10",
     "@storybook/vue": "^5.1.10",
+    "@types/jest": "^24.0.17",
     "@types/storybook__vue": "^5.0.2",
     "@typescript-eslint/eslint-plugin": "^1.11.0",
     "@typescript-eslint/parser": "^1.11.0",
@@ -60,6 +61,7 @@
     "prettier": "^1.16.4",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
     "vue-jest": "^3.0.3"
   },
@@ -69,6 +71,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,vue}": ["yarn lint --fix", "git add"]
+    "*.{js,ts,vue}": [
+      "yarn lint --fix",
+      "git add"
+    ]
   }
 }
