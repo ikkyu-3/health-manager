@@ -1,7 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
-import NuxtConfiguration from '@nuxt/config'
 
-const config: NuxtConfiguration = {
+export default {
   mode: 'spa',
   /*
    ** Headers of the page
@@ -24,10 +23,6 @@ const config: NuxtConfiguration = {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
       }
     ]
   },
@@ -80,12 +75,7 @@ const config: NuxtConfiguration = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    // extend(config, ctx) {}
   },
-  server: {
-    port: 3000, // デフォルト: 3000
-    host: '0.0.0.0' // デフォルト: localhost
-  }
+  buildModules: ['@nuxt/typescript-build']
 }
-
-export default config
