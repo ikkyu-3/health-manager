@@ -1,35 +1,37 @@
 <template>
   <v-app>
-    <v-toolbar :clipped-left="clipped" fixed app>
-      タイトル
-    </v-toolbar>
+    <div>
+      <v-toolbar>
+        <v-toolbar-title>Title</v-toolbar-title>
+      </v-toolbar>
+    </div>
     <v-content>
       <v-container fluid>
         <nuxt />
       </v-container>
     </v-content>
     <v-card flat>
-      <v-bottom-nav
-        :active.sync="bottomNav"
-        :value="true"
-        absolute
-        color="transparent"
+      <v-bottom-navigation
+        v-model="bottomNav"
+        fixed
+        grow
+        background-color="teal"
       >
-        <v-btn to="/training" color="teal" flat value="recent">
+        <v-btn value="recent">
           <span>Recent</span>
           <v-icon>history</v-icon>
         </v-btn>
 
-        <v-btn to="/first" color="teal" flat value="favorites">
+        <v-btn value="favorites">
           <span>First</span>
           <v-icon>favorite</v-icon>
         </v-btn>
 
-        <v-btn to="/second" color="teal" flat value="nearby">
+        <v-btn value="nearby">
           <span>Second</span>
           <v-icon>place</v-icon>
         </v-btn>
-      </v-bottom-nav>
+      </v-bottom-navigation>
     </v-card>
   </v-app>
 </template>
@@ -38,6 +40,7 @@
 export default {
   data() {
     return {
+      bottomNav: 'recent',
       clipped: false,
       drawer: false,
       fixed: false,

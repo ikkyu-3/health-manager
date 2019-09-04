@@ -25,7 +25,8 @@
     "types": [
       "@types/node",
       "@nuxt/types",
-      "@types/jest"
+      "@types/jest",
+      "@nuxtjs/vuetify"
     ],
     "typeRoots": ["./types"],
     "experimentalDecorators": true

@@ -42,7 +42,6 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/vuetify',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -77,5 +76,5 @@ export default {
      */
     // extend(config, ctx) {}
   },
-  buildModules: ['@nuxt/typescript-build']
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify']
 }
