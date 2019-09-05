@@ -1,12 +1,18 @@
 import { configure, addDecorator } from '@storybook/vue'
-import 'vuetify/dist/vuetify.css'
-
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
 
+const vuetifyConfig = new Vuetify({
+  theme: {
+    dark: false
+  }
+})
+
 addDecorator(() => ({
+  vuetify: vuetifyConfig,
   template: '<v-app><story/></v-app>'
 }))
 
