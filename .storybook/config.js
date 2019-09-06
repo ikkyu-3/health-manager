@@ -6,6 +6,9 @@ import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
 
 const vuetifyConfig = new Vuetify({
+  icons: {
+    iconfont: 'fa'
+  },
   theme: {
     dark: false
   }
@@ -13,7 +16,7 @@ const vuetifyConfig = new Vuetify({
 
 addDecorator(() => ({
   vuetify: vuetifyConfig,
-  template: '<v-app><story/></v-app>'
+  template: '<v-app><div><story/></div></v-app>'
 }))
 
 // automatically import all files ending in *.stories.js
