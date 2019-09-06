@@ -1,6 +1,6 @@
 <template>
   <v-btn fab dark :color="color" @click="click">
-    <v-icon>fas fa-plus</v-icon>
+    <v-icon>fa-plus</v-icon>
   </v-btn>
 </template>
 

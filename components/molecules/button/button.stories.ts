@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 
 import AddButton from './AddButton.vue'
 
-storiesOf('Molecules.Button', module).add('add-button', () => ({
+storiesOf('Molecules.Button.AddButton', module).add('default color', () => ({
   components: { AddButton },
   template: '<add-button @click="action"/>',
   methods: { action: action('clicked') }

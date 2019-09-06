@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Molecules/AddButton.vue snapshot 1`] = `"<button type=\\"button\\" class=\\"v-btn v-btn--floating theme--dark teal\\"><div class=\\"v-btn__content\\"><i aria-hidden=\\"true\\" class=\\"v-icon fas fa-plus theme--dark\\"></i></div></button>"`;
