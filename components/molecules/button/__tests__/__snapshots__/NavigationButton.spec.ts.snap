@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`molecules/button/NavigationButton.vue snapshot 1`] = `"<button type=\\"button\\" value=\\"workouts\\" class=\\"v-btn v-btn--contained theme--light v-size--default\\"><span class=\\"v-btn__content\\"><span>Workouts</span> <i aria-hidden=\\"true\\" class=\\"v-icon notranslate fa fa-dumbbell theme--light\\"></i></span></button>"`;
