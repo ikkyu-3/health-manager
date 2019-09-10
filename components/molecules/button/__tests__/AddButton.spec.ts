@@ -43,6 +43,9 @@ describe('molecules/button/AddButton.vue', () => {
       localVue,
       vuetify
     })
+
+    // console.log(wrapper.vm)
+
     wrapper.vm.$on('click', click)
     wrapper.trigger('click')
 

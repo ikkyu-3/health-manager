@@ -2,7 +2,9 @@ import { configure, addDecorator } from '@storybook/vue'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import VueCompositionApi from "@vue/composition-api";
 
+Vue.use(VueCompositionApi);
 Vue.use(Vuetify)
 
 const vuetifyConfig = new Vuetify({
