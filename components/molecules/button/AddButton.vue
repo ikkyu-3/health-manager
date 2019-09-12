@@ -7,10 +7,6 @@
 <script lang="ts">
 import { createComponent } from '@vue/composition-api'
 
-type Props = {
-  color?: string
-}
-
 export default createComponent({
   props: {
     color: {
@@ -25,15 +21,4 @@ export default createComponent({
     return { click }
   }
 })
-
-// import { Vue, Component, Prop } from 'nuxt-property-decorator'
-
-// @Component
-// export default class AddButton extends Vue {
-//   @Prop({ default: 'teal' }) readonly color!: string
-
-//   click(e: MouseEvent): void {
-//     this.$emit('click', e)
-//   }
-// }
 </script>

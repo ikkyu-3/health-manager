@@ -6,12 +6,19 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator'
+import { createComponent } from '@vue/composition-api'
 
-@Component
-export default class NavigationButton extends Vue {
-  @Prop(String) readonly value!: string
-  @Prop(String) readonly text!: string
-  @Prop(String) readonly icon!: string
-}
+export default createComponent({
+  props: {
+    value: String,
+    text: String,
+    icon: {
+      type: String,
+      validator: (value: string) => /^fa-.+$/.test(value)
+    }
+  },
+  setup() {
+    return {}
+  }
+})
 </script>

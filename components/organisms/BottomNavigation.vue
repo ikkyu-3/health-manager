@@ -12,42 +12,47 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import { createComponent } from '@vue/composition-api'
 import NavigationButton from '../molecules/button/NavigationButton.vue'
 
-@Component({
-  components: { NavigationButton }
-})
-export default class BottomNavigation extends Vue {
-  buttons = [
-    {
-      to: 'workouts',
-      value: 'workouts',
-      text: 'Workouts',
-      icon: 'fa-dumbbell'
-    },
-    {
-      to: 'schedule',
-      value: 'schedule',
-      text: 'Schedule',
-      icon: 'fa-calendar-alt'
-    },
-    {
-      to: 'workout-data',
-      value: 'workout-data',
-      text: 'Workout Data',
-      icon: 'fa-list-alt'
-    },
-    {
-      to: 'health-planet',
-      value: 'health-planet',
-      text: 'Health Planet',
-      icon: 'fa-globe'
-    }
-  ]
+export default createComponent({
+  components: { NavigationButton },
+  setup() {
+    const buttons = [
+      {
+        to: 'workouts',
+        value: 'workouts',
+        text: 'Workouts',
+        icon: 'fa-dumbbell'
+      },
+      {
+        to: 'schedule',
+        value: 'schedule',
+        text: 'Schedule',
+        icon: 'fa-calendar-alt'
+      },
+      {
+        to: 'workout-data',
+        value: 'workout-data',
+        text: 'Workout Data',
+        icon: 'fa-list-alt'
+      },
+      {
+        to: 'health-planet',
+        value: 'health-planet',
+        text: 'Health Planet',
+        icon: 'fa-globe'
+      }
+    ]
 
-  bottomNav: string = this.buttons[0].value
-}
+    const bottomNav: string = buttons[0].value
+
+    return {
+      buttons,
+      bottomNav
+    }
+  }
+})
 </script>
 
 <style></style>
