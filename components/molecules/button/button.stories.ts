@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions'
 
 import AddButton from './AddButton.vue'
 import NavigationButton from './NavigationButton.vue'
+import SelectButton from './SelectButton.vue'
 
 storiesOf('Molecules.Button.AddButton', module).add('default color', () => ({
   components: { AddButton },
@@ -43,4 +44,22 @@ storiesOf('Molecules.Button.NavigationButton', module)
       <navigation-button value="health-planet" text="Health Planet" icon="fa-globe"/>
     </v-bottom-navigation>
     `
+  }))
+
+storiesOf('Molecules.Button.SelectButton', module)
+  .add('Selected', () => ({
+    components: { SelectButton },
+    template: `<select-button @click="action" color="red lighten-3" :isActive="isActive" number="1"/>`,
+    data: () => {
+      return { isActive: true }
+    },
+    methods: { action: action('clicked') }
+  }))
+  .add('No Selected', () => ({
+    components: { SelectButton },
+    template: `<select-button @click="action" color="red lighten-3" :isActive="isActive" number=""/>`,
+    data: () => {
+      return { isActive: false }
+    },
+    methods: { action: action('clicked') }
   }))
