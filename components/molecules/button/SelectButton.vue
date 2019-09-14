@@ -1,6 +1,6 @@
 <template>
   <v-btn fab dark :color="buttonColor" @click="click">
-    <span v-if="isActive">{{ number }}</span>
+    <span v-if="isActive">{{ text }}</span>
   </v-btn>
 </template>
 
@@ -11,14 +11,14 @@ export default createComponent({
   props: {
     color: {
       type: String,
-      default: 'red'
+      default: 'red lighten-3'
     },
     isActive: {
       type: Boolean,
       required: true,
       default: false
     },
-    number: {
+    text: {
       type: String,
       required: true,
       default: ''

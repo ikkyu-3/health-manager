@@ -49,7 +49,7 @@ storiesOf('Molecules.Button.NavigationButton', module)
 storiesOf('Molecules.Button.SelectButton', module)
   .add('Selected', () => ({
     components: { SelectButton },
-    template: `<select-button @click="action" color="red lighten-3" :isActive="isActive" number="1"/>`,
+    template: `<select-button @click="action" color="red lighten-3" :isActive="isActive" text="1"/>`,
     data: () => {
       return { isActive: true }
     },
@@ -57,7 +57,7 @@ storiesOf('Molecules.Button.SelectButton', module)
   }))
   .add('No Selected', () => ({
     components: { SelectButton },
-    template: `<select-button @click="action" color="red lighten-3" :isActive="isActive" number=""/>`,
+    template: `<select-button @click="action" color="red lighten-3" :isActive="isActive" text=""/>`,
     data: () => {
       return { isActive: false }
     },
