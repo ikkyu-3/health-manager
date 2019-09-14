@@ -15,12 +15,10 @@ export default createComponent({
     },
     isActive: {
       type: Boolean,
-      required: true,
       default: false
     },
     text: {
       type: String,
-      required: true,
       default: ''
     }
   },
