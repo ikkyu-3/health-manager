@@ -2,49 +2,31 @@ import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
 import AddButton from '@/components/molecules/button/AddButton.vue'
 
-const localVue = createLocalVue()
+const options = {
+  localVue: createLocalVue(),
+  vuetify: new Vuetify()
+}
 
 describe('molecules/button/AddButton.vue', () => {
-  let vuetify: typeof Vuetify
-
-  beforeEach(() => {
-    vuetify = new Vuetify()
-  })
-
   it('snapshot', () => {
-    const wrapper = mount(AddButton, {
-      localVue,
-      vuetify
-    })
+    const wrapper = mount(AddButton, { ...options })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('colorを指定しない場合、デフォルトの色が指定される', () => {
-    const wrapper = mount(AddButton, {
-      localVue,
-      vuetify
-    })
+  it('colorを指定しない場合、デフォルトのクラスが指定される', () => {
+    const wrapper = mount(AddButton, { ...options })
     expect(wrapper.find('button').classes()).toContain('teal')
   })
 
-  it('colorに色を指定した場合、その指定した色が指定される', () => {
+  it('colorに色を指定した場合、その指定したクラスが指定される', () => {
     const color = 'red'
-    const wrapper = mount(AddButton, {
-      localVue,
-      vuetify,
-      propsData: { color }
-    })
+    const wrapper = mount(AddButton, { ...options, propsData: { color } })
     expect(wrapper.find('button').classes()).toContain('red')
   })
 
   it('clickした場合、@clickで登録した関数が実行される', () => {
     const click = jest.fn()
-    const wrapper = mount(AddButton, {
-      localVue,
-      vuetify
-    })
-
-    // console.log(wrapper.vm)
+    const wrapper = mount(AddButton, { ...options })
 
     wrapper.vm.$on('click', click)
     wrapper.trigger('click')

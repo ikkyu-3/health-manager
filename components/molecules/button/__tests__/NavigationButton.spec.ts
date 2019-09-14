@@ -2,19 +2,15 @@ import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
 import NavigationButton from '@/components/molecules/button/NavigationButton.vue'
 
-const localVue = createLocalVue()
+const options = {
+  localVue: createLocalVue(),
+  vuetify: new Vuetify()
+}
 
 describe('molecules/button/NavigationButton.vue', () => {
-  let vuetify: typeof Vuetify
-
-  beforeEach(() => {
-    vuetify = new Vuetify()
-  })
-
   it('snapshot', () => {
     const wrapper = mount(NavigationButton, {
-      localVue,
-      vuetify,
+      ...options,
       propsData: {
         value: 'workouts',
         text: 'Workouts',
