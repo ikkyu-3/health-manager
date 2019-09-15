@@ -1,10 +1,9 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-// import { linkTo } from '@storybook/addon-links'
 
 import WorkoutListItem from './WorkoutListItem.vue'
 
-storiesOf('Molecules.List.WorkoutListItem', module)
+storiesOf('Molecules.ListItem.WorkoutListItem', module)
   .add('not selected', () => ({
     components: { WorkoutListItem },
     template: `
