@@ -1,5 +1,5 @@
 <template>
-  <v-btn fab dark :color="buttonColor" @click="click">
+  <v-btn depressed fab dark :color="buttonColor" @click="click">
     <span v-if="isActive">{{ text }}</span>
   </v-btn>
 </template>
