@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import WorkoutListItem from './WorkoutListItem.vue'
+import WorkoutListItem from '@/components/molecules/listItem/WorkoutListItem.vue'
 
 storiesOf('Molecules.ListItem.WorkoutListItem', module)
   .add('not selected', () => ({

@@ -2,9 +2,9 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
 
-import AddButton from './AddButton.vue'
-import NavigationButton from './NavigationButton.vue'
-import SelectButton from './SelectButton.vue'
+import AddButton from '@/components/molecules/button/AddButton.vue'
+import NavigationButton from '@/components/molecules/button/NavigationButton.vue'
+import SelectButton from '@/components/molecules/button/SelectButton.vue'
 
 storiesOf('Molecules.Button.AddButton', module).add('default color', () => ({
   components: { AddButton },

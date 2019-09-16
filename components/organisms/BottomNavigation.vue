@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { createComponent } from '@vue/composition-api'
-import NavigationButton from '../molecules/button/NavigationButton.vue'
+import NavigationButton from '@/components/molecules/button/NavigationButton.vue'
 
 export default createComponent({
   components: { NavigationButton },

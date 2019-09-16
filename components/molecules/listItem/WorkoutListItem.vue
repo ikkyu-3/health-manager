@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { createComponent, computed } from '@vue/composition-api'
-import SelectButton from '../button/SelectButton.vue'
+import SelectButton from '@/components/molecules/button/SelectButton.vue'
 
 export default createComponent({
   components: { SelectButton },
