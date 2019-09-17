@@ -1,7 +1,7 @@
 <template>
   <v-list-item>
     <v-list-item-action>
-      <select-button :is-active="isActive" :text="index" @click="click" />
+      <select-icon :text="index" />
     </v-list-item-action>
 
     <v-list-item-content>
@@ -11,19 +11,22 @@
 </template>
 
 <script lang="ts">
-import { createComponent, computed } from '@vue/composition-api'
-import SelectButton from '@/components/molecules/button/SelectButton.vue'
+import { createComponent } from '@vue/composition-api'
+import SelectIcon from '@/components/molecules/icon/SelectIcon.vue'
 
 export default createComponent({
-  components: { SelectButton },
+  components: { SelectIcon },
   props: {
-    name: String,
-    index: String,
-    click: Function
-  },
-  setup(props) {
-    const isActive = computed(() => !!props.index)
-    return { isActive }
+    name: {
+      type: String,
+      required: true,
+      default: ''
+    },
+    index: {
+      type: String,
+      required: true,
+      default: ''
+    }
   }
 })
 </script>
