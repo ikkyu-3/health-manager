@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import StylelintPlugin from 'stylelint-webpack-plugin'
 
 export default {
   mode: 'spa',
@@ -71,10 +72,27 @@ export default {
    ** Build configuration
    */
   build: {
+    postcss: {
+      plugins: {
+        autoprefixer: {},
+        'postcss-sorting': {
+          'properties-order': 'alphabetical',
+          'unspecified-properties-position': 'bottom'
+        }
+      }
+    },
     /*
      ** You can extend webpack config here
      */
-    // extend(config, ctx) {}
+    extend(config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.plugins.push(
+          new StylelintPlugin({
+            files: ['**/*.vue', '**/*.scss']
+          })
+        )
+      }
+    }
   },
   buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify']
 }
