@@ -1,5 +1,11 @@
 <template>
-  <v-bottom-navigation v-model="bottomNav" fixed grow>
+  <v-bottom-navigation
+    v-model="bottomNav"
+    fixed
+    grow
+    :color="color"
+    :background-color="backgroundColor"
+  >
     <navigation-button
       v-for="(button, index) in buttons"
       :key="index"
@@ -13,11 +19,14 @@
 
 <script lang="ts">
 import { createComponent } from '@vue/composition-api'
+import colors from 'vuetify/es5/util/colors'
 import NavigationButton from '@/components/molecules/button/NavigationButton.vue'
 
 export default createComponent({
   components: { NavigationButton },
   setup() {
+    const color = colors.grey.lighten5
+    const backgroundColor = colors.blue.darken2
     const buttons = [
       {
         to: 'workouts',
@@ -48,11 +57,11 @@ export default createComponent({
     const bottomNav: string = buttons[0].value
 
     return {
+      color,
+      backgroundColor,
       buttons,
       bottomNav
     }
   }
 })
 </script>
-
-<style></style>
