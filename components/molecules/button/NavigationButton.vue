@@ -1,6 +1,6 @@
 <template>
   <v-btn :value="value">
-    <span>{{ text }}</span>
+    <span class="button-text">{{ text }}</span>
     <v-icon>{{ icon }}</v-icon>
   </v-btn>
 </template>
@@ -22,3 +22,10 @@ export default createComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.button-text {
+  font-size: 90%;
+  font-weight: 500;
+}
+</style>
