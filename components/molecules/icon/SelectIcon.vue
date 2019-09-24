@@ -24,7 +24,7 @@ export default createComponent({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .icon {
   display: flex;
   justify-content: center;
@@ -33,7 +33,7 @@ export default createComponent({
   width: 32px;
   border-radius: 50%;
   background-color: #bdbdbd;
-  color: #ffffff;
+  color: #fff;
   font-weight: bold;
 }
 
