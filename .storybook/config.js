@@ -1,4 +1,5 @@
 import { configure, addDecorator } from '@storybook/vue'
+import { action } from '@storybook/addon-actions'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
@@ -6,6 +7,16 @@ import VueCompositionApi from "@vue/composition-api";
 
 Vue.use(VueCompositionApi);
 Vue.use(Vuetify)
+
+Vue.component('nuxt-link', {
+  props: ['to'],
+  methods: {
+    log() {
+      action('link target')(this.to)
+    }
+  },
+  template: '<a href="#" @click.prevent="log()"><slot>NuxtLink</slot></a>'
+})
 
 const vuetifyConfig = new Vuetify({
   icons: {

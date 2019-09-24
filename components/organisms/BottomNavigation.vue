@@ -1,67 +1,46 @@
 <template>
   <v-bottom-navigation
-    v-model="bottomNav"
+    v-model="state.bottomNav"
     fixed
     grow
-    :color="color"
-    :background-color="backgroundColor"
+    shift
+    :color="state.color"
+    :background-color="state.backgroundColor"
   >
-    <navigation-button
-      v-for="(button, index) in buttons"
+    <v-btn
+      v-for="(button, index) in state.buttons"
       :key="index"
-      :to="button.to"
       :value="button.value"
-      :text="button.text"
-      :icon="button.icon"
-    />
+      :to="button.to"
+      nuxt
+    >
+      <span class="button-text">{{ button.text }}</span>
+      <v-icon>{{ button.icon }}</v-icon>
+    </v-btn>
   </v-bottom-navigation>
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
-import colors from 'vuetify/es5/util/colors'
-import NavigationButton from '@/components/molecules/button/NavigationButton.vue'
+import { createComponent, reactive } from '@vue/composition-api'
+import { bottomNavigation, mainColor, mainTextColor } from '@/constants'
 
 export default createComponent({
-  components: { NavigationButton },
   setup() {
-    const color = colors.grey.lighten5
-    const backgroundColor = colors.blue.darken2
-    const buttons = [
-      {
-        to: 'workouts',
-        value: 'workouts',
-        text: 'Workouts',
-        icon: 'fa-dumbbell'
-      },
-      {
-        to: 'schedule',
-        value: 'schedule',
-        text: 'Schedule',
-        icon: 'fa-calendar-alt'
-      },
-      {
-        to: 'workout-data',
-        value: 'workout-data',
-        text: 'Workout Data',
-        icon: 'fa-list-alt'
-      },
-      {
-        to: 'health-planet',
-        value: 'health-planet',
-        text: 'Health Planet',
-        icon: 'fa-globe'
-      }
-    ]
+    const state = reactive({
+      color: mainTextColor,
+      backgroundColor: mainColor,
+      buttons: bottomNavigation,
+      bottomNav: bottomNavigation[0].value
+    })
 
-    const bottomNav: string = buttons[0].value
-
-    return {
-      color,
-      backgroundColor,
-      buttons,
-      bottomNav
-    }
+    return { state }
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.button-text {
+  font-size: 90%;
+  font-weight: 500;
+}
+</style>

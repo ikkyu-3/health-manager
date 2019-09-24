@@ -1,10 +1,13 @@
 import Vuetify from 'vuetify'
-import { mount, createLocalVue } from '@vue/test-utils'
+import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import BottomNavigation from '@/components/organisms/BottomNavigation.vue'
 
 const options = {
   localVue: createLocalVue(),
-  vuetify: new Vuetify()
+  vuetify: new Vuetify(),
+  stubs: {
+    NuxtLink: RouterLinkStub
+  }
 }
 
 describe('organisms/BottomNavigation.vue', () => {
