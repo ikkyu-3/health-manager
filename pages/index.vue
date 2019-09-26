@@ -8,10 +8,11 @@
         bottom
         dark
         color="indigo"
-        style="bottom: 72px"
+        style="bottom: 72px;"
         @click="dialog = true"
       >
         <v-icon dark>add</v-icon>
+        <select-icon text="2"></select-icon>
       </v-btn>
     </v-flex>
     <!-- dialog -->
@@ -98,17 +99,23 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { createComponent } from '@vue/composition-api'
+import SelectIcon from '@/components/molecules/icon/SelectIcon.vue'
 
-@Component({})
-export default class IndexsPage extends Vue {
-  data() {
+export default createComponent({
+  components: { SelectIcon },
+  setup() {
+    const dialog = false
+    const notifications = false
+    const sound = true
+    const widgets = false
+
     return {
-      dialog: false,
-      notifications: false,
-      sound: true,
-      widgets: false
+      dialog,
+      notifications,
+      sound,
+      widgets
     }
   }
-}
+})
 </script>
