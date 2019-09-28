@@ -7,16 +7,17 @@
 </template>
 
 <script lang="ts">
-import { createComponent, reactive } from '@vue/composition-api'
+import { createComponent, reactive, computed } from '@vue/composition-api'
 import { mainColor } from '@/constants'
 
 export default createComponent({
-  setup() {
+  setup(_, ctx) {
     const state = reactive({
       color: mainColor,
-      title: 'Title'
-      // title: computed(() => ctx.root.$store.getters)
+      title: computed(() => ctx.root.$store.state.title)
     })
+
+    console.warn(ctx.root.$store.state)
 
     return { state }
   }
