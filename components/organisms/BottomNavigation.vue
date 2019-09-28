@@ -13,6 +13,7 @@
       :value="button.value"
       :to="button.to"
       nuxt
+      @click="changeTitle(button.text)"
     >
       <span class="button-text">{{ button.text }}</span>
       <v-icon>{{ button.icon }}</v-icon>
@@ -25,7 +26,7 @@ import { createComponent, reactive } from '@vue/composition-api'
 import { bottomNavigation, mainColor, mainTextColor } from '@/constants'
 
 export default createComponent({
-  setup() {
+  setup(_, ctx) {
     const state = reactive({
       color: mainTextColor,
       backgroundColor: mainColor,
@@ -33,7 +34,10 @@ export default createComponent({
       bottomNav: bottomNavigation[0].value
     })
 
-    return { state }
+    const changeTitle = (title: string) =>
+      ctx.root.$store.dispatch('changeTitle', { title })
+
+    return { state, changeTitle }
   }
 })
 </script>

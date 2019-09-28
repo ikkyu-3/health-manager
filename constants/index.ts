@@ -1,11 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-
-type BottomNavigation = {
-  to: string
-  value: string
-  text: string
-  icon: string
-}
+import { BottomNavigation } from '@/types'
 
 export const bottomNavigation: BottomNavigation[] = [
   {
@@ -21,8 +15,8 @@ export const bottomNavigation: BottomNavigation[] = [
     icon: 'fa-calendar-alt'
   },
   {
-    to: '/data',
-    value: 'data',
+    to: '/workouts-data',
+    value: 'workouts-data',
     text: 'Data',
     icon: 'fa-list-alt'
   },
