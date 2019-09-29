@@ -23,10 +23,12 @@
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
+import { userStore } from '@/store'
 import { bottomNavigation, mainColor, mainTextColor } from '@/constants'
 
 export default createComponent({
-  setup(_, ctx) {
+  setup() {
+    const store = userStore()
     const state = reactive({
       color: mainTextColor,
       backgroundColor: mainColor,
@@ -34,8 +36,9 @@ export default createComponent({
       bottomNav: bottomNavigation[0].value
     })
 
-    const changeTitle = (title: string) =>
-      ctx.root.$store.dispatch('changeTitle', { title })
+    const changeTitle = (title: string) => {
+      return store.dispatch('changeTitle', { title })
+    }
 
     return { state, changeTitle }
   }

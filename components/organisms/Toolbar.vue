@@ -9,15 +9,15 @@
 <script lang="ts">
 import { createComponent, reactive, computed } from '@vue/composition-api'
 import { mainColor } from '@/constants'
+import { userStore } from '@/store'
 
 export default createComponent({
-  setup(_, ctx) {
+  setup() {
+    const store = userStore()
     const state = reactive({
       color: mainColor,
-      title: computed(() => ctx.root.$store.state.title)
+      title: computed(() => store.state.title)
     })
-
-    console.warn(ctx.root.$store.state)
 
     return { state }
   }
