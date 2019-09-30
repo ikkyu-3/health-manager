@@ -17,7 +17,7 @@ export const bottomNavigation: BottomNavigation[] = [
   {
     to: '/workouts-data',
     value: 'workouts-data',
-    text: 'Data',
+    text: 'Workouts Data',
     icon: 'fa-list-alt'
   },
   {
