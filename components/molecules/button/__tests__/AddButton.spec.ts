@@ -13,6 +13,17 @@ describe('molecules/button/AddButton.vue', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
+  it('colorを指定しない場合、デフォルトのクラスが指定される', () => {
+    const wrapper = mount(AddButton, { ...options })
+    expect(wrapper.find('button').classes()).toContain('teal')
+  })
+
+  it('colorに色を指定した場合、その指定したクラスが指定される', () => {
+    const color = 'red'
+    const wrapper = mount(AddButton, { ...options, propsData: { color } })
+    expect(wrapper.find('button').classes()).toContain('red')
+  })
+
   it('clickした場合、@clickで登録した関数が実行される', () => {
     const click = jest.fn()
     const wrapper = mount(AddButton, { ...options })

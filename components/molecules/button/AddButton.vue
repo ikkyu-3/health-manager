@@ -8,6 +8,12 @@
 import { createComponent } from '@vue/composition-api'
 
 export default createComponent({
+  props: {
+    color: {
+      type: String,
+      default: 'teal'
+    }
+  },
   setup(_, ctx) {
     function click(e: MouseEvent) {
       ctx.emit('click', e)
