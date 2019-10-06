@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-toolbar :color="state.color" dark>
+    <v-toolbar dark :color="state.color">
       <v-toolbar-title>{{ state.title }}</v-toolbar-title>
     </v-toolbar>
   </div>
