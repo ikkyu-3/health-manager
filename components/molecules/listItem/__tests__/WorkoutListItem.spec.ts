@@ -27,23 +27,45 @@ describe('molecules/listItem/WorkoutListItem.vue', () => {
     expect(selected.html()).toMatchSnapshot()
   })
 
-  it('nameで指定した文字列が表示される', () => {
-    expect(selected.find('.v-list-item__title').text()).toBe('Test')
+  describe('name', () => {
+    it('nameで指定した文字列が表示される', () => {
+      expect(selected.find('.v-list-item__title').text()).toBe('Test')
+    })
   })
 
-  it('indexを指定した場合、アクティブなアイコンが表示される', () => {
-    expect(selected.find('.icon').classes()).toEqual(
-      expect.arrayContaining(['active'])
-    )
+  describe('index', () => {
+    it('indexを指定した場合、アクティブなアイコンが表示される', () => {
+      expect(selected.find('.icon').classes()).toEqual(
+        expect.arrayContaining(['active'])
+      )
+    })
+
+    it('indexを指定しない場合、アクティブでないアイコンが表示される', () => {
+      expect(notSelected.find('.icon').classes()).not.toEqual(
+        expect.arrayContaining(['active'])
+      )
+    })
   })
 
-  it('indexを指定しない場合、アクティブでないアイコンが表示される', () => {
-    expect(notSelected.find('.icon').classes()).not.toEqual(
-      expect.arrayContaining(['active'])
-    )
+  describe('click', () => {
+    it('clickすると、clickイベントが発火する', () => {
+      const click = jest.fn()
+      selected.vm.$on('click', click)
+      selected.trigger('click')
+      expect(click).toBeCalled()
+    })
   })
 
-  it('disabledを指定した場合、disabledクラスをもつ', () => {
-    expect(disabled.classes()).toContain('disabled')
+  describe('disabledを指定', () => {
+    it('disabledクラスをもつ', () => {
+      expect(disabled.classes()).toContain('disabled')
+    })
+
+    it('clickイベントは発火しない', () => {
+      const click = jest.fn()
+      disabled.vm.$on('click', click)
+      disabled.trigger('click')
+      expect(click).not.toBeCalled()
+    })
   })
 })
