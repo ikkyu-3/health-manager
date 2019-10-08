@@ -1,8 +1,8 @@
 <template>
-  <v-list-item>
-    <v-list-item-action>
+  <v-list-item :class="{ disabled: state.disabled }" @click="click">
+    <v-list-item-icon>
       <select-icon :text="index" />
-    </v-list-item-action>
+    </v-list-item-icon>
 
     <v-list-item-content>
       <v-list-item-title>{{ name }}</v-list-item-title>
@@ -11,22 +11,35 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { createComponent, reactive } from '@vue/composition-api'
 import SelectIcon from '@/components/molecules/icon/SelectIcon.vue'
 
 export default createComponent({
   components: { SelectIcon },
   props: {
-    name: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    index: {
-      type: String,
-      required: true,
-      default: ''
+    disable: { type: String, default: '' },
+    name: { type: String, required: true, default: '' },
+    index: { type: String, required: true, default: '' }
+  },
+  setup(_, { attrs, emit }) {
+    const state = reactive({ disabled: attrs.hasOwnProperty('disabled') })
+
+    function click(e: MouseEvent) {
+      if (state.disabled) {
+        return
+      }
+
+      emit('click', e)
     }
+
+    return { state, click }
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+</style>
