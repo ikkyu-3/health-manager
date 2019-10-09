@@ -22,7 +22,7 @@ export default createComponent({
     index: { type: String, required: true, default: '' }
   },
   setup(_, { attrs, emit }) {
-    const state = reactive({ disabled: attrs.hasOwnProperty('disabled') })
+    const state = reactive({ disabled: !!attrs.disabled })
 
     function click(e: MouseEvent) {
       if (state.disabled) {

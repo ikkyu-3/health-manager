@@ -10,12 +10,12 @@ const options = {
 describe('molecules/listItem/WorkoutListItem.vue', () => {
   const selected = mount(WorkoutListItem, {
     ...options,
-    propsData: { name: 'Test', index: '1' }
+    propsData: { name: 'Test', index: '1', disabled: false }
   })
 
   const notSelected = mount(WorkoutListItem, {
     ...options,
-    propsData: { name: 'Test', index: '' }
+    propsData: { name: 'Test', index: '', disabled: false }
   })
 
   const disabled = mount(WorkoutListItem, {
