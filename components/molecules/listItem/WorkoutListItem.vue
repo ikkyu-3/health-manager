@@ -17,12 +17,12 @@ import SelectIcon from '@/components/molecules/icon/SelectIcon.vue'
 export default createComponent({
   components: { SelectIcon },
   props: {
-    disable: { type: String, default: '' },
+    disabled: { type: Boolean, default: false },
     name: { type: String, required: true, default: '' },
     index: { type: String, required: true, default: '' }
   },
-  setup(_, { attrs, emit }) {
-    const state = reactive({ disabled: !!attrs.disabled })
+  setup(props, { emit }) {
+    const state = reactive({ disabled: props.disabled })
 
     function click(e: MouseEvent) {
       if (state.disabled) {

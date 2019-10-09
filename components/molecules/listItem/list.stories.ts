@@ -15,6 +15,6 @@ storiesOf('Molecules.ListItem.WorkoutListItem', module)
   }))
   .add('disabled', () => ({
     components: { WorkoutListItem },
-    template: `<v-list><workout-list-item disabled :name="name" :index="index" /></v-list>`,
-    data: () => ({ name: 'Chest Press', index: '1' })
+    template: `<v-list><workout-list-item :disabled="disabled" :name="name" :index="index" /></v-list>`,
+    data: () => ({ name: 'Chest Press', index: '1', disabled: true })
   }))
