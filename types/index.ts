@@ -8,3 +8,29 @@ export type BottomNavigation = {
   text: Title
   icon: string
 }
+
+export type WeightMachineWorkout = {
+  name: string
+  target: string
+  description: string
+  options: {
+    weight: boolean
+    default: number
+    step: number
+  }
+}
+
+export type WeightMachineResult = {
+  weight: number
+  time: number
+  set: number
+}
+
+export type WorkoutResult = {
+  index: string
+  workout: string
+  results: WeightMachineResult[]
+  memo: string
+  startTime: string
+  endTime: string
+}
