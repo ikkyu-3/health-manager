@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex, { ActionContext } from 'vuex'
+import workouts from './workouts'
 import { bottomNavigation } from '@/constants'
 
 Vue.use(Vuex)
@@ -21,7 +22,8 @@ const store = new Vuex.Store<State>({
     changeTitle(context: ActionContext<State, any>, payload: any) {
       context.commit('changeTitle', { title: payload.title })
     }
-  }
+  },
+  modules: { workouts }
 })
 
 export const userStore = () => store

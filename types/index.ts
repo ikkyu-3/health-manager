@@ -17,7 +17,6 @@ export type WeightMachineResult = {
 }
 
 export type Workout = {
-  index: string
   workout: string
   results: WeightMachineResult[]
   memo: string
