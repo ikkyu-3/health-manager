@@ -1,39 +1,48 @@
-import { ActionContext } from 'vuex/types/index'
+import { Module, ActionContext } from 'vuex'
+import { RootState } from './type'
 import { Workout } from '@/types'
 
 type State = {
   workouts: Workout[]
 }
 
-const workouts = {
+const workouts: Module<State, RootState> = {
   state: {
     workouts: []
   },
   getters: {
-    workoutsCount: (state: State) => state.workouts.length
+    workoutContext: (state: State) =>
+      state.workouts.map(({ name, startTime, endTime, results }) => {
+        return {
+          name,
+          isExited: startTime && endTime && results.length > 0
+        }
+      })
   },
   mutations: {
-    addWorkout(state: State, payload: any) {
+    addWorkout(state, payload: { name: string }) {
       state.workouts.push({
-        workout: payload.workout,
+        name: payload.name,
         results: [],
         memo: '',
-        startTime: '',
-        endTime: ''
+        startTime: null,
+        endTime: null
       })
     },
-    removeWorkout(state: State, payload: any) {
+    removeWorkout(state, payload: { index: number }) {
       state.workouts.splice(payload.index, 1)
     }
   },
   actions: {
-    addWorkout(context: ActionContext<State, any>, payload: any) {
-      context.commit('addWorkout', { workout: payload.workout })
+    addWorkout(context: ActionContext<State, any>, payload: { name: string }) {
+      context.commit('addWorkout', { name: payload.name })
     },
-    removeWorkout(context: ActionContext<State, any>, payload: any) {
+    removeWorkout(
+      context: ActionContext<State, any>,
+      payload: { index: number }
+    ) {
       context.commit('addWorkout', {
-        index: payload.index,
-        workout: payload.workout
+        index: payload.index
       })
     }
   }

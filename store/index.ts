@@ -19,7 +19,7 @@ const store = new Vuex.Store<State>({
     }
   },
   actions: {
-    changeTitle(context: ActionContext<State, any>, payload: any) {
+    changeTitle(context: ActionContext<State, any>, payload: { title: 1 }) {
       context.commit('changeTitle', { title: payload.title })
     }
   },
