@@ -7,30 +7,37 @@ type State = {
 }
 
 const workouts: Module<State, RootState> = {
+  namespaced: true,
   state: {
     workouts: []
   },
   getters: {
-    workoutContext: (state: State) =>
-      state.workouts.map(({ name, startTime, endTime, results }) => {
+    workoutContexts: (state: State) =>
+      state.workouts.map(({ name, startTime, endTime, results }, index) => {
         return {
+          index: String(index + 1),
           name,
-          isExited: startTime && endTime && results.length > 0
+          isExited: startTime != null && endTime != null && results.length > 0
         }
       })
   },
   mutations: {
     addWorkout(state, payload: { name: string }) {
-      state.workouts.push({
+      const newWorkouts = state.workouts.slice(0, state.workouts.length)
+      newWorkouts.push({
         name: payload.name,
         results: [],
         memo: '',
         startTime: null,
         endTime: null
       })
+      state.workouts = newWorkouts
     },
     removeWorkout(state, payload: { index: number }) {
-      state.workouts.splice(payload.index, 1)
+      const newWorkouts = state.workouts.filter(
+        (_, index) => index !== payload.index
+      )
+      state.workouts = newWorkouts
     }
   },
   actions: {
@@ -41,9 +48,7 @@ const workouts: Module<State, RootState> = {
       context: ActionContext<State, any>,
       payload: { index: number }
     ) {
-      context.commit('addWorkout', {
-        index: payload.index
-      })
+      context.commit('removeWorkout', { index: payload.index })
     }
   }
 }
