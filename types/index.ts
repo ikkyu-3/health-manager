@@ -17,9 +17,17 @@ export type WeightMachineResult = {
 }
 
 export type Workout = {
-  workout: string
+  name: string
   results: WeightMachineResult[]
   memo: string
-  startTime: string
-  endTime: string
+  startTime: string | null
+  endTime: string | null
 }
+
+export type WorkoutContext = {
+  index: string
+  name: string
+  isExited: boolean
+}
+
+export type WorkoutContexts = WorkoutContext[]
