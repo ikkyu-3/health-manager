@@ -11,11 +11,12 @@
         v-for="(group, index) in state.workoutList"
         :key="index"
         subheader
+        flat
       >
         <workout-list-group
           :sub-header="group.target"
           :items="group.items"
-          :item-click="click"
+          :item-click="itemClick"
         />
       </v-list>
     </v-card>
@@ -34,8 +35,7 @@ export default createComponent({
   components: { DialogToolbar, WorkoutListGroup },
   props: {
     dialog: { type: Boolean, require: true },
-    back: { type: Function, require: true },
-    clear: { type: Function, require: true }
+    back: { type: Function, require: true }
   },
   setup() {
     const store = userStore()
@@ -65,7 +65,7 @@ export default createComponent({
 
     const state = reactive({ workoutList })
 
-    function click(index: string, name: string) {
+    function itemClick(index: string, name: string) {
       if (index === '') {
         store.dispatch('workouts/addWorkout', { name })
       } else {
@@ -73,7 +73,11 @@ export default createComponent({
       }
     }
 
-    return { state, click }
+    function clear() {
+      store.dispatch('workouts/clearWorkouts')
+    }
+
+    return { state, itemClick, clear }
   }
 })
 </script>
