@@ -8,14 +8,6 @@ const options = {
 }
 
 describe('molecules/icon/SelectIcon.vue', () => {
-  it('snapshot', () => {
-    const wrapper = mount(SelectIcon, {
-      ...options,
-      propsData: { text: '1' }
-    })
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
   it('textが空文字の場合、何も表示されないアイコンが表示される', () => {
     const wrapper = mount(SelectIcon, {
       ...options,

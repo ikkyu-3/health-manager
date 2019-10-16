@@ -23,10 +23,6 @@ describe('molecules/listItem/WorkoutListItem.vue', () => {
     propsData: { name: 'Test', index: '1', disabled: true }
   })
 
-  it('snapshot', () => {
-    expect(selected.html()).toMatchSnapshot()
-  })
-
   describe('name', () => {
     it('nameで指定した文字列が表示される', () => {
       expect(selected.find('.v-list-item__title').text()).toBe('Test')

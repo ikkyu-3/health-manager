@@ -8,11 +8,6 @@ const options = {
 }
 
 describe('molecules/button/AddButton.vue', () => {
-  it('snapshot', () => {
-    const wrapper = mount(AddButton, { ...options })
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
   it('colorを指定しない場合、デフォルトのクラスが指定される', () => {
     const wrapper = mount(AddButton, { ...options })
     expect(wrapper.find('button').classes()).toContain('teal')

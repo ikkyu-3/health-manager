@@ -8,17 +8,6 @@ const options = {
 }
 
 describe('organisms/DialogToolbar.vue', () => {
-  it('snapshot', () => {
-    const wrapper = mount(DialogToolbar, {
-      ...options,
-      propsData: {
-        arrowButtonClick: () => {},
-        clearButtonClick: () => {}
-      }
-    })
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
   it('Arrowボタンをクリックすると、arroLeftClickに渡した関数が実行される', () => {
     const click = jest.fn()
     const wrapper = mount(DialogToolbar, {

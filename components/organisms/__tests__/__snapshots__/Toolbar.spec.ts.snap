@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`organisms/Toolbar.vue snaphot 1`] = `"<div><header class=\\"v-sheet v-sheet--tile theme--dark v-toolbar\\" style=\\"height: 64px; background-color: rgb(25, 118, 210); border-color: #1976d2;\\"><div class=\\"v-toolbar__content\\" style=\\"height: 64px;\\"><div class=\\"v-toolbar__title\\">Workouts</div></div></header></div>"`;

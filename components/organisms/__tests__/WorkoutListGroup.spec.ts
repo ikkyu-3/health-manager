@@ -20,11 +20,6 @@ const options = {
 }
 
 describe('organisms/WorkoutListGroup.vue', () => {
-  it('snapshot', () => {
-    const wrapper = mount(WorkoutListGroup, { ...options })
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
   it('Listをクリックすると、引数にindexとnameが渡される', () => {
     const wrapper = mount(WorkoutListGroup, { ...options })
     const item = wrapper.find('div[role="listitem"]')
