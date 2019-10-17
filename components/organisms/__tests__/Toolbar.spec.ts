@@ -1,20 +1,24 @@
-// import Vuex from 'vuex'
-// import Vuetify from 'vuetify'
-// import { mount, createLocalVue } from '@vue/test-utils'
-// import Toolbar from '@/components/organisms/Toolbar.vue'
+import Vuex from 'vuex'
+import Vuetify from 'vuetify'
+import { mount, createLocalVue } from '@vue/test-utils'
+import Toolbar from '@/components/organisms/Toolbar.vue'
+import { userStore } from '@/store'
 
-// const localVue = createLocalVue()
-// localVue.use(Vuex)
+const localVue = createLocalVue()
+localVue.use(Vuex)
 
-// const options = {
-//   localVue,
-//   vuetify: new Vuetify()
-// }
+const store = userStore()
 
-// jest.mock('@/store', () => ({
-//   userStore: () => new Vuex.Store({ state: { title: 'Workouts' } })
-// }))
+const options = {
+  store,
+  localVue,
+  vuetify: new Vuetify()
+}
 
-// describe('organisms/Toolbar.vue', () => {
-//   it('', () => {})
-// })
+describe('organisms/Toolbar.vue', () => {
+  it('titleが表示される', () => {
+    store.state.title = 'Test'
+    const wrapper = mount(Toolbar, { ...options })
+    expect(wrapper.find('.v-toolbar__title').text()).toBe('Test')
+  })
+})
