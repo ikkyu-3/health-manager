@@ -31,7 +31,7 @@ storiesOf('Organisms', module).add('BottomNavigation', () => ({
 storiesOf('Organisms', module).add('WorkoutListGroup', () => ({
   components: { WorkoutListGroup },
   template:
-    '<v-list><workout-list-group :sub-header="subHeader" :items="items" :itemClick="itemClick"/></v-list>',
+    '<v-list flat><workout-list-group :sub-header="subHeader" :items="items" :itemClick="itemClick"/></v-list>',
   data: () => ({
     subHeader: 'Leg',
     items: [
@@ -46,9 +46,8 @@ storiesOf('Organisms', module).add('WorkoutListGroup', () => ({
 storiesOf('Organisms', module).add('WorkoutsDialog', () => ({
   store: userStore(),
   components: { WorkoutsDialog },
-  template: '<workouts-dialog :dialog="true" :clear="clear" :back="back"/>',
+  template: '<workouts-dialog :dialog="true" :back="back"/>',
   methods: {
-    clear: action('Clear List'),
     back: action('Back Page')
   }
 }))
