@@ -38,6 +38,13 @@ const workouts: Module<State, RootState> = {
         (_, index) => index !== payload.index
       )
       state.workouts = newWorkouts
+    },
+    clearWorkouts(state) {
+      const newWorkouts = state.workouts.filter(
+        ({ results, startTime, endTime }) =>
+          results.length > 0 && startTime && endTime
+      )
+      state.workouts = newWorkouts
     }
   },
   actions: {
@@ -49,6 +56,9 @@ const workouts: Module<State, RootState> = {
       payload: { index: number }
     ) {
       context.commit('removeWorkout', { index: payload.index })
+    },
+    clearWorkouts(context: ActionContext<State, any>) {
+      context.commit('clearWorkouts')
     }
   }
 }
