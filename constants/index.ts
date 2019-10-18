@@ -32,3 +32,10 @@ export const mainColor = colors.blue.darken2
 export const subColor = colors.teal.base
 
 export const mainTextColor = colors.grey.lighten5
+
+export const workoutMenu = [
+  {
+    target: 'Leg',
+    workouts: ['Leg Press', 'Leg Curl']
+  }
+]
