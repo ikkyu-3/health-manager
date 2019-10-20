@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import Vuetify from 'vuetify'
-import { mount, createLocalVue, Wrapper } from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
 import WorkoutsDialog from '@/components/organisms/WorkoutsDialog.vue'
 import { userStore } from '@/store'
 
@@ -26,7 +26,7 @@ const dispatch = jest.spyOn(store, 'dispatch')
 
 describe('organisms/WorkoutsDialog.vue', () => {
   describe('未選択のWorkoutをクリック', () => {
-    let listItem: Wrapper<WorkoutsDialog>
+    let listItem: any
 
     beforeAll(() => {
       listItem = mount(WorkoutsDialog, {
@@ -55,7 +55,7 @@ describe('organisms/WorkoutsDialog.vue', () => {
   })
 
   describe('選択されたWorkoutをクリック', () => {
-    let listItem: Wrapper<WorkoutsDialog>
+    let listItem: any
 
     beforeAll(() => {
       workouts.workouts = [
@@ -94,7 +94,7 @@ describe('organisms/WorkoutsDialog.vue', () => {
   })
 
   describe('終了したWorkoutをクリック', () => {
-    let listItem: Wrapper<WorkoutsDialog>
+    let listItem: any
 
     beforeAll(() => {
       const time = new Date().toUTCString()
