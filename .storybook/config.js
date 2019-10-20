@@ -1,10 +1,11 @@
+import '@fortawesome/fontawesome-free/css/all.css'
+import 'vuetify/dist/vuetify.min.css'
 import { configure, addDecorator } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
 import VueCompositionApi from "@vue/composition-api";
 
 Vue.use(VueCompositionApi);
