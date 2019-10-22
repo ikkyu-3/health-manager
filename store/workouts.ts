@@ -1,8 +1,8 @@
-import { Module, ActionContext } from 'vuex'
+import { Module } from 'vuex'
 import { RootState } from './type'
 import { Workout } from '@/types'
 
-type WorkoutsState = {
+export type WorkoutsState = {
   workouts: Workout[]
 }
 
@@ -12,7 +12,8 @@ const workouts: Module<WorkoutsState, RootState> = {
     workouts: []
   },
   getters: {
-    workoutContexts: (state: WorkoutsState) =>
+    workoutsExists: state => state.workouts.length > 0,
+    workoutContexts: state =>
       state.workouts.map(({ name, startTime, endTime, results }, index) => {
         return {
           index: String(index + 1),
@@ -48,19 +49,13 @@ const workouts: Module<WorkoutsState, RootState> = {
     }
   },
   actions: {
-    addWorkout(
-      context: ActionContext<WorkoutsState, any>,
-      payload: { name: string }
-    ) {
+    addWorkout(context, payload: { name: string }) {
       context.commit('addWorkout', { name: payload.name })
     },
-    removeWorkout(
-      context: ActionContext<WorkoutsState, any>,
-      payload: { index: number }
-    ) {
+    removeWorkout(context, payload: { index: number }) {
       context.commit('removeWorkout', { index: payload.index })
     },
-    clearWorkouts(context: ActionContext<WorkoutsState, any>) {
+    clearWorkouts(context) {
       context.commit('clearWorkouts')
     }
   }

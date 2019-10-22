@@ -1,121 +1,43 @@
 <template>
   <v-layout>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-btn
-        fab
-        absolute
-        right
-        bottom
-        dark
-        color="indigo"
-        style="bottom: 72px;"
-        @click="dialog = true"
-      >
-        <v-icon dark>add</v-icon>
-        <select-icon text="2"></select-icon>
-      </v-btn>
+    <v-flex>
+      <!-- TODO: コンポーネントを作成する -->
+      <div v-if="state.workoutsExists">Workoutsあり</div>
+      <div v-else>Workoutsなし</div>
+
+      <add-button right-bottom @click="showDialog" />
     </v-flex>
-    <!-- dialog -->
-    <v-dialog
-      v-model="dialog"
-      fullscreen
-      hide-overlay
-      transition="dialog-bottom-transition"
-    >
-      <v-card>
-        <v-toolbar dark color="primary">
-          <v-btn icon dark @click="dialog = false">
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-          <v-toolbar-title>Settings</v-toolbar-title>
-          <div class="flex-grow-1"></div>
-          <v-toolbar-items>
-            <v-btn dark text @click="dialog = false">Save</v-btn>
-          </v-toolbar-items>
-        </v-toolbar>
-        <v-list three-line subheader>
-          <v-subheader>User Controls</v-subheader>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>Content filtering</v-list-item-title>
-              <v-list-item-subtitle
-                >Set the content filtering level to restrict apps that can be
-                downloaded</v-list-item-subtitle
-              >
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>Password</v-list-item-title>
-              <v-list-item-subtitle
-                >Require password for purchase or use password to restrict
-                purchase</v-list-item-subtitle
-              >
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-        <v-divider></v-divider>
-        <v-list three-line subheader>
-          <v-subheader>General</v-subheader>
-          <v-list-item>
-            <v-list-item-action>
-              <v-checkbox v-model="notifications"></v-checkbox>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Notifications</v-list-item-title>
-              <v-list-item-subtitle
-                >Notify me about updates to apps or games that I
-                downloaded</v-list-item-subtitle
-              >
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-action>
-              <v-checkbox v-model="sound"></v-checkbox>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Sound</v-list-item-title>
-              <v-list-item-subtitle
-                >Auto-update apps at any time. Data charges may
-                apply</v-list-item-subtitle
-              >
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-action>
-              <v-checkbox v-model="widgets"></v-checkbox>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Auto-add widgets</v-list-item-title>
-              <v-list-item-subtitle
-                >Automatically add home screen widgets</v-list-item-subtitle
-              >
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-card>
-    </v-dialog>
+    <workouts-dialog :dialog="state.dialog" :back="hideDialog" />
   </v-layout>
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
-import SelectIcon from '@/components/molecules/icon/SelectIcon.vue'
+import { createComponent, reactive, computed } from '@vue/composition-api'
+import AddButton from '@/components/molecules/button/AddButton.vue'
+import WorkoutsDialog from '@/components/organisms/WorkoutsDialog.vue'
+import { subColor } from '@/constants'
+import { userStore } from '@/store'
 
 export default createComponent({
-  components: { SelectIcon },
+  components: { AddButton, WorkoutsDialog },
   setup() {
-    const dialog = false
-    const notifications = false
-    const sound = true
-    const widgets = false
+    const store = userStore()
 
-    return {
-      dialog,
-      notifications,
-      sound,
-      widgets
+    const state = reactive({
+      dialog: false,
+      color: subColor,
+      workoutsExists: computed(() => store.getters['workouts/workoutsExists'])
+    })
+
+    function showDialog() {
+      state.dialog = true
     }
+
+    function hideDialog() {
+      state.dialog = false
+    }
+
+    return { state, showDialog, hideDialog }
   }
 })
 </script>
