@@ -36,6 +36,22 @@ export const mainTextColor = colors.grey.lighten5
 export const workoutMenu = [
   {
     target: 'Leg',
-    workouts: ['Leg Press', 'Leg Curl']
+    workouts: ['Leg Press', 'Leg Extension', 'Leg Curl']
+  },
+  {
+    target: 'Pectoral',
+    workouts: ['Bench Press', 'Chest Press', 'Pectoral Fly']
+  },
+  {
+    target: 'Triceps',
+    workouts: []
+  },
+  {
+    target: 'Back',
+    workouts: []
+  },
+  {
+    target: 'Biceps',
+    workouts: []
   }
 ]
