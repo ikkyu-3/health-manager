@@ -1,6 +1,7 @@
 <template>
   <v-bottom-navigation
     v-model="state.bottomNav"
+    app
     fixed
     grow
     shift
