@@ -7,18 +7,20 @@
   >
     <v-card>
       <dialog-toolbar :arrow-button-click="back" :clear-button-click="clear" />
-      <v-list
-        v-for="(group, index) in state.workoutList"
-        :key="index"
-        subheader
-        flat
-      >
-        <workout-list-group
-          :sub-header="group.target"
-          :items="group.items"
-          :item-click="itemClick"
-        />
-      </v-list>
+      <div class="workout-list">
+        <v-list
+          v-for="(group, index) in state.workoutList"
+          :key="index"
+          subheader
+          flat
+        >
+          <workout-list-group
+            :sub-header="group.target"
+            :items="group.items"
+            :item-click="itemClick"
+          />
+        </v-list>
+      </div>
     </v-card>
   </v-dialog>
 </template>
@@ -81,3 +83,9 @@ export default createComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.workout-list {
+  margin-top: 56px;
+}
+</style>

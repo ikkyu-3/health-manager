@@ -147,7 +147,7 @@ describe('organisms/WorkoutsDialog.vue', () => {
         ]
 
         wrapper = mount(WorkoutsDialog, { ...options })
-        const clearButton = wrapper.find('.v-toolbar__items > button')
+        const clearButton = wrapper.find('.spacer + button')
         clearButton.trigger('click')
       })
 
@@ -193,7 +193,7 @@ describe('organisms/WorkoutsDialog.vue', () => {
         ]
 
         wrapper = mount(WorkoutsDialog, { ...options })
-        const clearButton = wrapper.find('.v-toolbar__items > button')
+        const clearButton = wrapper.find('.spacer + button')
         clearButton.trigger('click')
       })
 
@@ -245,7 +245,7 @@ describe('organisms/WorkoutsDialog.vue', () => {
         ]
 
         wrapper = mount(WorkoutsDialog, { ...options })
-        const clearButton = wrapper.find('.v-toolbar__items > button')
+        const clearButton = wrapper.find('.spacer + button')
         clearButton.trigger('click')
       })
 
@@ -259,11 +259,18 @@ describe('organisms/WorkoutsDialog.vue', () => {
       })
 
       it('選択表示は変更されない', () => {
-        const items = wrapper.findAll('div[role="listitem"] .icon')
+        const items = wrapper.findAll('div[role="listitem"]')
         items.wrappers.forEach((item: any) => {
           const icon = item.find('.icon')
-          expect(icon.classes()).toContain('active')
-          expect(icon.text()).toEqual(expect.any(String))
+          const title = item.find('.v-list-item__title').text()
+
+          if (title === 'Leg Press' || title === 'Leg Curl') {
+            expect(icon.classes()).toContain('active')
+            expect(icon.text()).not.toBe('')
+          } else {
+            expect(icon.classes()).not.toContain('active')
+            expect(icon.text()).toBe('')
+          }
         })
       })
     })
