@@ -30,6 +30,6 @@ export default createComponent({
 .rightBottom {
   position: absolute;
   right: 16px;
-  bottom: 72px;
+  bottom: 16px;
 }
 </style>
