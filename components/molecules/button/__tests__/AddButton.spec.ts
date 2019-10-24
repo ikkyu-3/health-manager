@@ -19,7 +19,7 @@ describe('molecules/button/AddButton.vue', () => {
     expect(wrapper.find('button').classes()).toContain('red')
   })
 
-  it('clickした場合、@clickで登録した関数が実行される', () => {
+  it('clickした場合、@clickで渡した関数が実行される', () => {
     const click = jest.fn()
     const wrapper = mount(AddButton, { ...options })
 
