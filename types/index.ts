@@ -31,3 +31,5 @@ export type WorkoutContext = {
 }
 
 export type WorkoutContexts = WorkoutContext[]
+
+export type WorkoutStatus = 'pending' | 'ready' | 'running' | 'exited'
