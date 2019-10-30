@@ -1,35 +1,41 @@
 <template>
-  <v-btn fab dark :color="color" :class="className" @click="click">
+  <v-btn
+    fab
+    dark
+    :color="color"
+    :x-small="state.xSmall"
+    :small="state.small"
+    :large="state.large"
+    :x-large="state.xLarge"
+    @click="click"
+  >
     <v-icon>fa-plus</v-icon>
   </v-btn>
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { createComponent, reactive } from '@vue/composition-api'
 
 export default createComponent({
   props: {
     color: {
       type: String,
-      default: 'teal'
+      default: 'grey'
     }
   },
   setup(_, { attrs, emit }) {
-    const className = attrs.hasOwnProperty('right-bottom') ? 'rightBottom' : ''
+    const state = reactive({
+      xSmall: attrs.hasOwnProperty('x-small'),
+      small: attrs.hasOwnProperty('small'),
+      large: attrs.hasOwnProperty('large'),
+      xLarge: attrs.hasOwnProperty('x-large')
+    })
 
     function click(e: MouseEvent) {
       emit('click', e)
     }
 
-    return { className, click }
+    return { state, click }
   }
 })
 </script>
-
-<style lang="scss" scoped>
-.rightBottom {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-}
-</style>

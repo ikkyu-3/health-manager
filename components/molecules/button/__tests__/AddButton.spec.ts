@@ -10,7 +10,7 @@ const options = {
 describe('molecules/button/AddButton.vue', () => {
   it('colorを指定しない場合、デフォルトのクラスが指定される', () => {
     const wrapper = mount(AddButton, { ...options })
-    expect(wrapper.find('button').classes()).toContain('teal')
+    expect(wrapper.find('button').classes()).toContain('grey')
   })
 
   it('colorに色を指定した場合、その指定したクラスが指定される', () => {
