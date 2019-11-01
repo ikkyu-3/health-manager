@@ -36,9 +36,14 @@ storiesOf('Molecules.Button', module).add('AddButton', () => ({
       </section>
       <section>
         <h2>Color</h2>
+        <cite>
+          <a href="https://vuetifyjs.com/ja/styles/colors">
+            <i>VuetifyのColor</i>
+          </a>
+        </cite>の値が使用できます
         <ul>
           <li>
-            <div>default</div>
+            <div>default(Grey)</div>
             <add-button @click="action"/>
           </li>
           <li>
@@ -60,17 +65,69 @@ storiesOf('Molecules.Button', module).add('AddButton', () => ({
   methods: { action: action('clicked') }
 }))
 
-storiesOf('Molecules.Button.RemoveButton', module).add('default color', () => ({
+storiesOf('Molecules.Button', module).add('RemoveButton', () => ({
   components: { RemoveButton },
-  template: '<remove-button @click="action"/>',
+  template: `
+    <article>
+      <h1>RemoveButton</h1>
+      <section>
+        <h2>Size</h2>
+        <ul>
+          <li>
+            <div>x-small</div>
+            <remove-button x-small @click="action"/>
+          </li>
+          <li>
+            <div>small</div>
+            <remove-button small @click="action"/>
+          </li>
+          <li>
+            <div>default</div>
+            <remove-button @click="action"/>
+          </li>
+          <li>
+            <div>large</div>
+            <remove-button large @click="action"/>
+          </li>
+          <li>
+            <div>x-large</div>
+            <remove-button x-large @click="action"/>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Color</h2>
+        <cite>
+          <a href="https://vuetifyjs.com/ja/styles/colors">
+            <i>VuetifyのColor</i>
+          </a>
+        </cite>の値が使用できます
+        <ul>
+          <li>
+            <div>default(Grey)</div>
+            <remove-button @click="action"/>
+          </li>
+          <li>
+            <div>Red</div>
+            <remove-button color="red" @click="action"/>
+          </li>
+          <li>
+            <div>Blue</div>
+            <remove-button color="blue" @click="action"/>
+          </li>
+          <li>
+          <div>Green</div>
+          <remove-button color="green" @click="action"/>
+          </li>
+        </ul>
+      </section>
+    </article>
+  `,
   methods: { action: action('clicked') }
 }))
 
-storiesOf('Molecules.Button.EndWorkoutsButton', module).add(
-  'default color',
-  () => ({
-    components: { EndWorkoutsButton },
-    template: '<end-workouts-button @click="action"/>',
-    methods: { action: action('clicked') }
-  })
-)
+storiesOf('Molecules.Button', module).add('EndWorkoutsButton', () => ({
+  components: { EndWorkoutsButton },
+  template: '<end-workouts-button @click="action"/>',
+  methods: { action: action('clicked') }
+}))
