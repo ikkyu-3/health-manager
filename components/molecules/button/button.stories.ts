@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions'
 import AddButton from '@/components/molecules/button/AddButton.vue'
 import RemoveButton from '@/components/molecules/button/RemoveButton.vue'
 import EndWorkoutsButton from '@/components/molecules/button/EndWorkoutsButton.vue'
+import DeleteButton from '@/components/molecules/button/DeleteButton.vue'
 
 storiesOf('Molecules.Button', module).add('AddButton', () => ({
   components: { AddButton },
@@ -129,5 +130,12 @@ storiesOf('Molecules.Button', module).add('RemoveButton', () => ({
 storiesOf('Molecules.Button', module).add('EndWorkoutsButton', () => ({
   components: { EndWorkoutsButton },
   template: '<end-workouts-button @click="action"/>',
+  methods: { action: action('clicked') }
+}))
+
+storiesOf('Molecules.Button', module).add('DeleteButton', () => ({
+  components: { DeleteButton },
+  template:
+    '<div style="width: 50px; height: 200px;"><delete-button @click="action"/></div>',
   methods: { action: action('clicked') }
 }))
