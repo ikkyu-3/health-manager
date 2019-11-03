@@ -3,5 +3,7 @@
     "stylelint-scss"
   ],
   "extends": "stylelint-config-standard",
-  "rules": {}
+  "rules": {
+    "length-zero-no-unit": null
+  }
 }
