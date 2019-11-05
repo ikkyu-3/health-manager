@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import AddButton from '@/components/molecules/button/AddButton.vue'
-import RemoveButton from '@/components/molecules/button/RemoveButton.vue'
+import ReduceButton from '@/components/molecules/button/ReduceButton.vue'
 import EndWorkoutsButton from '@/components/molecules/button/EndWorkoutsButton.vue'
 import DeleteButton from '@/components/molecules/button/DeleteButton.vue'
 
@@ -66,33 +66,33 @@ storiesOf('Molecules.Button', module).add('AddButton', () => ({
   methods: { action: action('clicked') }
 }))
 
-storiesOf('Molecules.Button', module).add('RemoveButton', () => ({
-  components: { RemoveButton },
+storiesOf('Molecules.Button', module).add('ReduceButton', () => ({
+  components: { ReduceButton },
   template: `
     <article>
-      <h1>RemoveButton</h1>
+      <h1>ReduceButton</h1>
       <section>
         <h2>Size</h2>
         <ul>
           <li>
             <div>x-small</div>
-            <remove-button x-small @click="action"/>
+            <reduce-button x-small @click="action"/>
           </li>
           <li>
             <div>small</div>
-            <remove-button small @click="action"/>
+            <reduce-button small @click="action"/>
           </li>
           <li>
             <div>default</div>
-            <remove-button @click="action"/>
+            <reduce-button @click="action"/>
           </li>
           <li>
             <div>large</div>
-            <remove-button large @click="action"/>
+            <reduce-button large @click="action"/>
           </li>
           <li>
             <div>x-large</div>
-            <remove-button x-large @click="action"/>
+            <reduce-button x-large @click="action"/>
           </li>
         </ul>
       </section>
@@ -106,19 +106,19 @@ storiesOf('Molecules.Button', module).add('RemoveButton', () => ({
         <ul>
           <li>
             <div>default(Grey)</div>
-            <remove-button @click="action"/>
+            <reduce-button @click="action"/>
           </li>
           <li>
             <div>Red</div>
-            <remove-button color="red" @click="action"/>
+            <reduce-button color="red" @click="action"/>
           </li>
           <li>
             <div>Blue</div>
-            <remove-button color="blue" @click="action"/>
+            <reduce-button color="blue" @click="action"/>
           </li>
           <li>
           <div>Green</div>
-          <remove-button color="green" @click="action"/>
+          <reduce-button color="green" @click="action"/>
           </li>
         </ul>
       </section>
