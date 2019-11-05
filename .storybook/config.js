@@ -2,7 +2,6 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import 'vuetify/dist/vuetify.min.css'
 import { configure, addDecorator } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withInfo, setDefaults } from 'storybook-addon-vue-info'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
@@ -32,9 +31,6 @@ addDecorator(() => {
     template: '<v-app><div><story/></div></v-app>'
   }
 })
-
-addDecorator(withInfo)
-setDefaults({ header: false })
 
 // automatically import all files ending in *.stories.js
 const req = require.context('../', true, /\.stories\.ts$/)
