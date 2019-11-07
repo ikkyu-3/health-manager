@@ -8,15 +8,15 @@ storiesOf('Molecules.input', module).add('ResultInput', () => ({
       <h1>ResultInput</h1>
       <section>
         <h2>Weight</h2>
-        <result-input weight :value="weight" :remove="reduceWeight" :add="addWeight"/>
+        <result-input weight :value="weight" :reduce="reduceWeight" :add="addWeight"/>
       </section>
       <section>
         <h2>Times</h2>
-        <result-input times :value="times" :remove="reduceTimes" :add="addTimes"/>
+        <result-input times :value="times" :reduce="reduceTimes" :add="addTimes"/>
       </section>
       <section>
         <h2>Set</h2>
-        <result-input set :value="set" :remove="reduceSet" :add="addSet"/>
+        <result-input set :value="set" :reduce="reduceSet" :add="addSet"/>
       </section>
     </article>
   `,

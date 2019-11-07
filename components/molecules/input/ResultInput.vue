@@ -1,6 +1,6 @@
 <template>
   <div class="input-container">
-    <reduce-button x-small @click="remove" />
+    <reduce-button x-small @click="reduce" />
     <div class="input-value">
       {{ value }}<span class="unit">{{ state.unit }}</span>
     </div>
@@ -29,7 +29,7 @@ export default createComponent<ResultInputType>({
     weight: Boolean,
     times: Boolean,
     set: Boolean,
-    remove: Function,
+    reduce: Function,
     add: Function
   },
   setup(props) {

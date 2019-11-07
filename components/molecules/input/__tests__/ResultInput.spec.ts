@@ -9,13 +9,13 @@ const options = {
 
 describe('molecules/input/WeightInput.vue', () => {
   let wrapper: Wrapper<ResultInput>
-  const remove = jest.fn()
+  const reduce = jest.fn()
   const add = jest.fn()
 
   beforeAll(() => {
     wrapper = mount(ResultInput, {
       ...options,
-      propsData: { value: 100, remove, add }
+      propsData: { value: 100, reduce, add }
     })
   })
 
@@ -23,10 +23,10 @@ describe('molecules/input/WeightInput.vue', () => {
     expect(wrapper.find('.input-value').text()).toBe('100')
   })
 
-  it('RemoveButtonをClickすると、removeに渡した関数が実行される', () => {
+  it('ReduceButtonをClickすると、reduceに渡した関数が実行される', () => {
     const btn = wrapper.findAll('button').at(0)
     btn.trigger('click')
-    expect(remove).toBeCalled()
+    expect(reduce).toBeCalled()
   })
 
   it('AddButtonをClickすると、addに渡した関数が実行される', () => {
@@ -39,7 +39,7 @@ describe('molecules/input/WeightInput.vue', () => {
     it('weight属性を指定した場合、"kg"が表示される', () => {
       wrapper = mount(ResultInput, {
         ...options,
-        propsData: { value: 100, weight: true, remove, add }
+        propsData: { value: 100, weight: true, reduce, add }
       })
       expect(wrapper.find('.input-value').text()).toBe('100kg')
     })
@@ -47,7 +47,7 @@ describe('molecules/input/WeightInput.vue', () => {
     it('times属性を指定した場合、"回"が表示される', () => {
       wrapper = mount(ResultInput, {
         ...options,
-        propsData: { value: 10, times: true, remove, add }
+        propsData: { value: 10, times: true, reduce, add }
       })
       expect(wrapper.find('.input-value').text()).toBe('10回')
     })
@@ -55,7 +55,7 @@ describe('molecules/input/WeightInput.vue', () => {
     it('set属性を指定した場合、"セット"が表示される', () => {
       wrapper = mount(ResultInput, {
         ...options,
-        propsData: { value: 3, set: true, remove, add }
+        propsData: { value: 3, set: true, reduce, add }
       })
       expect(wrapper.find('.input-value').text()).toBe('3セット')
     })
