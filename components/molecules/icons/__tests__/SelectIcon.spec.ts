@@ -1,13 +1,13 @@
 import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
-import SelectIcon from '@/components/molecules/icon/SelectIcon.vue'
+import SelectIcon from '@/components/molecules/icons/SelectIcon.vue'
 
 const options = {
   localVue: createLocalVue(),
   vuetify: new Vuetify()
 }
 
-describe('molecules/icon/SelectIcon.vue', () => {
+describe('molecules/icons/SelectIcon.vue', () => {
   it('textが空文字の場合、何も表示されないアイコンが表示される', () => {
     const wrapper = mount(SelectIcon, {
       ...options,

@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 
-import SelectIcon from '@/components/molecules/icon/SelectIcon.vue'
+import SelectIcon from '@/components/molecules/icons/SelectIcon.vue'
 
-storiesOf('Molecules.Icon.SelectIcon', module)
+storiesOf('molecules.icons.SelectIcon', module)
   .add('Selected', () => ({
     components: { SelectIcon },
     template: `<select-icon :text="text"/>`,
