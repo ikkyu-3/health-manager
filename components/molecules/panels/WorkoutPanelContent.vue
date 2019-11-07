@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
-import LegPressContent from './Content/LegPressContent.vue'
+import LegPressResult from './results/LegPressResult.vue'
 import { Workout } from '@/types'
 
 type WorkoutPanelContentProps = {
@@ -12,13 +12,13 @@ type WorkoutPanelContentProps = {
 }
 
 export default createComponent<WorkoutPanelContentProps, {}>({
-  components: { LegPressContent },
+  components: { LegPressResult },
   props: {
     workout: Object
   },
   setup(props) {
     const state = reactive({
-      componentName: `${props.workout.name.replace(/\s+/g, '')}Content`
+      componentName: `${props.workout.name.replace(/\s+/g, '')}Result`
     })
 
     return { state }
