@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
-import SelectIcon from '@/components/molecules/icon/SelectIcon.vue'
+import SelectIcon from '@/components/molecules/icons/SelectIcon.vue'
 
 export default createComponent({
   components: { SelectIcon },

@@ -1,13 +1,13 @@
 import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
-import WorkoutListItem from '@/components/molecules/listItem/WorkoutListItem.vue'
+import WorkoutListItem from '@/components/molecules/list-items/WorkoutListItem.vue'
 
 const options = {
   localVue: createLocalVue(),
   vuetify: new Vuetify()
 }
 
-describe('molecules/listItem/WorkoutListItem.vue', () => {
+describe('molecules/list-items/WorkoutListItem.vue', () => {
   const selected = mount(WorkoutListItem, {
     ...options,
     propsData: { name: 'Test', index: '1', disabled: false }
