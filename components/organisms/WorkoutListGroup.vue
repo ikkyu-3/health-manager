@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import { createComponent } from '@vue/composition-api'
-import WorkoutListItem from '@/components/molecules/listItem/WorkoutListItem.vue'
+import WorkoutListItem from '@/components/molecules/list-items/WorkoutListItem.vue'
 
 export default createComponent({
   components: { WorkoutListItem },
