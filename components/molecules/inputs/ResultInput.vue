@@ -10,8 +10,8 @@
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
-import AddButton from '@/components/molecules/button/AddButton.vue'
-import ReduceButton from '@/components/molecules/button/ReduceButton.vue'
+import AddButton from '@/components/molecules/buttons/AddButton.vue'
+import ReduceButton from '@/components/molecules/buttons/ReduceButton.vue'
 
 export type ResultInputType = {
   value: number

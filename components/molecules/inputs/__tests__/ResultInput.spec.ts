@@ -1,13 +1,13 @@
 import Vuetify from 'vuetify'
 import { mount, createLocalVue, Wrapper } from '@vue/test-utils'
-import ResultInput from '@/components/molecules/input/ResultInput.vue'
+import ResultInput from '@/components/molecules/inputs/ResultInput.vue'
 
 const options = {
   localVue: createLocalVue(),
   vuetify: new Vuetify()
 }
 
-describe('molecules/input/WeightInput.vue', () => {
+describe('molecules/inputs/WeightInput.vue', () => {
   let wrapper: Wrapper<ResultInput>
   const reduce = jest.fn()
   const add = jest.fn()

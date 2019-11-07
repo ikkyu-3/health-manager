@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
-import ResultInput from '@/components/molecules/input/ResultInput.vue'
+import ResultInput from '@/components/molecules/inputs/ResultInput.vue'
 
-storiesOf('Molecules.input', module).add('ResultInput', () => ({
+storiesOf('molecules.inputs', module).add('ResultInput', () => ({
   components: { ResultInput },
   template: `
     <article>
