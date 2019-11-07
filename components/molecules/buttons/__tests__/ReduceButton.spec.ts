@@ -1,13 +1,13 @@
 import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
-import ReduceButton from '@/components/molecules/button/ReduceButton.vue'
+import ReduceButton from '@/components/molecules/buttons/ReduceButton.vue'
 
 const options = {
   localVue: createLocalVue(),
   vuetify: new Vuetify()
 }
 
-describe('molecules/button/ReduceButton.vue', () => {
+describe('molecules/buttons/ReduceButton.vue', () => {
   it('colorを指定しない場合、デフォルトの色が指定される', () => {
     const wrapper = mount(ReduceButton, { ...options })
     expect(wrapper.find('button').classes()).toContain('grey')

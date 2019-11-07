@@ -1,13 +1,13 @@
 import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
-import AddButton from '@/components/molecules/button/AddButton.vue'
+import AddButton from '@/components/molecules/buttons/AddButton.vue'
 
 const options = {
   localVue: createLocalVue(),
   vuetify: new Vuetify()
 }
 
-describe('molecules/button/AddButton.vue', () => {
+describe('molecules/buttons/AddButton.vue', () => {
   it('colorを指定しない場合、デフォルトのクラスが指定される', () => {
     const wrapper = mount(AddButton, { ...options })
     expect(wrapper.find('button').classes()).toContain('grey')

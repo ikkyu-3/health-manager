@@ -1,11 +1,11 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import AddButton from '@/components/molecules/button/AddButton.vue'
-import ReduceButton from '@/components/molecules/button/ReduceButton.vue'
-import EndWorkoutsButton from '@/components/molecules/button/EndWorkoutsButton.vue'
-import DeleteButton from '@/components/molecules/button/DeleteButton.vue'
+import AddButton from '@/components/molecules/buttons/AddButton.vue'
+import ReduceButton from '@/components/molecules/buttons/ReduceButton.vue'
+import EndWorkoutsButton from '@/components/molecules/buttons/EndWorkoutsButton.vue'
+import DeleteButton from '@/components/molecules/buttons/DeleteButton.vue'
 
-storiesOf('Molecules.Button', module).add('AddButton', () => ({
+storiesOf('molecules.buttons', module).add('AddButton', () => ({
   components: { AddButton },
   template: `
     <article>
@@ -66,7 +66,7 @@ storiesOf('Molecules.Button', module).add('AddButton', () => ({
   methods: { action: action('clicked') }
 }))
 
-storiesOf('Molecules.Button', module).add('ReduceButton', () => ({
+storiesOf('molecules.buttons', module).add('ReduceButton', () => ({
   components: { ReduceButton },
   template: `
     <article>
@@ -127,13 +127,13 @@ storiesOf('Molecules.Button', module).add('ReduceButton', () => ({
   methods: { action: action('clicked') }
 }))
 
-storiesOf('Molecules.Button', module).add('EndWorkoutsButton', () => ({
+storiesOf('molecules.buttons', module).add('EndWorkoutsButton', () => ({
   components: { EndWorkoutsButton },
   template: '<end-workouts-button @click="action"/>',
   methods: { action: action('clicked') }
 }))
 
-storiesOf('Molecules.Button', module).add('DeleteButton', () => ({
+storiesOf('molecules.buttons', module).add('DeleteButton', () => ({
   components: { DeleteButton },
   template:
     '<div style="width: 50px; height: 200px;"><delete-button @click="action"/></div>',
