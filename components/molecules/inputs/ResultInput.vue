@@ -61,6 +61,5 @@ export default createComponent<ResultInputType>({
   width: 100%;
   flex-grow: 1;
   text-align: center;
-  font-size: 24px;
 }
 </style>
