@@ -5,7 +5,7 @@
       right: () => hideButton()
     }"
   >
-    <slot />
+    <div :class="state.slotClass"><slot /></div>
     <div :class="state.deleteButtonAreaClass">
       <delete-button @click="deleteResult" />
     </div>
@@ -27,6 +27,9 @@ export default createComponent({
       deleteButtonAreaClass: Array<any>
     } = reactive({
       isOpen: false,
+      slotClass: computed(() => {
+        return ['slot-area', { 'slot-area--shift': state.isOpen }]
+      }),
       deleteButtonAreaClass: computed(() => {
         return [
           'delete-button-area',
@@ -49,6 +52,20 @@ export default createComponent({
 </script>
 
 <style lang="scss" scoped>
+.v-card {
+  overflow: hidden;
+}
+
+.slot-area {
+  position: relative;
+  left: 0px;
+  transition: left 0.3s;
+}
+
+.slot-area--shift {
+  left: -60px;
+}
+
 .delete-button-area {
   position: absolute;
   top: 0;
