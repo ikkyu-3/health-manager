@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import AddButton from '@/components/molecules/buttons/AddButton.vue'
 import ReduceButton from '@/components/molecules/buttons/ReduceButton.vue'
-import EndWorkoutsButton from '@/components/molecules/buttons/EndWorkoutsButton.vue'
 import DeleteButton from '@/components/molecules/buttons/DeleteButton.vue'
 
 storiesOf('molecules.buttons', module).add('AddButton', () => ({
@@ -124,12 +123,6 @@ storiesOf('molecules.buttons', module).add('ReduceButton', () => ({
       </section>
     </article>
   `,
-  methods: { action: action('clicked') }
-}))
-
-storiesOf('molecules.buttons', module).add('EndWorkoutsButton', () => ({
-  components: { EndWorkoutsButton },
-  template: '<end-workouts-button @click="action"/>',
   methods: { action: action('clicked') }
 }))
 
