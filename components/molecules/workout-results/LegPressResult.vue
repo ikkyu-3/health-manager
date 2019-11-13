@@ -103,14 +103,14 @@ export default createComponent<LegPressResultType, {}>({
     const reduceSet = (e: MouseEvent) => {
       e.stopPropagation()
       if (state.set === 0) return
-      state.times -= config.set.step
+      state.set -= config.set.step
       emit('set-change', index, state.times)
     }
 
     const addSet = (e: MouseEvent) => {
       e.stopPropagation()
       if (state.set === config.set.max) return
-      state.times += config.set.step
+      state.set += config.set.step
       emit('set-change', index, state.times)
     }
 
@@ -130,6 +130,5 @@ export default createComponent<LegPressResultType, {}>({
 <style lang="scss" scoped>
 .row {
   margin: 0;
-  padding: 12px;
 }
 </style>
