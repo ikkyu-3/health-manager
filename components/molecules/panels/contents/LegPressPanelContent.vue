@@ -1,8 +1,10 @@
 <template>
   <v-expansion-panel-content class="panel-content">
-    <div class="workout-time-header">Workout Time</div>
-    <div class="workout-time-value">00:00:00</div>
-    <div class="results-header">Results</div>
+    <dl>
+      <dt class="workout-time-header">Workout Time</dt>
+      <dd class="workout-time-value">00:00:00</dd>
+    </dl>
+    <label class="results-header">Results</label>
     <leg-press-result
       v-for="(result, index) in state.results"
       :key="index"
@@ -20,6 +22,8 @@
       color="lime"
       @click="addResult"
     />
+    <label class="memo-header">Memo</label>
+    <v-textarea v-model="state.memo" solo />
     <v-btn class="save-button" color="blue-grey" dark @click="save">終了</v-btn>
   </v-expansion-panel-content>
 </template>
@@ -36,15 +40,17 @@ import { Workout } from '@/types'
 export type LegPressPanelContentProps = {
   workoutIndex: number
   workout: Workout
+  onSaved?: () => void
 }
 
 export default createComponent<LegPressPanelContentProps, {}>({
   components: { LegPressResult, AddButton },
   props: {
     workoutIndex: Number,
-    workout: Object
+    workout: Object,
+    onSaved: { type: Function, required: false }
   },
-  setup({ workoutIndex, workout }) {
+  setup({ workoutIndex, workout, onSaved }) {
     const store = userStore()
     const state = reactive({
       results: workout.results.length ? workout.results : [initResult()],
@@ -64,7 +70,6 @@ export default createComponent<LegPressPanelContentProps, {}>({
     }
 
     const deleteResult = (index: number) => {
-      console.log('remove result')
       state.results = state.results.filter((_, i) => i !== index)
     }
 
@@ -78,6 +83,8 @@ export default createComponent<LegPressPanelContentProps, {}>({
         resuls: state.results,
         mome: state.memo
       })
+
+      if (onSaved) onSaved()
     }
 
     return {
@@ -112,6 +119,8 @@ export default createComponent<LegPressPanelContentProps, {}>({
 
 .results-header {
   @include header-margin;
+
+  display: block;
 }
 
 .result-content {
@@ -121,6 +130,16 @@ export default createComponent<LegPressPanelContentProps, {}>({
 .add-result-button {
   position: relative;
   left: calc(100% - 40px);
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+}
+
+.memo-header {
+  @include header-margin;
+
+  display: block;
+}
+
+.save-button {
+  width: 100%;
 }
 </style>
