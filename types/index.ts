@@ -13,7 +13,7 @@ export type WeightMachineResult = {
   weight: number
   times: number
   set: number
-  boost: boolean
+  boost?: boolean
 }
 
 export type Workout = {
