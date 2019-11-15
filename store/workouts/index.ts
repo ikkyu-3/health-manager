@@ -1,6 +1,6 @@
 import { Module } from 'vuex'
-import { RootState } from './type'
-import { Workout } from '@/types'
+import { RootState } from '@/store/type'
+import { Workout, WeightMachineResult } from '@/types'
 
 export type WorkoutsState = {
   workouts: Workout[]
@@ -46,6 +46,16 @@ const workouts: Module<WorkoutsState, RootState> = {
           results.length > 0 && startTime && endTime
       )
       state.workouts = newWorkouts
+    },
+    updateWorkoutResults(
+      state,
+      payload: { index: number; results: WeightMachineResult[]; memo: string }
+    ) {
+      const newWorkouts = state.workouts.map((workout, index) => {
+        if (payload.index !== index) return workout
+        return { ...workout, results: payload.results, memo: payload.memo }
+      })
+      state.workouts = newWorkouts
     }
   },
   actions: {
@@ -57,6 +67,16 @@ const workouts: Module<WorkoutsState, RootState> = {
     },
     clearWorkouts(context) {
       context.commit('clearWorkouts')
+    },
+    updateWorkoutResults(
+      context,
+      payload: { index: number; results: WeightMachineResult[]; memo: string }
+    ) {
+      context.commit('updateWorkoutResults', {
+        index: payload.index,
+        results: payload.results,
+        memo: payload.memo
+      })
     }
   }
 }
