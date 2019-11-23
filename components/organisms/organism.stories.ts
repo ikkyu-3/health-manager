@@ -5,10 +5,8 @@ import DialogToolbar from '@/components/organisms/DialogToolbar.vue'
 import WorkoutListGroup from '@/components/organisms/WorkoutListGroup.vue'
 import BottomNavigation from '@/components/organisms/BottomNavigation.vue'
 import WorkoutsDialog from '@/components/organisms/WorkoutsDialog.vue'
-import { userStore } from '@/store'
 
 storiesOf('Organisms', module).add('Toolbar', () => ({
-  store: userStore(),
   components: { Toolbar },
   template: '<toolbar />'
 }))
@@ -44,7 +42,6 @@ storiesOf('Organisms', module).add('WorkoutListGroup', () => ({
 }))
 
 storiesOf('Organisms', module).add('WorkoutsDialog', () => ({
-  store: userStore(),
   components: { WorkoutsDialog },
   template: '<workouts-dialog :dialog="true" :back="back"/>',
   methods: {
