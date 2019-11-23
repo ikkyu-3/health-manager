@@ -78,7 +78,7 @@ export default createComponent<LegPressPanelContentProps, {}>({
     }
 
     const save = () => {
-      store.dispatch('updateWorkoutResults', {
+      store.dispatch('workouts/updateWorkoutResults', {
         index: workoutIndex,
         resuls: state.results,
         mome: state.memo
