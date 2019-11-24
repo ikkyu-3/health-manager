@@ -16,7 +16,7 @@ export default function getPeriod(startTime: string, endTime: string) {
   const start = Date.parse(startTime)
   const end = Date.parse(endTime)
 
-  const diffSecondTime = Math.floor((end - start) / 1000)
+  const diffSecondTime = Math.abs(Math.floor((end - start) / 1000))
   const hour = Math.floor(diffSecondTime / 60 ** 2)
   const minute = Math.floor(diffSecondTime / 60) - hour * 60
   const second = diffSecondTime % 60
