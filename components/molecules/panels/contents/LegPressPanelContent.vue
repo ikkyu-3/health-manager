@@ -2,7 +2,7 @@
   <v-expansion-panel-content class="panel-content">
     <dl>
       <dt class="workout-time-header">Workout Time</dt>
-      <dd class="workout-time-value">00:00:00</dd>
+      <dd class="workout-time-value">{{ state.workoutTime }}</dd>
     </dl>
     <label class="results-header">Results</label>
     <leg-press-result
@@ -36,6 +36,7 @@ import LegPressResult, {
 import AddButton from '@/components/molecules/buttons/AddButton.vue'
 import { userStore } from '@/store'
 import { Workout } from '@/types'
+import getPeriod from '@/modules/getPeriod'
 
 export type LegPressPanelContentProps = {
   workoutIndex: number
@@ -53,6 +54,7 @@ export default createComponent<LegPressPanelContentProps, {}>({
   setup({ workoutIndex, workout, onSaved }) {
     const store = userStore()
     const state = reactive({
+      workoutTime: getPeriod(workout.startTime!, workout.endTime!),
       results: workout.results.length ? workout.results : [initResult()],
       memo: workout.memo
     })
