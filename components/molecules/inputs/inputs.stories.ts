@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import ResultInput from '@/components/molecules/inputs/ResultInput.vue'
+import Memo from '@/components/molecules/inputs/Memo.vue'
 
 storiesOf('molecules.inputs', module).add('ResultInput', () => ({
   components: { ResultInput },
@@ -60,5 +61,13 @@ storiesOf('molecules.inputs', module).add('ResultInput', () => ({
       }
       this.set += 1
     }
+  }
+}))
+
+storiesOf('molecules.inputs', module).add('Memo', () => ({
+  components: { Memo },
+  template: `<Memo :value="value" />`,
+  data() {
+    return { value: 'memo' }
   }
 }))
