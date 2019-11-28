@@ -7,17 +7,25 @@
   >
     <div :class="state.slotClass"><slot /></div>
     <div :class="state.deleteButtonAreaClass">
-      <delete-button @click="deleteResult" />
+      <v-btn
+        block
+        dark
+        depressed
+        height="100%"
+        class="delete-button"
+        color="red"
+        @click="deleteResult"
+      >
+        <v-icon>fa-times</v-icon>
+      </v-btn>
     </div>
   </v-card>
 </template>
 
 <script lang="ts">
 import { createComponent, reactive, computed } from '@vue/composition-api'
-import DeleteButton from '@/components/molecules/buttons/DeleteButton.vue'
 
 export default createComponent({
-  components: { DeleteButton },
   props: {
     deleteResult: Function
   },
@@ -77,5 +85,9 @@ export default createComponent({
 
 .delete-button-area--active {
   left: calc(100% - 60px);
+}
+
+.delete-button {
+  border-radius: 0px;
 }
 </style>

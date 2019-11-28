@@ -1,17 +1,19 @@
 <template>
   <div class="input-container">
-    <reduce-button x-small @click="reduce" />
+    <v-btn fab dark color="grey" x-small @click="reduce">
+      <v-icon>fa-minus</v-icon>
+    </v-btn>
     <div class="input-value">
       {{ value }}<span class="unit">{{ state.unit }}</span>
     </div>
-    <add-button x-small @click="add" />
+    <v-btn fab dark color="grey" x-small @click="add">
+      <v-icon>fa-plus</v-icon>
+    </v-btn>
   </div>
 </template>
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
-import AddButton from '@/components/molecules/buttons/AddButton.vue'
-import ReduceButton from '@/components/molecules/buttons/ReduceButton.vue'
 
 export type ResultInputType = {
   value: number
@@ -23,7 +25,6 @@ export type ResultInputType = {
 }
 
 export default createComponent<ResultInputType>({
-  components: { AddButton, ReduceButton },
   props: {
     value: Number,
     weight: Boolean,
