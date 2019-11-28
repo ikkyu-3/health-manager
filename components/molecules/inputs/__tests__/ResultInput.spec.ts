@@ -7,7 +7,7 @@ const options = {
   vuetify: new Vuetify()
 }
 
-describe('molecules/inputs/WeightInput.vue', () => {
+describe('molecules/inputs/ResultInput.vue', () => {
   let wrapper: Wrapper<ResultInput>
   const reduce = jest.fn()
   const add = jest.fn()
