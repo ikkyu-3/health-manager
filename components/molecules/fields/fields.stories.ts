@@ -1,23 +1,23 @@
 import { storiesOf } from '@storybook/vue'
-import ResultInput from '@/components/molecules/inputs/ResultInput.vue'
-import Memo from '@/components/molecules/inputs/Memo.vue'
+import ResultField from '@/components/molecules/fields/ResultField.vue'
+import MemoField from '@/components/molecules/fields/MemoField.vue'
 
-storiesOf('molecules.inputs', module).add('ResultInput', () => ({
-  components: { ResultInput },
+storiesOf('molecules.fields', module).add('ResultField', () => ({
+  components: { ResultField },
   template: `
     <article>
-      <h1>ResultInput</h1>
+      <h1>ResultField</h1>
       <section>
         <h2>Weight</h2>
-        <result-input weight :value="weight" :reduce="reduceWeight" :add="addWeight"/>
+        <result-field weight :value="weight" :reduce="reduceWeight" :add="addWeight"/>
       </section>
       <section>
         <h2>Times</h2>
-        <result-input times :value="times" :reduce="reduceTimes" :add="addTimes"/>
+        <result-field times :value="times" :reduce="reduceTimes" :add="addTimes"/>
       </section>
       <section>
         <h2>Set</h2>
-        <result-input set :value="set" :reduce="reduceSet" :add="addSet"/>
+        <result-field set :value="set" :reduce="reduceSet" :add="addSet"/>
       </section>
     </article>
   `,
@@ -64,9 +64,9 @@ storiesOf('molecules.inputs', module).add('ResultInput', () => ({
   }
 }))
 
-storiesOf('molecules.inputs', module).add('Memo', () => ({
-  components: { Memo },
-  template: `<Memo :value="value" />`,
+storiesOf('molecules.fields', module).add('MemoField', () => ({
+  components: { MemoField },
+  template: `<memo-field :value="value" />`,
   data() {
     return { value: 'memo' }
   }

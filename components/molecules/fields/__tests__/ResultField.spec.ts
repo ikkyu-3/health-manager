@@ -1,19 +1,19 @@
 import Vuetify from 'vuetify'
 import { mount, createLocalVue, Wrapper } from '@vue/test-utils'
-import ResultInput from '@/components/molecules/inputs/ResultInput.vue'
+import ResultField from '@/components/molecules/inputs/ResultField.vue'
 
 const options = {
   localVue: createLocalVue(),
   vuetify: new Vuetify()
 }
 
-describe('molecules/inputs/ResultInput.vue', () => {
-  let wrapper: Wrapper<ResultInput>
+describe('molecules/fields/ResultField.vue', () => {
+  let wrapper: Wrapper<ResultField>
   const reduce = jest.fn()
   const add = jest.fn()
 
   beforeAll(() => {
-    wrapper = mount(ResultInput, {
+    wrapper = mount(ResultField, {
       ...options,
       propsData: { value: 100, reduce, add }
     })
@@ -37,7 +37,7 @@ describe('molecules/inputs/ResultInput.vue', () => {
 
   describe('unit', () => {
     it('weight属性を指定した場合、"kg"が表示される', () => {
-      wrapper = mount(ResultInput, {
+      wrapper = mount(ResultField, {
         ...options,
         propsData: { value: 100, weight: true, reduce, add }
       })
@@ -45,7 +45,7 @@ describe('molecules/inputs/ResultInput.vue', () => {
     })
 
     it('times属性を指定した場合、"回"が表示される', () => {
-      wrapper = mount(ResultInput, {
+      wrapper = mount(ResultField, {
         ...options,
         propsData: { value: 10, times: true, reduce, add }
       })
@@ -53,7 +53,7 @@ describe('molecules/inputs/ResultInput.vue', () => {
     })
 
     it('set属性を指定した場合、"セット"が表示される', () => {
-      wrapper = mount(ResultInput, {
+      wrapper = mount(ResultField, {
         ...options,
         propsData: { value: 3, set: true, reduce, add }
       })
