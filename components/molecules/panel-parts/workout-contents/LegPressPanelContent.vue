@@ -1,9 +1,9 @@
 <template>
   <v-expansion-panel-content class="panel-content">
-    <dl>
-      <dt class="workout-time-header">Workout Time</dt>
-      <dd class="workout-time-value">{{ state.workoutTime }}</dd>
-    </dl>
+    <workout-time-result
+      :start-time="state.startTime"
+      :end-time="state.endTime"
+    />
     <label class="results-header">Results</label>
     <leg-press-result
       v-for="(result, index) in state.results"
@@ -16,45 +16,43 @@
       @times-change="timesChange"
       @set-change="setChange"
     />
-    <add-button
-      class="add-result-button"
+    <v-btn
+      fab
+      dark
       small
+      class="add-result-button"
       color="lime"
       @click="addResult"
-    />
-    <label class="memo-header">Memo</label>
-    <v-textarea v-model="state.memo" solo />
-    <v-btn class="save-button" color="blue-grey" dark @click="save">終了</v-btn>
+    >
+      <v-icon>fa-plus</v-icon>
+    </v-btn>
+    <memo-field :value="state.memo" />
+    <v-btn class="save-button" color="blue-grey" dark @click="workoutSave"
+      >終了</v-btn
+    >
   </v-expansion-panel-content>
 </template>
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
+import WorkoutTimeResult from '@/components/molecules/results/WorkoutTimeResult.vue'
 import LegPressResult, {
   initResult
-} from '@/components/molecules/workout-results/LegPressResult.vue'
-import AddButton from '@/components/molecules/buttons/AddButton.vue'
-import { userStore } from '@/store'
-import { Workout } from '@/types'
-import getPeriod from '@/modules/getPeriod'
+} from '@/components/molecules/results/LegPressResult.vue'
+import MemoField from '@/components/molecules/fields/MemoField.vue'
+import { WorkoutPanelContentProps } from '@/types'
 
-export type LegPressPanelContentProps = {
-  workoutIndex: number
-  workout: Workout
-  onSaved?: () => void
-}
-
-export default createComponent<LegPressPanelContentProps, {}>({
-  components: { LegPressResult, AddButton },
+export default createComponent<WorkoutPanelContentProps, {}>({
+  components: { WorkoutTimeResult, LegPressResult, MemoField },
   props: {
-    workoutIndex: Number,
+    index: Number,
     workout: Object,
-    onSaved: { type: Function, required: false }
+    save: Function
   },
-  setup({ workoutIndex, workout, onSaved }) {
-    const store = userStore()
+  setup({ index, workout, save }) {
     const state = reactive({
-      workoutTime: getPeriod(workout.startTime!, workout.endTime!),
+      startTime: workout.startTime || '',
+      endTime: workout.endTime || '',
       results: workout.results.length ? workout.results : [initResult()],
       memo: workout.memo
     })
@@ -79,14 +77,8 @@ export default createComponent<LegPressPanelContentProps, {}>({
       state.results.push(initResult())
     }
 
-    const save = () => {
-      store.dispatch('workouts/updateWorkoutResults', {
-        index: workoutIndex,
-        resuls: state.results,
-        mome: state.memo
-      })
-
-      if (onSaved) onSaved()
+    const workoutSave = () => {
+      save(index, state.results, state.memo)
     }
 
     return {
@@ -96,7 +88,7 @@ export default createComponent<LegPressPanelContentProps, {}>({
       setChange,
       deleteResult,
       addResult,
-      save
+      workoutSave
     }
   }
 })

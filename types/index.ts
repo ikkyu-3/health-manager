@@ -33,3 +33,9 @@ export type WorkoutContext = {
 export type WorkoutContexts = WorkoutContext[]
 
 export type WorkoutStatus = 'pending' | 'ready' | 'running' | 'exited'
+
+export type WorkoutPanelContentProps = {
+  index: number
+  workout: Workout
+  save: (index: number, resuls: WeightMachineResult[], memo: string) => void
+}
