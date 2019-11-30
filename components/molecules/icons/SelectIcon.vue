@@ -37,7 +37,7 @@ export default createComponent({
   font-weight: bold;
 }
 
-.active {
-  background-color: #ef9a9a !important;
+.icon.active {
+  background-color: #ef9a9a;
 }
 </style>
