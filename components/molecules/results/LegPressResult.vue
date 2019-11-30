@@ -3,7 +3,7 @@
     <v-row class="row">
       <v-col cols="5" class="key">Weight</v-col>
       <v-col cols="7">
-        <result-input
+        <result-field
           weight
           :value="state.weight"
           :reduce="reduceWeight"
@@ -12,7 +12,7 @@
       </v-col>
       <v-col cols="5" class="key">Times</v-col>
       <v-col cols="7">
-        <result-input
+        <result-field
           times
           :value="state.times"
           :reduce="reduceTimes"
@@ -21,7 +21,7 @@
       </v-col>
       <v-col cols="5" class="key">Set</v-col>
       <v-col cols="7">
-        <result-input
+        <result-field
           set
           :value="state.set"
           :reduce="reduceSet"
@@ -35,8 +35,8 @@
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
 import { WeightMachineResult } from '@/types'
-import BaseResult from '@/components/molecules/workout-results/BaseResult.vue'
-import ResultInput from '@/components/molecules/inputs/ResultInput.vue'
+import BaseResult from '@/components/molecules/results/BaseResult.vue'
+import ResultField from '@/components/molecules/fields/ResultField.vue'
 
 const config = {
   weight: { max: 500, default: 60, step: 10 },
@@ -61,7 +61,7 @@ export const initResult = (): WeightMachineResult => ({
 })
 
 export default createComponent<LegPressResultType, {}>({
-  components: { BaseResult, ResultInput },
+  components: { BaseResult, ResultField },
   props: {
     index: Number,
     result: Object,
