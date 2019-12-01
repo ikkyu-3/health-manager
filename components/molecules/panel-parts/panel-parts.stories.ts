@@ -7,10 +7,10 @@ storiesOf('molecules.panel-parts', module).add('WorkoutPanelHeader', () => ({
   components: { WorkoutPanelHeader },
   template: `
       <v-expansion-panels readonly focusable>
-        <v-expansion-panel disabled><workout-panel-header header="Pending" status="pending"/></v-expansion-panel>
-        <v-expansion-panel><workout-panel-header header="Ready" status="ready"/></v-expansion-panel>
-        <v-expansion-panel><workout-panel-header header="Running" status="running"/></v-expansion-panel>
-        <v-expansion-panel><workout-panel-header header="Exited" status="exited"/></v-expansion-panel>
+        <v-expansion-panel disabled><workout-panel-header name="Pending" status="pending"/></v-expansion-panel>
+        <v-expansion-panel><workout-panel-header name="Ready" status="ready"/></v-expansion-panel>
+        <v-expansion-panel><workout-panel-header name="Running" status="running"/></v-expansion-panel>
+        <v-expansion-panel><workout-panel-header name="Exited" status="exited"/></v-expansion-panel>
       </v-expansion-panels>
     `
 }))
@@ -22,7 +22,7 @@ storiesOf('molecules.panel-parts.WorkoutPanelContent', module).add(
     template: `
       <v-expansion-panels>
         <v-expansion-panel>
-          <workout-panel-header :header="workout.name" status="running" />
+          <workout-panel-header :name="workout.name" status="running" />
           <workout-panel-content :index="workoutIndex" :workout="workout" :save="save" />
         </v-expansion-panel>
       </v-expansion-panels>

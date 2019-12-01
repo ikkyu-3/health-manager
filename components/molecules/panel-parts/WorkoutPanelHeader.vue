@@ -1,6 +1,6 @@
 <template>
   <v-expansion-panel-header :disable-icon-rotate="state.disabled">
-    {{ header }}
+    {{ name }}
     <template v-slot:actions>
       <v-icon small :color="state.color">{{ state.icon }}</v-icon>
     </template>
@@ -18,7 +18,7 @@ type WorkoutPanelIconProps = {
 
 export default createComponent<WorkoutPanelIconProps, {}>({
   props: {
-    header: String,
+    name: String,
     status: String
   },
   setup(props) {
