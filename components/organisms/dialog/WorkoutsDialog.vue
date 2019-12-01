@@ -6,7 +6,10 @@
     transition="dialog-bottom-transition"
   >
     <v-card>
-      <dialog-toolbar :arrow-button-click="back" :clear-button-click="clear" />
+      <workouts-dialog-toolbar
+        :arrow-button-click="back"
+        :clear-button-click="clear"
+      />
       <div class="workout-list">
         <v-list
           v-for="(group, index) in state.workoutList"
@@ -27,14 +30,14 @@
 
 <script lang="ts">
 import { createComponent, reactive, computed } from '@vue/composition-api'
-import DialogToolbar from '@/components/organisms/DialogToolbar.vue'
-import WorkoutListGroup from '@/components/organisms/WorkoutListGroup.vue'
+import WorkoutsDialogToolbar from '@/components/organisms/dialog/WorkoutsDialogToolbar.vue'
+import WorkoutListGroup from '@/components/organisms/lists/WorkoutListGroup.vue'
 import { userStore } from '@/store'
 import { workoutMenu } from '@/constants'
 import { WorkoutContexts } from '@/types'
 
 export default createComponent({
-  components: { DialogToolbar, WorkoutListGroup },
+  components: { WorkoutsDialogToolbar, WorkoutListGroup },
   props: {
     dialog: { type: Boolean, require: true },
     back: { type: Function, require: true }
