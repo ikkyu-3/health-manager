@@ -1,5 +1,9 @@
 <template>
-  <v-expansion-panel :disabled="state.disabled">
+  <v-expansion-panel
+    :disabled="state.disabled"
+    :readonly="state.readonly"
+    @click="click"
+  >
     <workout-panel-header :name="workout.name" :status="status" />
     <workout-panel-content :index="index" :workout="workout" :save="save" />
   </v-expansion-panel>
@@ -28,14 +32,25 @@ export default createComponent<WorkoutPanelProps, {}>({
   setup(props) {
     const store = userStore()
     const state = reactive({
-      disabled: computed(() => props.status === 'pending')
+      disabled: computed(() => props.status === 'pending'),
+      readonly: computed(() => props.status === 'ready')
     })
 
     function save(index: number, results: WeightMachineResult[], memo: string) {
       store.dispatch('workouts/updateWorkoutResults', { index, results, memo })
     }
 
-    return { state, save }
+    function click() {
+      if (state.readonly) {
+        // start workout
+        console.log('start workout')
+      } else {
+        // end workout
+        console.log('end workout')
+      }
+    }
+
+    return { state, save, click }
   }
 })
 </script>
