@@ -173,7 +173,7 @@ describe('store/workouts/getters', () => {
     })
   })
 
-  describe.only('getStatus', () => {
+  describe('getStatus', () => {
     describe('indexで指定したworkoutがある場合', () => {
       it('終了したworkoutを指定した場合、"exited"を取得する', () => {
         const workout1 = {
