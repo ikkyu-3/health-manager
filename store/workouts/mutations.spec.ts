@@ -5,7 +5,9 @@ describe('store/workouts/mutations', () => {
     addWorkout,
     removeWorkout,
     clearWorkouts,
-    updateWorkoutResults
+    updateResults,
+    updateStartTime,
+    updateEndTime
   } = mutations as any
 
   describe('addWorkout', () => {
@@ -72,7 +74,7 @@ describe('store/workouts/mutations', () => {
     })
   })
 
-  describe('updateWorkoutResults', () => {
+  describe('updateResults', () => {
     it('指定したworkoutの結果を更新する', () => {
       const time = new Date().toISOString()
       const workout1 = {
@@ -106,7 +108,7 @@ describe('store/workouts/mutations', () => {
       const state = { workouts: [workout1, workout2, workout3, workout4] }
       const payload = { index: 1, results: [{}], memo: 'hoge' }
 
-      updateWorkoutResults(state, payload)
+      updateResults(state, payload)
       expect(state.workouts).toEqual([
         workout1,
         {
@@ -119,6 +121,52 @@ describe('store/workouts/mutations', () => {
         workout3,
         workout4
       ])
+    })
+  })
+
+  describe('updateStartTime', () => {
+    it('指定したworkoutのstartTimeを更新する', () => {
+      const time = '2019-01-01T00:00:00.000Z'
+      const workout1 = {
+        name: 'workout1',
+        results: [],
+        memo: '',
+        startTime: null,
+        endTime: null
+      }
+      const state = { workouts: [workout1] }
+
+      updateStartTime(state, { index: 0, time })
+      expect(state.workouts[0]).toEqual({
+        name: 'workout1',
+        results: [],
+        memo: '',
+        startTime: time,
+        endTime: null
+      })
+    })
+  })
+
+  describe('updateEndTime', () => {
+    it('指定したworkoutのendTimeを更新する', () => {
+      const time = '2019-01-01T00:00:00.000Z'
+      const workout1 = {
+        name: 'workout1',
+        results: [],
+        memo: '',
+        startTime: null,
+        endTime: null
+      }
+      const state = { workouts: [workout1] }
+
+      updateEndTime(state, { index: 0, time })
+      expect(state.workouts[0]).toEqual({
+        name: 'workout1',
+        results: [],
+        memo: '',
+        startTime: null,
+        endTime: time
+      })
     })
   })
 })

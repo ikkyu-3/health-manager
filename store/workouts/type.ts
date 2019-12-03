@@ -8,19 +8,23 @@ export type AddWorkoutMutationPayload = { name: string }
 
 export type RemoveWorkoutMutationPayload = { index: number }
 
-export type UpdateWorkoutMutationResults = {
+export type UpdateResultsMutationPayload = {
   index: number
   results: WeightMachineResult[]
   memo: string
 }
+
+export type UpdateTimeMutationPayload = { index: number; time: string }
 
 // action
 export type AddWorkoutActionPayload = { name: string }
 
 export type RemoveWorkoutActionPayload = { index: number }
 
-export type UpdateWorkoutResultsActionPayload = {
+export type UpdateResultsActionPayload = {
   index: number
   results: WeightMachineResult[]
   memo: string
 }
+
+export type UpdateTimeActionPayload = { index: number; time: string }

@@ -3,7 +3,8 @@ import {
   WorkoutsState,
   AddWorkoutMutationPayload,
   RemoveWorkoutMutationPayload,
-  UpdateWorkoutMutationResults
+  UpdateResultsMutationPayload,
+  UpdateTimeMutationPayload
 } from './type'
 
 const mutations: MutationTree<WorkoutsState> = {
@@ -31,10 +32,24 @@ const mutations: MutationTree<WorkoutsState> = {
     )
     state.workouts = newWorkouts
   },
-  updateWorkoutResults(state, payload: UpdateWorkoutMutationResults) {
+  updateResults(state, payload: UpdateResultsMutationPayload) {
     const newWorkouts = state.workouts.map((workout, index) => {
       if (payload.index !== index) return workout
       return { ...workout, results: payload.results, memo: payload.memo }
+    })
+    state.workouts = newWorkouts
+  },
+  updateStartTime(state, payload: UpdateTimeMutationPayload) {
+    const newWorkouts = state.workouts.map((workout, index) => {
+      if (payload.index !== index) return workout
+      return { ...workout, startTime: payload.time }
+    })
+    state.workouts = newWorkouts
+  },
+  updateEndTime(state, payload: UpdateTimeMutationPayload) {
+    const newWorkouts = state.workouts.map((workout, index) => {
+      if (payload.index !== index) return workout
+      return { ...workout, endTime: payload.time }
     })
     state.workouts = newWorkouts
   }

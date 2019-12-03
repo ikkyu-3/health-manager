@@ -4,7 +4,8 @@ import {
   WorkoutsState,
   AddWorkoutActionPayload,
   RemoveWorkoutActionPayload,
-  UpdateWorkoutResultsActionPayload
+  UpdateResultsActionPayload,
+  UpdateTimeActionPayload
 } from './type'
 
 const actions: ActionTree<WorkoutsState, RootState> = {
@@ -17,11 +18,23 @@ const actions: ActionTree<WorkoutsState, RootState> = {
   clearWorkouts(context) {
     context.commit('clearWorkouts')
   },
-  updateWorkoutResults(context, payload: UpdateWorkoutResultsActionPayload) {
-    context.commit('updateWorkoutResults', {
+  updateResults(context, payload: UpdateResultsActionPayload) {
+    context.commit('updateResults', {
       index: payload.index,
       results: payload.results,
       memo: payload.memo
+    })
+  },
+  updateStartTime(context, payload: UpdateTimeActionPayload) {
+    context.commit('updateStartTime', {
+      index: payload.index,
+      time: payload.time
+    })
+  },
+  updateEndTime(context, payload: UpdateTimeActionPayload) {
+    context.commit('updateEndTime', {
+      index: payload.index,
+      time: payload.time
     })
   }
 }

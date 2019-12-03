@@ -7,7 +7,9 @@ describe('store/workouts/actions', () => {
     addWorkout,
     removeWorkout,
     clearWorkouts,
-    updateWorkoutResults
+    updateResults,
+    updateStartTime,
+    updateEndTime
   } = actions as any
 
   afterEach(() => {
@@ -43,16 +45,48 @@ describe('store/workouts/actions', () => {
     })
   })
 
-  describe('updateWorkoutResults', () => {
+  describe('updateResults', () => {
     it('commitが呼ばれる', () => {
-      updateWorkoutResults(mockContext, { index: 0, results: [], memo: '' })
+      updateResults(mockContext, { index: 0, results: [], memo: '' })
 
       expect(commit).toHaveBeenCalled()
-      expect(commit.mock.calls[0][0]).toBe('updateWorkoutResults')
+      expect(commit.mock.calls[0][0]).toBe('updateResults')
       expect(commit.mock.calls[0][1]).toEqual({
         index: 0,
         results: [],
         memo: ''
+      })
+    })
+  })
+
+  describe('updateStartTime', () => {
+    it('commitが呼ばれる', () => {
+      updateStartTime(mockContext, {
+        index: 0,
+        time: '2019-01-01T00:00:00.000Z'
+      })
+
+      expect(commit).toHaveBeenCalled()
+      expect(commit.mock.calls[0][0]).toBe('updateStartTime')
+      expect(commit.mock.calls[0][1]).toEqual({
+        index: 0,
+        time: '2019-01-01T00:00:00.000Z'
+      })
+    })
+  })
+
+  describe('updateEndTime', () => {
+    it('commitが呼ばれる', () => {
+      updateEndTime(mockContext, {
+        index: 0,
+        time: '2019-01-01T00:00:00.000Z'
+      })
+
+      expect(commit).toHaveBeenCalled()
+      expect(commit.mock.calls[0][0]).toBe('updateEndTime')
+      expect(commit.mock.calls[0][1]).toEqual({
+        index: 0,
+        time: '2019-01-01T00:00:00.000Z'
       })
     })
   })
