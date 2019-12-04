@@ -4,6 +4,7 @@ import { WorkoutsState } from './type'
 import { Workout, WorkoutStatus } from '@/types'
 
 const getters: GetterTree<WorkoutsState, RootState> = {
+  workouts: state => state.workouts,
   workoutsExists: state => state.workouts.length > 0,
   workoutContexts: state =>
     state.workouts.map(({ name, startTime, endTime, results }, index) => {
@@ -22,7 +23,7 @@ const getters: GetterTree<WorkoutsState, RootState> = {
 
     return filteredWorkouts[0]
   },
-  getStatus: state => (
+  workoutStatus: state => (
     index: number,
     nextWorkoutName: string
   ): WorkoutStatus | '' => {

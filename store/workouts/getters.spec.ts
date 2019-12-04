@@ -4,12 +4,29 @@ jest.spyOn(console, 'warn').mockImplementation(() => {})
 
 describe('store/workouts/getters', () => {
   const {
+    workouts,
     workoutsExists,
     workoutContexts,
     nextWorkout,
-    getStatus
+    workoutStatus
   } = getters as any
   const time = '2019-01-01T00:00:00.000Z'
+
+  describe('workouts', () => {
+    it('workoutsを返す', () => {
+      const workout1 = {
+        name: 'workout1',
+        results: [],
+        memo: '',
+        startTime: null,
+        endTime: null
+      }
+      const state = {
+        workouts: [workout1]
+      }
+      expect(workouts(state)).toEqual([workout1])
+    })
+  })
 
   describe('workoutsExists', () => {
     it('workoutsが空でない場合、trueを返す', () => {
@@ -173,7 +190,7 @@ describe('store/workouts/getters', () => {
     })
   })
 
-  describe('getStatus', () => {
+  describe('workoutStatus', () => {
     describe('indexで指定したworkoutがある場合', () => {
       it('終了したworkoutを指定した場合、"exited"を取得する', () => {
         const workout1 = {
@@ -184,7 +201,7 @@ describe('store/workouts/getters', () => {
           endTime: time
         }
         const state = { workouts: [workout1] }
-        expect(getStatus(state)(0, 'workout1')).toBe('exited')
+        expect(workoutStatus(state)(0, 'workout1')).toBe('exited')
       })
 
       it('startTimeがあるworkoutを指定した場合、"running"を取得する', () => {
@@ -196,7 +213,7 @@ describe('store/workouts/getters', () => {
           endTime: null
         }
         const state = { workouts: [workout1] }
-        expect(getStatus(state)(0, 'workout1')).toBe('running')
+        expect(workoutStatus(state)(0, 'workout1')).toBe('running')
       })
 
       it('startTimeがなく、指定したworkoutの名前とnextWorkoutNameが同じ場合、"ready"を取得する', () => {
@@ -208,7 +225,7 @@ describe('store/workouts/getters', () => {
           endTime: null
         }
         const state = { workouts: [workout1] }
-        expect(getStatus(state)(0, 'workout1')).toBe('ready')
+        expect(workoutStatus(state)(0, 'workout1')).toBe('ready')
       })
 
       it('startTimeがなく、指定したworkoutの名前とnextWorkoutNameが同じでない場合、"pending"を取得する', () => {
@@ -220,7 +237,7 @@ describe('store/workouts/getters', () => {
           endTime: null
         }
         const state = { workouts: [workout1] }
-        expect(getStatus(state)(0, 'workout2')).toBe('pending')
+        expect(workoutStatus(state)(0, 'workout2')).toBe('pending')
       })
     })
 
@@ -234,7 +251,7 @@ describe('store/workouts/getters', () => {
           endTime: null
         }
         const state = { workouts: [workout1] }
-        expect(getStatus(state)(0, 'workout2')).toBe('pending')
+        expect(workoutStatus(state)(0, 'workout2')).toBe('pending')
       })
     })
   })
