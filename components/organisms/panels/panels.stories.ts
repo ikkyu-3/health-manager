@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-// import { action } from '@storybook/addon-actions'
+import { action } from '@storybook/addon-actions'
 import WorkoutPanel from '@/components/organisms/panels/WorkoutPanel.vue'
 
 storiesOf('organisms.panels', module).add('WorkoutPanel', () => ({
@@ -7,21 +7,82 @@ storiesOf('organisms.panels', module).add('WorkoutPanel', () => ({
   template: `
     <v-expansion-panels>
       <workout-panel
-        :index="index"
-        :workout="workout"
-        :status="status"
+        v-for="panelProps in panelPropsList"
+        :key="panelProps.index"
+        :index="panelProps.index"
+        :workout="panelProps.workout"
+        :status="panelProps.status"
+        :disabled="panelProps.disabled"
+        :readonly="panelProps.readonly"
+        :click="click"
+        :save="save"
       />
     </v-expansion-panels>
   `,
   data: () => ({
-    index: 0,
-    workout: {
-      name: 'Leg Press',
-      results: [],
-      memo: '',
-      startTime: null,
-      endTime: null
-    },
-    status: 'ready'
-  })
+    panelPropsList: [
+      {
+        index: 0,
+        workout: {
+          name: 'Leg Press',
+          results: [
+            {
+              weight: 60,
+              times: 10,
+              set: 3
+            }
+          ],
+          memo: '',
+          startTime: '2019-01-01T00:00:00.000Z',
+          endTime: '2019-01-01T00:11:11.000Z'
+        },
+        status: 'exited',
+        disabled: false,
+        readonly: false
+      },
+      {
+        index: 1,
+        workout: {
+          name: 'Leg Press',
+          results: [],
+          memo: '',
+          startTime: '2019-01-01T00:00:00.000Z',
+          endTime: null
+        },
+        status: 'running',
+        disabled: false,
+        readonly: true
+      },
+      {
+        index: 2,
+        workout: {
+          name: 'Leg Press',
+          results: [],
+          memo: '',
+          startTime: null,
+          endTime: null
+        },
+        status: 'ready',
+        disabled: false,
+        readonly: true
+      },
+      {
+        index: 3,
+        workout: {
+          name: 'Leg Press',
+          results: [],
+          memo: '',
+          startTime: null,
+          endTime: null
+        },
+        status: 'pending',
+        disabled: true,
+        readonly: true
+      }
+    ]
+  }),
+  methods: {
+    click: action('click'),
+    save: action('save')
+  }
 }))
