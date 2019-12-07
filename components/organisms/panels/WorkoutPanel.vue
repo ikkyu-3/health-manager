@@ -2,7 +2,7 @@
   <v-expansion-panel
     :disabled="disabled"
     :readonly="readonly"
-    @click="click(index)"
+    @click="click(index, status)"
   >
     <workout-panel-header :name="workout.name" :status="status" />
     <workout-panel-content :index="index" :workout="workout" :save="save" />
@@ -21,7 +21,7 @@ type WorkoutPanelProps = {
   status: WorkoutStatus
   disabled: boolean
   readonly: boolean
-  click: (index: number) => void
+  click: (index: number, status: WorkoutStatus) => void
   save: (index: number, results: WeightMachineResult[], memo: string) => void
 }
 

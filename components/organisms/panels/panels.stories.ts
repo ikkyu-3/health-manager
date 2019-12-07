@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
+import { userStore } from '@/store'
 import WorkoutPanel from '@/components/organisms/panels/WorkoutPanel.vue'
+import WorkoutPanels from '@/components/organisms/panels/WorkoutPanels.vue'
 
 storiesOf('organisms.panels', module).add('WorkoutPanel', () => ({
   components: { WorkoutPanel },
@@ -85,4 +87,21 @@ storiesOf('organisms.panels', module).add('WorkoutPanel', () => ({
     click: action('click'),
     save: action('save')
   }
+}))
+
+const store = userStore() as any
+store.state.workouts.workouts = [
+  {
+    name: 'Leg Press',
+    results: [],
+    memo: '',
+    startTime: null,
+    endTime: null
+  }
+]
+storiesOf('organisms.panels', module).add('WorkoutPanels', () => ({
+  components: { WorkoutPanels },
+  template: `
+    <workout-panels />
+  `
 }))

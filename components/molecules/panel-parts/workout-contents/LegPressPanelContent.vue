@@ -1,8 +1,8 @@
 <template>
   <v-expansion-panel-content class="panel-content">
     <workout-time-result
-      :start-time="state.startTime"
-      :end-time="state.endTime"
+      :start-time="workout.startTime"
+      :end-time="workout.endTime"
     />
     <label class="results-header">Results</label>
     <leg-press-result
@@ -51,8 +51,6 @@ export default createComponent<WorkoutPanelContentProps, {}>({
   },
   setup({ index, workout, save }) {
     const state = reactive({
-      startTime: workout.startTime || '',
-      endTime: workout.endTime || '',
       results: workout.results.length ? workout.results : [initResult()],
       memo: workout.memo
     })
