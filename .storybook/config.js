@@ -1,7 +1,8 @@
 import '@fortawesome/fontawesome-free/css/all.css'
 import 'vuetify/dist/vuetify.min.css'
-import { configure, addDecorator } from '@storybook/vue'
+import { configure, addDecorator, addParameters } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
@@ -29,6 +30,12 @@ addDecorator(() => {
   return {
     vuetify: vuetifyConfig,
     template: '<v-app><div><story/></div></v-app>'
+  }
+})
+
+addParameters({
+  viewport: {
+    viewports: INITIAL_VIEWPORTS
   }
 })
 
