@@ -8,6 +8,9 @@ import LegPressResult, {
 import LegCurlResult, {
   initResult as legCurlInitResult
 } from './LegCurlResult.vue'
+import LegExtensionResult, {
+  initResult as legExtensionInitResult
+} from './LegExtensionResult.vue'
 
 storiesOf('molecules.results', module).add('BaseResult', () => ({
   components: { BaseResult },
@@ -31,7 +34,7 @@ storiesOf('molecules.results', module).add('WorkoutTimeResult', () => ({
 }))
 
 storiesOf('molecules.results', module).add('WorkoutResult', () => ({
-  components: { LegPressResult, LegCurlResult },
+  components: { LegPressResult, LegCurlResult, LegExtensionResult },
   template: `
     <article>
       <h1>WorkoutResult</h1>
@@ -43,12 +46,17 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
         <h2>LegPressResult</h2>
         <leg-curl-result :index="index" :result="legCurlResult" :delete-result="action"/>
       </section>
+      <section>
+        <h2>LegExtensionResult</h2>
+        <leg-extension-result :index="index" :result="legExtensionResult" :delete-result="action"/>
+      </section>
     </article>
   `,
   data: () => ({
     index: 0,
     legPressResult: legPressInitResult(),
-    legCurlResult: legCurlInitResult()
+    legCurlResult: legCurlInitResult(),
+    legExtensionResult: legExtensionInitResult()
   }),
   methods: {
     action: action('clicked')
