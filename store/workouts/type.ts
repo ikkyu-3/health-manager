@@ -1,4 +1,4 @@
-import { Workout, WeightMachineResult } from '@/types'
+import { Workout, WorkoutResult } from '@/types'
 
 // state
 export type WorkoutsState = { workouts: Workout[] }
@@ -10,7 +10,7 @@ export type RemoveWorkoutMutationPayload = { index: number }
 
 export type UpdateResultsMutationPayload = {
   index: number
-  results: WeightMachineResult[]
+  results: WorkoutResult[]
   memo: string
 }
 
@@ -23,7 +23,7 @@ export type RemoveWorkoutActionPayload = { index: number }
 
 export type UpdateResultsActionPayload = {
   index: number
-  results: WeightMachineResult[]
+  results: WorkoutResult[]
   memo: string
 }
 

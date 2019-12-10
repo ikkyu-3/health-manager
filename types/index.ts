@@ -9,16 +9,23 @@ export type BottomNavigation = {
   icon: string
 }
 
-export type WeightMachineResult = {
+export type WeightMachineTrainingResult = {
   weight: number
   times: number
   set: number
   boost?: boolean
 }
 
+export type WeightTrainingResult = {
+  times: number
+  set: number
+}
+
+export type WorkoutResult = WeightMachineTrainingResult | WeightTrainingResult
+
 export type Workout = {
   name: string
-  results: WeightMachineResult[]
+  results: WorkoutResult[]
   memo: string
   startTime: string | null
   endTime: string | null
@@ -37,5 +44,9 @@ export type WorkoutStatus = 'pending' | 'ready' | 'running' | 'exited'
 export type WorkoutPanelContentProps = {
   index: number
   workout: Workout
-  save: (index: number, results: WeightMachineResult[], memo: string) => void
+  save: (
+    index: number,
+    results: WeightMachineTrainingResult[],
+    memo: string
+  ) => void
 }

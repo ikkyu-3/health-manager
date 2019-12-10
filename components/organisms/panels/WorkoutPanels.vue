@@ -18,7 +18,7 @@
 import { createComponent, reactive, computed } from '@vue/composition-api'
 import WorkoutPanel from '@/components/organisms/panels/WorkoutPanel.vue'
 import { userStore } from '@/store'
-import { Workout, WorkoutStatus, WeightMachineResult } from '@/types'
+import { Workout, WorkoutStatus, WorkoutResult } from '@/types'
 
 export default createComponent({
   components: { WorkoutPanel },
@@ -64,11 +64,7 @@ export default createComponent({
       }
     }
 
-    const save = (
-      index: number,
-      results: WeightMachineResult[],
-      memo: string
-    ) => {
+    const save = (index: number, results: WorkoutResult[], memo: string) => {
       store.dispatch('workouts/updateResults', { index, results, memo })
     }
 

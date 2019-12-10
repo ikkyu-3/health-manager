@@ -34,7 +34,7 @@
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
-import { WeightMachineResult } from '@/types'
+import { WeightMachineTrainingResult } from '@/types'
 import BaseResult from '@/components/molecules/results/BaseResult.vue'
 import ResultField from '@/components/molecules/fields/ResultField.vue'
 
@@ -54,7 +54,7 @@ type LegCurlResultType = {
   deleteResult: (index: number) => void
 }
 
-export const initResult = (): WeightMachineResult => ({
+export const initResult = (): WeightMachineTrainingResult => ({
   weight: config.weight.default,
   times: config.times.default,
   set: config.set.default

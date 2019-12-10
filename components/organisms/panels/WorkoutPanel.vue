@@ -13,7 +13,7 @@
 import { createComponent } from '@vue/composition-api'
 import WorkoutPanelHeader from '@/components/molecules/panel-parts/WorkoutPanelHeader.vue'
 import WorkoutPanelContent from '@/components/molecules/panel-parts/WorkoutPanelContent.vue'
-import { Workout, WorkoutStatus, WeightMachineResult } from '@/types'
+import { Workout, WorkoutStatus, WorkoutResult } from '@/types'
 
 type WorkoutPanelProps = {
   index: number
@@ -22,7 +22,7 @@ type WorkoutPanelProps = {
   disabled: boolean
   readonly: boolean
   click: (index: number, status: WorkoutStatus) => void
-  save: (index: number, results: WeightMachineResult[], memo: string) => void
+  save: (index: number, results: WorkoutResult[], memo: string) => void
 }
 
 export default createComponent<WorkoutPanelProps, {}>({
