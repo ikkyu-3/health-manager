@@ -23,13 +23,23 @@ export type WeightTrainingResult = {
 
 export type WorkoutResult = WeightMachineTrainingResult | WeightTrainingResult
 
-export type Workout = {
+export type WeightMachineWorkout = {
   name: string
-  results: WorkoutResult[]
+  results: WeightMachineTrainingResult[]
   memo: string
   startTime: string | null
   endTime: string | null
 }
+
+export type WeightWorkout = {
+  name: string
+  results: WeightTrainingResult[]
+  memo: string
+  startTime: string | null
+  endTime: string | null
+}
+
+export type Workout = WeightMachineWorkout | WeightWorkout
 
 export type WorkoutContext = {
   index: string
@@ -41,12 +51,18 @@ export type WorkoutContexts = WorkoutContext[]
 
 export type WorkoutStatus = 'pending' | 'ready' | 'running' | 'exited'
 
-export type WorkoutPanelContentProps = {
+export type WeightMachineWorkoutPanelContentProps = {
   index: number
-  workout: Workout
+  workout: WeightMachineWorkout
   save: (
     index: number,
     results: WeightMachineTrainingResult[],
     memo: string
   ) => void
+}
+
+export type WeightWorkoutPanelContentProps = {
+  index: number
+  workout: WeightWorkout
+  save: (index: number, results: WeightTrainingResult[], memo: string) => void
 }
