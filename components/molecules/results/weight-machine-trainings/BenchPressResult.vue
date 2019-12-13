@@ -39,12 +39,12 @@ import BaseResult from '@/components/molecules/results/BaseResult.vue'
 import ResultField from '@/components/molecules/fields/ResultField.vue'
 
 const config = {
-  weight: { max: 150, default: 30, step: 5 },
+  weight: { max: 200, default: 40, step: 2.5 },
   times: { max: 50, default: 10, step: 1 },
   set: { max: 10, default: 3, step: 1 }
 }
 
-type ChestPressResultType = {
+type BenchPressResultType = {
   index: number
   result: {
     weight: number
@@ -60,7 +60,7 @@ export const initResult = (): WeightMachineTrainingResult => ({
   set: config.set.default
 })
 
-export default createComponent<ChestPressResultType, {}>({
+export default createComponent<BenchPressResultType, {}>({
   components: { BaseResult, ResultField },
   props: {
     index: Number,
@@ -128,7 +128,5 @@ export default createComponent<ChestPressResultType, {}>({
 </script>
 
 <style lang="scss" scoped>
-.row {
-  margin: 0;
-}
+@import '../results';
 </style>

@@ -39,12 +39,12 @@ import BaseResult from '@/components/molecules/results/BaseResult.vue'
 import ResultField from '@/components/molecules/fields/ResultField.vue'
 
 const config = {
-  weight: { max: 500, default: 60, step: 10 },
+  weight: { max: 100, default: 30, step: 5 },
   times: { max: 50, default: 10, step: 1 },
   set: { max: 10, default: 3, step: 1 }
 }
 
-type LegPressResultType = {
+type LatPulldownResultType = {
   index: number
   result: {
     weight: number
@@ -60,7 +60,7 @@ export const initResult = (): WeightMachineTrainingResult => ({
   set: config.set.default
 })
 
-export default createComponent<LegPressResultType, {}>({
+export default createComponent<LatPulldownResultType, {}>({
   components: { BaseResult, ResultField },
   props: {
     index: Number,
@@ -128,7 +128,5 @@ export default createComponent<LegPressResultType, {}>({
 </script>
 
 <style lang="scss" scoped>
-.row {
-  margin: 0;
-}
+@import '../results';
 </style>

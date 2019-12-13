@@ -1,15 +1,6 @@
 <template>
   <base-result :delete-result="() => deleteResult(index)">
     <v-row class="row">
-      <v-col cols="5" class="key">Weight</v-col>
-      <v-col cols="7">
-        <result-field
-          weight
-          :value="state.weight"
-          :reduce="reduceWeight"
-          :add="addWeight"
-        />
-      </v-col>
       <v-col cols="5" class="key">Times</v-col>
       <v-col cols="7">
         <result-field
@@ -34,33 +25,30 @@
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
-import { WeightMachineTrainingResult } from '@/types'
+import { WeightTrainingResult } from '@/types'
 import BaseResult from '@/components/molecules/results/BaseResult.vue'
 import ResultField from '@/components/molecules/fields/ResultField.vue'
 
 const config = {
-  weight: { max: 100, default: 30, step: 5 },
   times: { max: 50, default: 10, step: 1 },
   set: { max: 10, default: 3, step: 1 }
 }
 
-type LatPulldownResultType = {
+type LegRaiseResultType = {
   index: number
   result: {
-    weight: number
     times: number
     set: number
   }
   deleteResult: (index: number) => void
 }
 
-export const initResult = (): WeightMachineTrainingResult => ({
-  weight: config.weight.default,
+export const initResult = (): WeightTrainingResult => ({
   times: config.times.default,
   set: config.set.default
 })
 
-export default createComponent<LatPulldownResultType, {}>({
+export default createComponent<LegRaiseResultType, {}>({
   components: { BaseResult, ResultField },
   props: {
     index: Number,
@@ -69,22 +57,8 @@ export default createComponent<LatPulldownResultType, {}>({
   },
   setup(props, { emit }) {
     const { index, result } = props
-    const { weight, times, set } = result
-    const state = reactive({ weight, times, set })
-
-    const reduceWeight = (e: MouseEvent) => {
-      e.stopPropagation()
-      if (state.weight === 0) return
-      state.weight -= config.weight.step
-      emit('weight-change', index, state.weight)
-    }
-
-    const addWeight = (e: MouseEvent) => {
-      e.stopPropagation()
-      if (state.weight === config.weight.max) return
-      state.weight += config.weight.step
-      emit('weight-change', index, state.weight)
-    }
+    const { times, set } = result
+    const state = reactive({ times, set })
 
     const reduceTimes = (e: MouseEvent) => {
       e.stopPropagation()
@@ -116,8 +90,6 @@ export default createComponent<LatPulldownResultType, {}>({
 
     return {
       state,
-      reduceWeight,
-      addWeight,
       reduceTimes,
       addTimes,
       reduceSet,
@@ -128,7 +100,5 @@ export default createComponent<LatPulldownResultType, {}>({
 </script>
 
 <style lang="scss" scoped>
-.row {
-  margin: 0;
-}
+@import '../results';
 </style>

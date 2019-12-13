@@ -34,7 +34,7 @@ const config = {
   set: { max: 10, default: 3, step: 1 }
 }
 
-type LegRaiseResultType = {
+type CrunchResultType = {
   index: number
   result: {
     times: number
@@ -48,7 +48,7 @@ export const initResult = (): WeightTrainingResult => ({
   set: config.set.default
 })
 
-export default createComponent<LegRaiseResultType, {}>({
+export default createComponent<CrunchResultType, {}>({
   components: { BaseResult, ResultField },
   props: {
     index: Number,
@@ -100,7 +100,5 @@ export default createComponent<LegRaiseResultType, {}>({
 </script>
 
 <style lang="scss" scoped>
-.row {
-  margin: 0;
-}
+@import '../results';
 </style>

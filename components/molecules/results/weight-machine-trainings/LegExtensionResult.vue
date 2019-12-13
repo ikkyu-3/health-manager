@@ -128,7 +128,5 @@ export default createComponent<LegExtensionResultType, {}>({
 </script>
 
 <style lang="scss" scoped>
-.row {
-  margin: 0;
-}
+@import '../results';
 </style>

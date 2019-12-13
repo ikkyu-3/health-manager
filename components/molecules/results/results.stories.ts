@@ -6,29 +6,31 @@ import WorkoutTimeResult from './WorkoutTimeResult.vue'
 // workout result
 import BenchPressResult, {
   initResult as benchPressInitResult
-} from './BenchPressResult.vue'
+} from './weight-machine-trainings/BenchPressResult.vue'
 import ChestPressResult, {
   initResult as chestPressInitResult
-} from './ChestPressResult.vue'
+} from './weight-machine-trainings/ChestPressResult.vue'
 import CrunchResult, {
   initResult as crunchInitResult
-} from './CrunchResult.vue'
+} from './weight-trainings/CrunchResult.vue'
 import LatPulldownResult, {
   initResult as latPulldownInitResult
-} from './LatPulldownResult.vue'
+} from './weight-machine-trainings/LatPulldownResult.vue'
 import LegPressResult, {
   initResult as legPressInitResult
-} from './LegPressResult.vue'
+} from './weight-machine-trainings/LegPressResult.vue'
 import LegCurlResult, {
   initResult as legCurlInitResult
-} from './LegCurlResult.vue'
+} from './weight-machine-trainings/LegCurlResult.vue'
 import LegExtensionResult, {
   initResult as legExtensionInitResult
-} from './LegExtensionResult.vue'
+} from './weight-machine-trainings/LegExtensionResult.vue'
 import LegRaiseResult, {
   initResult as legRaiseInitResult
-} from './LegRaiseResult.vue'
-import SitUpResult, { initResult as sitUpInitResult } from './SitUpResult.vue'
+} from './weight-trainings/LegRaiseResult.vue'
+import SitUpResult, {
+  initResult as sitUpInitResult
+} from './weight-trainings/SitUpResult.vue'
 
 storiesOf('molecules.results', module).add('BaseResult', () => ({
   components: { BaseResult },
