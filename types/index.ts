@@ -16,14 +16,21 @@ export type WeightMachineTrainingResult = {
   boost?: boolean
 }
 
-export type WeightTrainingResult = {
-  times: number
-  set: number
-}
+export type WeightTrainingResult =
+  | {
+      times: number
+      set: number
+    }
+  | {
+      hasWeight: boolean
+      weight: number
+      times: number
+      set: number
+    }
 
 export type WorkoutResult = WeightMachineTrainingResult | WeightTrainingResult
 
-export type WeightMachineWorkout = {
+export type WeightMachineTraining = {
   name: string
   results: WeightMachineTrainingResult[]
   memo: string
@@ -31,7 +38,7 @@ export type WeightMachineWorkout = {
   endTime: string | null
 }
 
-export type WeightWorkout = {
+export type WeightTraining = {
   name: string
   results: WeightTrainingResult[]
   memo: string
@@ -39,7 +46,7 @@ export type WeightWorkout = {
   endTime: string | null
 }
 
-export type Workout = WeightMachineWorkout | WeightWorkout
+export type Workout = WeightMachineTraining | WeightTraining
 
 export type WorkoutContext = {
   index: string
@@ -53,7 +60,7 @@ export type WorkoutStatus = 'pending' | 'ready' | 'running' | 'exited'
 
 export type WeightMachineWorkoutPanelContentProps = {
   index: number
-  workout: WeightMachineWorkout
+  workout: WeightMachineTraining
   save: (
     index: number,
     results: WeightMachineTrainingResult[],
@@ -63,6 +70,10 @@ export type WeightMachineWorkoutPanelContentProps = {
 
 export type WeightWorkoutPanelContentProps = {
   index: number
-  workout: WeightWorkout
+  workout: WeightTraining
   save: (index: number, results: WeightTrainingResult[], memo: string) => void
 }
+
+export type WorkoutPanelContentProps =
+  | WeightMachineWorkoutPanelContentProps
+  | WeightWorkoutPanelContentProps

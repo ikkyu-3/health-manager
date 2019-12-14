@@ -1,0 +1,41 @@
+@mixin header-margin() {
+  margin: 8px 0 4px;
+}
+
+.panel-content {
+  padding-top: 8px;
+}
+
+.workout-time-header {
+  @include header-margin;
+}
+
+.workout-time-value {
+  margin-left: 12px;
+}
+
+.results-header {
+  @include header-margin;
+
+  display: block;
+}
+
+.result-content {
+  margin: 8px 0 20px;
+}
+
+.add-result-button {
+  position: relative;
+  left: calc(100% - 40px);
+  margin-bottom: 12px;
+}
+
+.memo-header {
+  @include header-margin;
+
+  display: block;
+}
+
+.save-button {
+  width: 100%;
+}

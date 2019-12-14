@@ -5,7 +5,7 @@
       :end-time="workout.endTime"
     />
     <label class="results-header">Results</label>
-    <leg-press-result
+    <leg-extension-result
       v-for="(result, index) in state.results"
       :key="index"
       class="result-content"
@@ -36,14 +36,14 @@
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
 import WorkoutTimeResult from '@/components/molecules/results/WorkoutTimeResult.vue'
-import LegPressResult, {
+import LegExtensionResult, {
   initResult
-} from '@/components/molecules/results/LegPressResult.vue'
+} from '@/components/molecules/results/weight-machine-trainings/LegExtensionResult.vue'
 import MemoField from '@/components/molecules/fields/MemoField.vue'
-import { WorkoutPanelContentProps } from '@/types'
+import { WeightMachineWorkoutPanelContentProps } from '@/types'
 
-export default createComponent<WorkoutPanelContentProps, {}>({
-  components: { WorkoutTimeResult, LegPressResult, MemoField },
+export default createComponent<WeightMachineWorkoutPanelContentProps, {}>({
+  components: { WorkoutTimeResult, LegExtensionResult, MemoField },
   props: {
     index: Number,
     workout: Object,
@@ -93,45 +93,5 @@ export default createComponent<WorkoutPanelContentProps, {}>({
 </script>
 
 <style lang="scss" scoped>
-@mixin header-margin() {
-  margin: 8px 0 4px;
-}
-
-.panel-content {
-  padding-top: 8px;
-}
-
-.workout-time-header {
-  @include header-margin;
-}
-
-.workout-time-value {
-  margin-left: 12px;
-}
-
-.results-header {
-  @include header-margin;
-
-  display: block;
-}
-
-.result-content {
-  margin: 8px 0 20px;
-}
-
-.add-result-button {
-  position: relative;
-  left: calc(100% - 40px);
-  margin-bottom: 12px;
-}
-
-.memo-header {
-  @include header-margin;
-
-  display: block;
-}
-
-.save-button {
-  width: 100%;
-}
+@import '../workout-contents';
 </style>

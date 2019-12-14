@@ -15,30 +15,90 @@ storiesOf('molecules.panel-parts', module).add('WorkoutPanelHeader', () => ({
     `
 }))
 
-storiesOf('molecules.panel-parts.WorkoutPanelContent', module).add(
-  'LegPressPanelContent',
-  () => ({
-    components: { WorkoutPanelHeader, WorkoutPanelContent },
-    template: `
-      <v-expansion-panels>
-        <v-expansion-panel>
-          <workout-panel-header :name="workout.name" status="running" />
-          <workout-panel-content :index="workoutIndex" :workout="workout" :save="save" />
-        </v-expansion-panel>
-      </v-expansion-panels>
+storiesOf('molecules.panel-parts', module).add('WorkoutPanelContent', () => ({
+  components: { WorkoutPanelHeader, WorkoutPanelContent },
+  template: `
+      <article>
+        <h1>WorkoutPanelContent</h1>
+        <section v-for="(workout, index) in workouts" :key="index">
+          <h2>{{ workout.name }}</h2>
+          <v-expansion-panels>
+            <v-expansion-panel>
+              <workout-panel-header :name="workout.name" status="exited" />
+              <workout-panel-content :index="index" :workout="workout" :save="save" />
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </section>
+      </article>
     `,
-    data: () => ({
-      workoutIndex: 0,
-      workout: {
+  data: () => ({
+    workouts: [
+      {
+        name: 'Bench Press',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
+        name: 'Chest Press',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
+        name: 'Lat Pulldown',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
+        name: 'Leg Curl',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
+        name: 'Leg Extension',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
         name: 'Leg Press',
         results: [],
         memo: '',
         startTime: '2019-01-01T00:00:00.000Z',
         endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
+        name: 'Crunch',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
+        name: 'Leg Raise',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
+        name: 'Sit Up',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
       }
-    }),
-    methods: {
-      save: action('save')
-    }
-  })
-)
+    ]
+  }),
+  methods: {
+    save: action('save')
+  }
+}))

@@ -57,6 +57,7 @@ export default createComponent<WorkoutPanelIconProps, {}>({
 
 <style lang="scss" scoped>
 .v-expansion-panel-header--active {
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  font-size: 24px;
+  font-weight: bold;
 }
 </style>
