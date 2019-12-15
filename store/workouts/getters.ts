@@ -16,7 +16,7 @@ const getters: GetterTree<WorkoutsState, RootState> = {
     }),
   nextWorkout: state => {
     const filteredWorkouts = state.workouts.filter(
-      workout => !workout.startTime && !workout.endTime
+      workout => !workout.startTime || !workout.endTime
     )
 
     if (filteredWorkouts.length === 0) return null
