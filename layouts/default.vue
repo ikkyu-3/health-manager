@@ -2,7 +2,7 @@
   <v-app>
     <toolbar />
     <v-content>
-      <v-container fluid fill-height>
+      <v-container class="container">
         <nuxt />
       </v-container>
     </v-content>
@@ -12,8 +12,8 @@
 
 <script lang="ts">
 import { createComponent } from '@vue/composition-api'
-import Toolbar from '@/components/organisms/Toolbar.vue'
-import BottomNavigation from '@/components/organisms/BottomNavigation.vue'
+import Toolbar from '@/components/organisms/global/TheToolbar.vue'
+import BottomNavigation from '@/components/organisms/global/TheBottomNavigation.vue'
 
 export default createComponent({
   components: { Toolbar, BottomNavigation },
@@ -22,3 +22,9 @@ export default createComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.container {
+  height: 100%;
+}
+</style>

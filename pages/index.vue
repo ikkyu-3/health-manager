@@ -1,25 +1,23 @@
 <template>
-  <v-layout>
-    <v-flex>
-      <!-- TODO: コンポーネントを作成する -->
-      <div v-if="state.workoutsExists">Workoutsあり</div>
-      <div v-else>Workoutsなし</div>
-
-      <add-button right-bottom @click="showDialog" />
-    </v-flex>
+  <v-layout :class="{ 'fill-height': !state.workoutsExists }">
+    <workout-panels v-if="state.workoutsExists" />
+    <p v-else class="empty">Let's Start Workouts!!💪</p>
+    <v-btn class="add" fixed fab dark color="lime" @click="showDialog">
+      <v-icon>fa-plus</v-icon>
+    </v-btn>
     <workouts-dialog :dialog="state.dialog" :back="hideDialog" />
   </v-layout>
 </template>
 
 <script lang="ts">
 import { createComponent, reactive, computed } from '@vue/composition-api'
-import AddButton from '@/components/molecules/button/AddButton.vue'
-import WorkoutsDialog from '@/components/organisms/WorkoutsDialog.vue'
+import WorkoutsDialog from '@/components/organisms/dialog/WorkoutsDialog.vue'
+import WorkoutPanels from '@/components/organisms/panels/WorkoutPanels.vue'
 import { subColor } from '@/constants'
 import { userStore } from '@/store'
 
 export default createComponent({
-  components: { AddButton, WorkoutsDialog },
+  components: { WorkoutsDialog, WorkoutPanels },
   setup() {
     const store = userStore()
 
@@ -41,3 +39,21 @@ export default createComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.empty {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.add {
+  right: 16px;
+  bottom: 72px;
+}
+</style>

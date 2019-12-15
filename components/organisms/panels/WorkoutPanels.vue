@@ -31,6 +31,7 @@ export default createComponent({
         const nextWorkout = store.getters[ // eslint-disable-line
           'workouts/nextWorkout'
         ] as Workout | null
+        const nextWorkoutName = nextWorkout ? nextWorkout.name : ''
         const workouts = store.getters['workouts/workouts'] as Workout[]
         const workoutStatus = store.getters['workouts/workoutStatus'] as (
           index: number,
@@ -38,7 +39,7 @@ export default createComponent({
         ) => WorkoutStatus | ''
 
         return workouts.map((workout, index) => {
-          const status = workoutStatus(index, workout.name)
+          const status = workoutStatus(index, nextWorkoutName)
           const disabled = status === '' || status === 'pending'
           const readonly = disabled || status === 'ready'
 
