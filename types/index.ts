@@ -7,6 +7,7 @@ export type BottomNavigation = {
   value: string
   text: Title
   icon: string
+  disabled: boolean
 }
 
 export type WeightMachineTrainingResult = {

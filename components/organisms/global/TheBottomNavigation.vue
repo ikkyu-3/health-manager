@@ -13,6 +13,7 @@
       :key="index"
       :value="button.value"
       :to="button.to"
+      :disabled="button.disabled"
       nuxt
       @click="changeTitle(button.text)"
     >
