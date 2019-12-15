@@ -6,25 +6,29 @@ export const bottomNavigation: BottomNavigation[] = [
     to: '/',
     value: 'workouts',
     text: 'Workouts',
-    icon: 'fa-dumbbell'
+    icon: 'fa-dumbbell',
+    disabled: false
   },
   {
     to: '/schedule',
     value: 'schedule',
     text: 'Schedule',
-    icon: 'fa-calendar-alt'
+    icon: 'fa-calendar-alt',
+    disabled: true
   },
   {
     to: '/workouts-data',
     value: 'workouts-data',
     text: 'Workouts Data',
-    icon: 'fa-list-alt'
+    icon: 'fa-list-alt',
+    disabled: true
   },
   {
     to: '/health-planet',
     value: 'health-planet',
     text: 'Health Planet',
-    icon: 'fa-globe'
+    icon: 'fa-globe',
+    disabled: true
   }
 ]
 
@@ -39,19 +43,15 @@ export const workoutMenu = [
     workouts: ['Leg Press', 'Leg Extension', 'Leg Curl']
   },
   {
-    target: 'Pectoral',
-    workouts: ['Bench Press', 'Chest Press', 'Pectoral Fly']
-  },
-  {
-    target: 'Triceps',
-    workouts: []
-  },
-  {
     target: 'Back',
-    workouts: []
+    workouts: ['Lat Pulldown']
   },
   {
-    target: 'Biceps',
-    workouts: []
+    target: 'Pectoral',
+    workouts: ['Bench Press', 'Chest Press']
+  },
+  {
+    target: 'Abdominal',
+    workouts: ['Crunch', 'Leg Raise', 'Sit Up']
   }
 ]
