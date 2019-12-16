@@ -1,5 +1,5 @@
 <template>
-  <v-expansion-panels class="hoge">
+  <v-expansion-panels v-model="state.panel" multiple class="hoge">
     <workout-panel
       v-for="panelProps in state.panelPropsList"
       :key="panelProps.index"
@@ -27,6 +27,7 @@ export default createComponent({
     const store = userStore()
 
     const state = reactive({
+      panel: [] as string[],
       panelPropsList: computed(() => {
         const nextWorkout = store.getters[ // eslint-disable-line
           'workouts/nextWorkout'
@@ -48,8 +49,8 @@ export default createComponent({
       })
     })
 
-    const click = (index: number, state: WorkoutStatus) => {
-      switch (state) {
+    const click = (index: number, workoutStatus: WorkoutStatus) => {
+      switch (workoutStatus) {
         case 'ready':
           store.dispatch('workouts/updateStartTime', {
             index,
@@ -63,10 +64,12 @@ export default createComponent({
           })
           break
       }
+      state.panel.push(state.panelPropsList[index].workout.name)
     }
 
     const save = (index: number, results: WorkoutResult[], memo: string) => {
       store.dispatch('workouts/updateResults', { index, results, memo })
+      state.panel = []
     }
 
     return { state, click, save }
