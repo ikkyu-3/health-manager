@@ -62,7 +62,7 @@ export type WorkoutStatus = 'pending' | 'ready' | 'running' | 'exited'
 export type WeightMachineWorkoutPanelContentProps = {
   index: number
   workout: WeightMachineTraining
-  save: (
+  finish: (
     index: number,
     results: WeightMachineTrainingResult[],
     memo: string
@@ -72,7 +72,7 @@ export type WeightMachineWorkoutPanelContentProps = {
 export type WeightWorkoutPanelContentProps = {
   index: number
   workout: WeightTraining
-  save: (index: number, results: WeightTrainingResult[], memo: string) => void
+  finish: (index: number, results: WeightTrainingResult[], memo: string) => void
 }
 
 export type WorkoutPanelContentProps =
