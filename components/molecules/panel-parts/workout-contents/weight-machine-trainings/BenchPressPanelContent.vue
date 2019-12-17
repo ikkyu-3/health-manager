@@ -27,7 +27,7 @@
       <v-icon>fa-plus</v-icon>
     </v-btn>
     <memo-field :value="state.memo" />
-    <v-btn class="save-button" color="blue-grey" dark @click="workoutSave"
+    <v-btn class="save-button" color="blue-grey" dark @click="workoutFinish"
       >終了</v-btn
     >
   </v-expansion-panel-content>
@@ -47,9 +47,9 @@ export default createComponent<WeightMachineWorkoutPanelContentProps, {}>({
   props: {
     index: Number,
     workout: Object,
-    save: Function
+    finish: Function
   },
-  setup({ index, workout, save }) {
+  setup({ index, workout, finish }) {
     const state = reactive({
       results: workout.results.length ? workout.results : [initResult()],
       memo: workout.memo
@@ -75,8 +75,8 @@ export default createComponent<WeightMachineWorkoutPanelContentProps, {}>({
       state.results.push(initResult())
     }
 
-    const workoutSave = () => {
-      save(index, state.results, state.memo)
+    const workoutFinish = () => {
+      finish(index, state.results, state.memo)
     }
 
     return {
@@ -86,7 +86,7 @@ export default createComponent<WeightMachineWorkoutPanelContentProps, {}>({
       setChange,
       deleteResult,
       addResult,
-      workoutSave
+      workoutFinish
     }
   }
 })

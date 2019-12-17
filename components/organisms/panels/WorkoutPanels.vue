@@ -9,7 +9,7 @@
       :disabled="panelProps.disabled"
       :readonly="panelProps.readonly"
       :click="click"
-      :save="save"
+      :finish="finish"
     />
   </v-expansion-panels>
 </template>
@@ -25,7 +25,6 @@ export default createComponent({
   props: {},
   setup() {
     const store = userStore()
-
     const state = reactive({
       panel: [] as string[],
       panelPropsList: computed(() => {
@@ -67,12 +66,12 @@ export default createComponent({
       state.panel.push(state.panelPropsList[index].workout.name)
     }
 
-    const save = (index: number, results: WorkoutResult[], memo: string) => {
+    const finish = (index: number, results: WorkoutResult[], memo: string) => {
       store.dispatch('workouts/updateResults', { index, results, memo })
       state.panel = []
     }
 
-    return { state, click, save }
+    return { state, click, finish }
   }
 })
 </script>

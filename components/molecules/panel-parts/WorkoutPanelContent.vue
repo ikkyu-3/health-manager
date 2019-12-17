@@ -3,7 +3,7 @@
     :is="state.componentName"
     :workout="workout"
     :index="index"
-    :save="save"
+    :finish="finish"
   />
 </template>
 
@@ -35,7 +35,7 @@ export default createComponent<WorkoutPanelContentProps, {}>({
   props: {
     index: Number,
     workout: Object,
-    save: Function
+    finish: Function
   },
   setup(props) {
     const state = reactive({

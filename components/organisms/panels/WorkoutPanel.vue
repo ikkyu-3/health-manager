@@ -5,7 +5,7 @@
     @click="click(index, status)"
   >
     <workout-panel-header :name="workout.name" :status="status" />
-    <workout-panel-content :index="index" :workout="workout" :save="save" />
+    <workout-panel-content :index="index" :workout="workout" :finish="finish" />
   </v-expansion-panel>
 </template>
 
@@ -22,7 +22,7 @@ type WorkoutPanelProps = {
   disabled: boolean
   readonly: boolean
   click: (index: number, status: WorkoutStatus) => void
-  save: (index: number, results: WorkoutResult[], memo: string) => void
+  finish: (index: number, results: WorkoutResult[], memo: string) => void
 }
 
 export default createComponent<WorkoutPanelProps, {}>({
@@ -34,7 +34,7 @@ export default createComponent<WorkoutPanelProps, {}>({
     disabled: Boolean,
     readonly: Boolean,
     click: Function,
-    save: Function
+    finish: Function
   }
 })
 </script>
