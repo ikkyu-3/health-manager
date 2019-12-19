@@ -27,7 +27,7 @@
       <v-icon>fa-plus</v-icon>
     </v-btn>
     <memo-field :value="state.memo" />
-    <v-btn class="save-button" color="blue-grey" dark @click="workoutFinish"
+    <v-btn class="finish-button" color="blue-grey" dark @click="workoutFinish"
       >終了</v-btn
     >
   </v-expansion-panel-content>
