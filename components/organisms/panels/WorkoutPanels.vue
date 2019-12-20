@@ -1,17 +1,27 @@
 <template>
-  <v-expansion-panels v-model="state.panel" multiple class="hoge">
-    <workout-panel
-      v-for="panelProps in state.panelPropsList"
-      :key="panelProps.index"
-      :index="panelProps.index"
-      :workout="panelProps.workout"
-      :status="panelProps.status"
-      :disabled="panelProps.disabled"
-      :readonly="panelProps.readonly"
-      :click="click"
-      :finish="finish"
-    />
-  </v-expansion-panels>
+  <div class="workout-panels">
+    <v-expansion-panels v-model="state.panel" multiple>
+      <workout-panel
+        v-for="panelProps in state.panelPropsList"
+        :key="panelProps.index"
+        :index="panelProps.index"
+        :workout="panelProps.workout"
+        :status="panelProps.status"
+        :disabled="panelProps.disabled"
+        :readonly="panelProps.readonly"
+        :click="click"
+        :finish="finish"
+      />
+    </v-expansion-panels>
+    <v-btn
+      dark
+      class="save-button"
+      :color="mainColor"
+      :disabled="state.canSave"
+      @click="save"
+      >SAVE</v-btn
+    >
+  </div>
 </template>
 
 <script lang="ts">
@@ -19,10 +29,13 @@ import { createComponent, reactive, computed } from '@vue/composition-api'
 import WorkoutPanel from '@/components/organisms/panels/WorkoutPanel.vue'
 import { userStore } from '@/store'
 import { Workout, WorkoutStatus, WorkoutResult } from '@/types'
+import { mainColor } from '@/constants'
 
 export default createComponent({
   components: { WorkoutPanel },
-  props: {},
+  props: {
+    save: Function
+  },
   setup() {
     const store = userStore()
     const state = reactive({
@@ -45,6 +58,9 @@ export default createComponent({
 
           return { workout, index, status, disabled, readonly }
         })
+      }),
+      canSave: computed(() => {
+        return !!store.getters['workouts/nextWorkout']
       })
     })
 
@@ -71,7 +87,18 @@ export default createComponent({
       state.panel = []
     }
 
-    return { state, click, finish }
+    return { state, click, finish, mainColor }
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.workout-panels {
+  width: 100%;
+}
+
+.save-button {
+  margin: 16px;
+  width: calc(100% - 32px);
+}
+</style>

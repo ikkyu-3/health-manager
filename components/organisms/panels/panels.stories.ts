@@ -17,7 +17,7 @@ storiesOf('organisms.panels', module).add('WorkoutPanel', () => ({
         :disabled="panelProps.disabled"
         :readonly="panelProps.readonly"
         :click="click"
-        :save="save"
+        :finish="finish"
       />
     </v-expansion-panels>
   `,
@@ -85,7 +85,7 @@ storiesOf('organisms.panels', module).add('WorkoutPanel', () => ({
   }),
   methods: {
     click: action('click'),
-    save: action('save')
+    finish: action('finish')
   }
 }))
 
@@ -102,6 +102,9 @@ store.state.workouts.workouts = [
 storiesOf('organisms.panels', module).add('WorkoutPanels', () => ({
   components: { WorkoutPanels },
   template: `
-    <workout-panels />
-  `
+    <workout-panels :save="save"/>
+  `,
+  methods: {
+    save: action('save')
+  }
 }))
