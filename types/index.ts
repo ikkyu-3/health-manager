@@ -78,3 +78,8 @@ export type WeightWorkoutPanelContentProps = {
 export type WorkoutPanelContentProps =
   | WeightMachineWorkoutPanelContentProps
   | WeightWorkoutPanelContentProps
+
+export type WorkoutObjectStore = {
+  id: string
+  date: string
+} & Workout
