@@ -4,7 +4,7 @@ const DATABASE_NAME = 'MuscleTrainingApp'
 const WORKOUT_OBJECT_STORE = 'workouts'
 
 class IndexedDB {
-  init() {
+  public init() {
     return new Promise((resolve, reject) => {
       const request = indexedDB.open(DATABASE_NAME)
 
@@ -24,7 +24,7 @@ class IndexedDB {
     })
   }
 
-  save(workouts: Workout[]) {
+  public save(workouts: Workout[]) {
     return new Promise((resolve, reject) => {
       const request = indexedDB.open(DATABASE_NAME)
 
@@ -38,10 +38,8 @@ class IndexedDB {
 
         transaction.onerror = event => reject(event)
 
-        const dateObject = new Date()
-        const date = `${dateObject.getFullYear()}-${dateObject.getMonth() +
-          1}-${dateObject.getDate()}`
         const objectStore = transaction.objectStore(WORKOUT_OBJECT_STORE)
+        const date = this.getDate()
 
         workouts.forEach(workout => {
           const saveData: WorkoutObjectStore = {
@@ -55,6 +53,56 @@ class IndexedDB {
 
       request.onerror = event => reject(event)
     })
+  }
+
+  public read() {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(DATABASE_NAME)
+
+      request.onsuccess = () => {
+        const transaction = request.result.transaction(
+          [WORKOUT_OBJECT_STORE],
+          'readonly'
+        )
+
+        transaction.oncomplete = () => resolve()
+
+        transaction.onerror = event => reject(event)
+
+        const index = transaction
+          .objectStore(WORKOUT_OBJECT_STORE)
+          .index('date')
+        const singleKeyRange = IDBKeyRange.only(this.getDate())
+        const workouts: Workout[] = []
+
+        index.openCursor(singleKeyRange).onsuccess = event => {
+          const cursor = (event.target as IDBRequest<IDBCursorWithValue>)
+            .result as IDBCursorWithValue | null
+
+          if (cursor) {
+            const workout: Workout = {
+              name: cursor.value.name,
+              results: cursor.value.results,
+              memo: cursor.value.memo,
+              startTime: cursor.value.startTime,
+              endTime: cursor.value.endTime
+            }
+
+            workouts.push(workout)
+            cursor.continue()
+          } else {
+            resolve(workouts)
+          }
+        }
+      }
+
+      request.onerror = event => reject(event)
+    })
+  }
+
+  public getDate() {
+    const date = new Date()
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
   }
 }
 
