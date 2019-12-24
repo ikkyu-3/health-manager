@@ -56,7 +56,7 @@ class IndexedDB {
   }
 
   public read() {
-    return new Promise((resolve, reject) => {
+    return new Promise<Workout[]>((resolve, reject) => {
       const request = indexedDB.open(DATABASE_NAME)
 
       request.onsuccess = () => {
@@ -64,8 +64,6 @@ class IndexedDB {
           [WORKOUT_OBJECT_STORE],
           'readonly'
         )
-
-        transaction.oncomplete = () => resolve()
 
         transaction.onerror = event => reject(event)
 

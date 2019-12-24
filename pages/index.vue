@@ -72,15 +72,22 @@ export default createComponent({
       }
     }
 
-    onMounted(() =>
-      db
-        .init()
-        .then(() => (state.canUseDb = true))
-        .catch(() => {
+    onMounted(async () => {
+      try {
+        await db.init()
+        state.canUseDb = true
+        const workouts = await db.read()
+        store.dispatch('workouts/setWorkouts', { workouts })
+      } catch (e) {
+        if (!state.canUseDb) {
           state.snackbarText = `保存機能が使用できません...😇`
           state.snackbar = true
-        })
-    )
+        } else {
+          state.snackbarText = `読み込み失敗...😇`
+          state.snackbar = true
+        }
+      }
+    })
 
     return {
       state,
