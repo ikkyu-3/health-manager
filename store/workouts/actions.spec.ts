@@ -9,7 +9,8 @@ describe('store/workouts/actions', () => {
     clearWorkouts,
     updateResults,
     updateStartTime,
-    updateEndTime
+    updateEndTime,
+    setWorkouts
   } = actions as any
 
   afterEach(() => {
@@ -88,6 +89,16 @@ describe('store/workouts/actions', () => {
         index: 0,
         time: '2019-01-01T00:00:00.000Z'
       })
+    })
+  })
+
+  describe('setWorkouts', () => {
+    it('commitが呼ばれる', () => {
+      setWorkouts(mockContext, { workouts: [] })
+
+      expect(commit).toHaveBeenCalled()
+      expect(commit.mock.calls[0][0]).toBe('setWorkouts')
+      expect(commit.mock.calls[0][1]).toEqual({ workouts: [] })
     })
   })
 })

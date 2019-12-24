@@ -4,7 +4,8 @@ import {
   AddWorkoutMutationPayload,
   RemoveWorkoutMutationPayload,
   UpdateResultsMutationPayload,
-  UpdateTimeMutationPayload
+  UpdateTimeMutationPayload,
+  SetWorkoutsMutationPayload
 } from './type'
 
 const mutations: MutationTree<WorkoutsState> = {
@@ -52,6 +53,9 @@ const mutations: MutationTree<WorkoutsState> = {
       return { ...workout, endTime: payload.time }
     })
     state.workouts = newWorkouts
+  },
+  setWorkouts(state, payload: SetWorkoutsMutationPayload) {
+    state.workouts = payload.workouts
   }
 }
 

@@ -16,6 +16,8 @@ export type UpdateResultsMutationPayload = {
 
 export type UpdateTimeMutationPayload = { index: number; time: string }
 
+export type SetWorkoutsMutationPayload = { workouts: Workout[] }
+
 // action
 export type AddWorkoutActionPayload = { name: string }
 
@@ -28,3 +30,5 @@ export type UpdateResultsActionPayload = {
 }
 
 export type UpdateTimeActionPayload = { index: number; time: string }
+
+export type SetWorkoutsActionPayload = { workouts: Workout[] }

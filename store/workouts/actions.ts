@@ -5,7 +5,8 @@ import {
   AddWorkoutActionPayload,
   RemoveWorkoutActionPayload,
   UpdateResultsActionPayload,
-  UpdateTimeActionPayload
+  UpdateTimeActionPayload,
+  SetWorkoutsActionPayload
 } from './type'
 
 const actions: ActionTree<WorkoutsState, RootState> = {
@@ -36,6 +37,9 @@ const actions: ActionTree<WorkoutsState, RootState> = {
       index: payload.index,
       time: payload.time
     })
+  },
+  setWorkouts(context, payload: SetWorkoutsActionPayload) {
+    context.commit('setWorkouts', { workouts: payload.workouts })
   }
 }
 

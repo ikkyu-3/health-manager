@@ -7,7 +7,8 @@ describe('store/workouts/mutations', () => {
     clearWorkouts,
     updateResults,
     updateStartTime,
-    updateEndTime
+    updateEndTime,
+    setWorkouts
   } = mutations as any
 
   describe('addWorkout', () => {
@@ -167,6 +168,22 @@ describe('store/workouts/mutations', () => {
         startTime: null,
         endTime: time
       })
+    })
+  })
+
+  describe('setWorkouts', () => {
+    it('workoutsをセットする', () => {
+      const workout = {
+        name: 'workout',
+        results: [],
+        memo: '',
+        startTime: null,
+        endTime: null
+      }
+      const state = { workouts: [workout] }
+
+      setWorkouts(state, { workouts: [] })
+      expect(state.workouts).toEqual([])
     })
   })
 })
