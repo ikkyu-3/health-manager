@@ -31,6 +31,9 @@ import LegRaiseResult, {
 import SitUpResult, {
   initResult as sitUpInitResult
 } from './weight-trainings/SitUpResult.vue'
+import BackExtensionResult, {
+  initResult as backExtensionInitResult
+} from './weight-trainings/BackExtensionResult.vue'
 
 storiesOf('molecules.results', module).add('BaseResult', () => ({
   components: { BaseResult },
@@ -63,7 +66,8 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
     LegCurlResult,
     LegExtensionResult,
     LegRaiseResult,
-    SitUpResult
+    SitUpResult,
+    BackExtensionResult
   },
   template: `
     <article>
@@ -104,6 +108,10 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
         <h2>SitUpResult</h2>
         <sit-up-result :index="index" :result="sitUpResult" :delete-result="action"/>
       </section>
+      <section>
+        <h2>BackExtension</h2>
+        <back-extension-result :index="index" :result="backExtensionResult" :delete-result="action"/>
+      </section>
     </article>
   `,
   data: () => ({
@@ -116,7 +124,8 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
     legCurlResult: legCurlInitResult(),
     legExtensionResult: legExtensionInitResult(),
     legRaiseResult: legRaiseInitResult(),
-    sitUpResult: sitUpInitResult()
+    sitUpResult: sitUpInitResult(),
+    backExtensionResult: backExtensionInitResult()
   }),
   methods: {
     action: action('clicked')
