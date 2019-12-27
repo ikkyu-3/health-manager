@@ -95,6 +95,13 @@ storiesOf('molecules.panel-parts', module).add('WorkoutPanelContent', () => ({
         memo: '',
         startTime: '2019-01-01T00:00:00.000Z',
         endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
+        name: 'Back Extension',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
       }
     ]
   }),
