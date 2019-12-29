@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import Vuetify from 'vuetify'
 import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
-import BottomNavigation from '@/components/organisms/BottomNavigation.vue'
+import BottomNavigation from '@/components/organisms/global/TheBottomNavigation.vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

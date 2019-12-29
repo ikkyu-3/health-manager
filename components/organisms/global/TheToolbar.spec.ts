@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Toolbar from '@/components/organisms/Toolbar.vue'
+import Toolbar from '@/components/organisms/global/TheToolbar.vue'
 import { userStore } from '@/store'
 
 const localVue = createLocalVue()

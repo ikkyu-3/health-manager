@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
-import WorkoutsDialog from '@/components/organisms/WorkoutsDialog.vue'
+import WorkoutsDialog from '@/components/organisms/dialog/WorkoutsDialog.vue'
 import { userStore } from '@/store'
 
 const localVue = createLocalVue()

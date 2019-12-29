@@ -1,6 +1,6 @@
 import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
-import WorkoutListGroup from '@/components/organisms/WorkoutListGroup.vue'
+import WorkoutListGroup from '@/components/organisms/lists/WorkoutListGroup.vue'
 
 const itemClick = jest.fn()
 const options = {
