@@ -1,6 +1,6 @@
 import Vuetify from 'vuetify'
 import { mount, createLocalVue, Wrapper } from '@vue/test-utils'
-import ResultField from '@/components/molecules/inputs/ResultField.vue'
+import ResultField from '@/components/molecules/fields/ResultField.vue'
 
 const options = {
   localVue: createLocalVue(),
@@ -9,13 +9,13 @@ const options = {
 
 describe('molecules/fields/ResultField.vue', () => {
   let wrapper: Wrapper<ResultField>
-  const reduce = jest.fn()
   const add = jest.fn()
+  const remove = jest.fn()
 
   beforeAll(() => {
     wrapper = mount(ResultField, {
       ...options,
-      propsData: { value: 100, reduce, add }
+      propsData: { value: 100, add, remove }
     })
   })
 
@@ -23,13 +23,13 @@ describe('molecules/fields/ResultField.vue', () => {
     expect(wrapper.find('.input-value').text()).toBe('100')
   })
 
-  it('ReduceButtonをClickすると、reduceに渡した関数が実行される', () => {
+  it('Minus ButtonをClickすると、removeに渡した関数が実行される', () => {
     const btn = wrapper.findAll('button').at(0)
     btn.trigger('click')
-    expect(reduce).toBeCalled()
+    expect(remove).toBeCalled()
   })
 
-  it('AddButtonをClickすると、addに渡した関数が実行される', () => {
+  it('Plus ButtonをClickすると、addに渡した関数が実行される', () => {
     const btn = wrapper.findAll('button').at(1)
     btn.trigger('click')
     expect(add).toBeCalled()
@@ -37,27 +37,30 @@ describe('molecules/fields/ResultField.vue', () => {
 
   describe('unit', () => {
     it('weight属性を指定した場合、"kg"が表示される', () => {
+      const value = 100
       wrapper = mount(ResultField, {
         ...options,
-        propsData: { value: 100, weight: true, reduce, add }
+        propsData: { value, weight: true, add, remove }
       })
-      expect(wrapper.find('.input-value').text()).toBe('100kg')
+      expect(wrapper.find('.input-value').text()).toBe(`${value}kg`)
     })
 
     it('times属性を指定した場合、"回"が表示される', () => {
+      const value = 10
       wrapper = mount(ResultField, {
         ...options,
-        propsData: { value: 10, times: true, reduce, add }
+        propsData: { value: 10, times: true, add, remove }
       })
-      expect(wrapper.find('.input-value').text()).toBe('10回')
+      expect(wrapper.find('.input-value').text()).toBe(`${value}回`)
     })
 
     it('set属性を指定した場合、"セット"が表示される', () => {
+      const value = 3
       wrapper = mount(ResultField, {
         ...options,
-        propsData: { value: 3, set: true, reduce, add }
+        propsData: { value: 3, set: true, add, remove }
       })
-      expect(wrapper.find('.input-value').text()).toBe('3セット')
+      expect(wrapper.find('.input-value').text()).toBe(`${value}セット`)
     })
   })
 })

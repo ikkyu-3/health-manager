@@ -9,15 +9,15 @@ storiesOf('molecules.fields', module).add('ResultField', () => ({
       <h1>ResultField</h1>
       <section>
         <h2>Weight</h2>
-        <result-field weight :value="weight" :reduce="reduceWeight" :add="addWeight"/>
+        <result-field weight :value="weight" :remove="reduceWeight" :add="addWeight"/>
       </section>
       <section>
         <h2>Times</h2>
-        <result-field times :value="times" :reduce="reduceTimes" :add="addTimes"/>
+        <result-field times :value="times" :remove="reduceTimes" :add="addTimes"/>
       </section>
       <section>
         <h2>Set</h2>
-        <result-field set :value="set" :reduce="reduceSet" :add="addSet"/>
+        <result-field set :value="set" :remove="reduceSet" :add="addSet"/>
       </section>
     </article>
   `,

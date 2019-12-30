@@ -1,10 +1,10 @@
 <template>
   <div class="input-container">
-    <v-btn fab dark color="grey" x-small @click="reduce">
+    <v-btn fab dark color="grey" x-small @click="remove">
       <v-icon>fa-minus</v-icon>
     </v-btn>
     <div class="input-value">
-      {{ value }}<span class="unit">{{ state.unit }}</span>
+      {{ value }}<span class="unit">{{ unit }}</span>
     </div>
     <v-btn fab dark color="grey" x-small @click="add">
       <v-icon>fa-plus</v-icon>
@@ -13,15 +13,15 @@
 </template>
 
 <script lang="ts">
-import { createComponent, reactive } from '@vue/composition-api'
+import { createComponent } from '@vue/composition-api'
 
 export type ResultInputType = {
   value: number
   weight: boolean
   times: boolean
   set: boolean
-  remove: () => void
   add: () => void
+  remove: () => void
 }
 
 export default createComponent<ResultInputType>({
@@ -30,8 +30,8 @@ export default createComponent<ResultInputType>({
     weight: Boolean,
     times: Boolean,
     set: Boolean,
-    reduce: Function,
-    add: Function
+    add: Function,
+    remove: Function
   },
   setup(props) {
     const { weight, times, set } = props
@@ -45,9 +45,7 @@ export default createComponent<ResultInputType>({
       unit = 'セット'
     }
 
-    const state = reactive({ unit })
-
-    return { state }
+    return { unit }
   }
 })
 </script>
