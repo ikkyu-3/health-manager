@@ -1,6 +1,6 @@
 import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
-import DialogToolbar from '@/components/organisms/DialogToolbar.vue'
+import DialogToolbar from '@/components/organisms/dialog/WorkoutsDialogToolbar.vue'
 
 const options = {
   localVue: createLocalVue(),
