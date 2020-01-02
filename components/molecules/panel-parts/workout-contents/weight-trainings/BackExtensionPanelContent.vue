@@ -39,9 +39,12 @@ import BackExtensionResult, {
   initResult
 } from '@/components/molecules/results/weight-trainings/BackExtensionResult.vue'
 import MemoField from '@/components/molecules/fields/MemoField.vue'
-import { WeightWorkoutPanelContentProps } from '@/types'
+import { WorkoutByNumberOfTimeWithWeightsPanelContentProps } from '@/types'
 
-export default createComponent<WeightWorkoutPanelContentProps, {}>({
+export default createComponent<
+  WorkoutByNumberOfTimeWithWeightsPanelContentProps,
+  {}
+>({
   components: { WorkoutTimeResult, BackExtensionResult, MemoField },
   props: {
     index: Number,

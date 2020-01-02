@@ -39,9 +39,9 @@ import SitUpResult, {
   initResult
 } from '@/components/molecules/results/weight-trainings/SitUpResult.vue'
 import MemoField from '@/components/molecules/fields/MemoField.vue'
-import { WeightWorkoutPanelContentProps } from '@/types'
+import { WorkoutByNumberOfTimePanelContentProps } from '@/types'
 
-export default createComponent<WeightWorkoutPanelContentProps, {}>({
+export default createComponent<WorkoutByNumberOfTimePanelContentProps, {}>({
   components: { WorkoutTimeResult, SitUpResult, MemoField },
   props: {
     index: Number,

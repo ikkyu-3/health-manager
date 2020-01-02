@@ -39,9 +39,9 @@ import CrunchResult, {
   initResult
 } from '@/components/molecules/results/weight-trainings/CrunchResult.vue'
 import MemoField from '@/components/molecules/fields/MemoField.vue'
-import { WeightWorkoutPanelContentProps } from '@/types'
+import { WorkoutByNumberOfTimePanelContentProps } from '@/types'
 
-export default createComponent<WeightWorkoutPanelContentProps, {}>({
+export default createComponent<WorkoutByNumberOfTimePanelContentProps, {}>({
   components: { WorkoutTimeResult, CrunchResult, MemoField },
   props: {
     index: Number,

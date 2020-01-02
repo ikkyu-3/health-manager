@@ -40,9 +40,9 @@ import BenchPressResult, {
   initResult
 } from '@/components/molecules/results/weight-machine-trainings/BenchPressResult.vue'
 import MemoField from '@/components/molecules/fields/MemoField.vue'
-import { WeightMachineWorkoutPanelContentProps } from '@/types'
+import { WorkoutByWeightMachinePanelContentProps } from '@/types'
 
-export default createComponent<WeightMachineWorkoutPanelContentProps, {}>({
+export default createComponent<WorkoutByWeightMachinePanelContentProps, {}>({
   components: { WorkoutTimeResult, BenchPressResult, MemoField },
   props: {
     index: Number,
