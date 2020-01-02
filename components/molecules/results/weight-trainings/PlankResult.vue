@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
-import { WeightTrainingResult } from '@/types'
+import { WorkoutResultBySeconds } from '@/types'
 import BaseResult from '@/components/molecules/results/BaseResult.vue'
 import ResultField from '@/components/molecules/fields/ResultField.vue'
 
@@ -43,7 +43,7 @@ type PlankResultType = {
   deleteResult: (index: number) => void
 }
 
-export const initResult = (): WeightTrainingResult => ({
+export const initResult = (): WorkoutResultBySeconds => ({
   seconds: config.seconds.default,
   set: config.set.default
 })

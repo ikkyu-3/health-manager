@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
-import { WeightTrainingResult } from '@/types'
+import { WorkoutResultByNumberOfTimeWithWeights } from '@/types'
 import BaseResult from '@/components/molecules/results/BaseResult.vue'
 import ResultField from '@/components/molecules/fields/ResultField.vue'
 
@@ -60,7 +60,7 @@ type BackExtensionResultType = {
   deleteResult: (index: number) => void
 }
 
-export const initResult = (): WeightTrainingResult => ({
+export const initResult = (): WorkoutResultByNumberOfTimeWithWeights => ({
   hasWeight: false,
   weight: config.weight.default,
   times: config.times.default,
