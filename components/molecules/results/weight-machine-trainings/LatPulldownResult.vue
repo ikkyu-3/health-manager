@@ -6,7 +6,7 @@
         <result-field
           weight
           :value="state.weight"
-          :reduce="reduceWeight"
+          :remove="reduceWeight"
           :add="addWeight"
         />
       </v-col>
@@ -15,7 +15,7 @@
         <result-field
           times
           :value="state.times"
-          :reduce="reduceTimes"
+          :remove="reduceTimes"
           :add="addTimes"
         />
       </v-col>
@@ -24,7 +24,7 @@
         <result-field
           set
           :value="state.set"
-          :reduce="reduceSet"
+          :remove="reduceSet"
           :add="addSet"
         />
       </v-col>

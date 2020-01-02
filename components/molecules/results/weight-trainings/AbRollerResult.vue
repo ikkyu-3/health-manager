@@ -30,11 +30,11 @@ import BaseResult from '@/components/molecules/results/BaseResult.vue'
 import ResultField from '@/components/molecules/fields/ResultField.vue'
 
 const config = {
-  times: { max: 50, default: 10, step: 1 },
+  times: { max: 100, default: 10, step: 1 },
   set: { max: 10, default: 3, step: 1 }
 }
 
-type LegRaiseResultType = {
+type AbRollerResultType = {
   index: number
   result: {
     times: number
@@ -48,7 +48,7 @@ export const initResult = (): WeightTrainingResult => ({
   set: config.set.default
 })
 
-export default createComponent<LegRaiseResultType, {}>({
+export default createComponent<AbRollerResultType, {}>({
   components: { BaseResult, ResultField },
   props: {
     index: Number,
@@ -100,5 +100,5 @@ export default createComponent<LegRaiseResultType, {}>({
 </script>
 
 <style lang="scss" scoped>
-@import '../results';
+@import url('../results.scss');
 </style>

@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import BaseResult from './BaseResult.vue'
 import WorkoutTimeResult from './WorkoutTimeResult.vue'
 
-// workout result
+// weight machine training
 import BenchPressResult, {
   initResult as benchPressInitResult
 } from './weight-machine-trainings/BenchPressResult.vue'
@@ -25,15 +25,25 @@ import LegCurlResult, {
 import LegExtensionResult, {
   initResult as legExtensionInitResult
 } from './weight-machine-trainings/LegExtensionResult.vue'
-import LegRaiseResult, {
-  initResult as legRaiseInitResult
-} from './weight-trainings/LegRaiseResult.vue'
-import SitUpResult, {
-  initResult as sitUpInitResult
-} from './weight-trainings/SitUpResult.vue'
+// weight training
+import AbRollerResult, {
+  initResult as abRollerInitResult
+} from './weight-trainings/AbRollerResult.vue'
 import BackExtensionResult, {
   initResult as backExtensionInitResult
 } from './weight-trainings/BackExtensionResult.vue'
+import LegRaiseResult, {
+  initResult as legRaiseInitResult
+} from './weight-trainings/LegRaiseResult.vue'
+import PlankResult, {
+  initResult as plankInitResult
+} from './weight-trainings/PlankResult.vue'
+import PushUpResult, {
+  initResult as pushUpInitResult
+} from './weight-trainings/PushUpResult.vue'
+import SitUpResult, {
+  initResult as sitUpInitResult
+} from './weight-trainings/SitUpResult.vue'
 
 storiesOf('molecules.results', module).add('BaseResult', () => ({
   components: { BaseResult },
@@ -65,9 +75,12 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
     LegPressResult,
     LegCurlResult,
     LegExtensionResult,
+    AbRollerResult,
+    BackExtensionResult,
     LegRaiseResult,
-    SitUpResult,
-    BackExtensionResult
+    PlankResult,
+    PushUpResult,
+    SitUpResult
   },
   template: `
     <article>
@@ -101,16 +114,28 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
         <leg-extension-result :index="index" :result="legExtensionResult" :delete-result="action"/>
       </section>
       <section>
-        <h2>LegRaiseResult</h2>
-        <leg-raise-result :index="index" :result="legRaiseResult" :delete-result="action"/>
-      </section>
-      <section>
-        <h2>SitUpResult</h2>
-        <sit-up-result :index="index" :result="sitUpResult" :delete-result="action"/>
+        <h2>AbRollerResult</h2>
+        <ab-roller-result :index="index" :result="abRollerResult" :delete-result="action"/>
       </section>
       <section>
         <h2>BackExtension</h2>
         <back-extension-result :index="index" :result="backExtensionResult" :delete-result="action"/>
+      </section>
+      <section>
+        <h2>LegRaiseResult</h2>
+        <leg-raise-result :index="index" :result="legRaiseResult" :delete-result="action"/>
+      </section>
+      <section>
+        <h2>PlankResult</h2>
+        <plank-result :index="index" :result="plankResult" :delete-result="action"/>
+      </section>
+      <section>
+        <h2>PushUpResult</h2>
+        <push-up-result :index="index" :result="pushUpResult" :delete-result="action"/>
+      </section>
+      <section>
+        <h2>SitUpResult</h2>
+        <sit-up-result :index="index" :result="sitUpResult" :delete-result="action"/>
       </section>
     </article>
   `,
@@ -123,9 +148,12 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
     legPressResult: legPressInitResult(),
     legCurlResult: legCurlInitResult(),
     legExtensionResult: legExtensionInitResult(),
+    abRollerResult: abRollerInitResult(),
+    backExtensionResult: backExtensionInitResult(),
     legRaiseResult: legRaiseInitResult(),
     sitUpResult: sitUpInitResult(),
-    backExtensionResult: backExtensionInitResult()
+    plankResult: plankInitResult(),
+    pushUpResult: pushUpInitResult()
   }),
   methods: {
     action: action('clicked')

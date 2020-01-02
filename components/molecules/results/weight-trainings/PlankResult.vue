@@ -1,13 +1,13 @@
 <template>
   <base-result :delete-result="() => deleteResult(index)">
     <v-row class="row">
-      <v-col cols="5" class="key">Times</v-col>
+      <v-col cols="5" class="key">Seconds</v-col>
       <v-col cols="7">
         <result-field
-          times
-          :value="state.times"
-          :remove="reduceTimes"
-          :add="addTimes"
+          seconds
+          :value="state.seconds"
+          :remove="reduceSeconds"
+          :add="addSeconds"
         />
       </v-col>
       <v-col cols="5" class="key">Set</v-col>
@@ -30,25 +30,25 @@ import BaseResult from '@/components/molecules/results/BaseResult.vue'
 import ResultField from '@/components/molecules/fields/ResultField.vue'
 
 const config = {
-  times: { max: 50, default: 10, step: 1 },
+  seconds: { max: 300, default: 30, step: 5 },
   set: { max: 10, default: 3, step: 1 }
 }
 
-type LegRaiseResultType = {
+type PlankResultType = {
   index: number
   result: {
-    times: number
+    seconds: number
     set: number
   }
   deleteResult: (index: number) => void
 }
 
 export const initResult = (): WeightTrainingResult => ({
-  times: config.times.default,
+  seconds: config.seconds.default,
   set: config.set.default
 })
 
-export default createComponent<LegRaiseResultType, {}>({
+export default createComponent<PlankResultType, {}>({
   components: { BaseResult, ResultField },
   props: {
     index: Number,
@@ -57,41 +57,41 @@ export default createComponent<LegRaiseResultType, {}>({
   },
   setup(props, { emit }) {
     const { index, result } = props
-    const { times, set } = result
-    const state = reactive({ times, set })
+    const { seconds, set } = result
+    const state = reactive({ seconds, set })
 
-    const reduceTimes = (e: MouseEvent) => {
+    const reduceSeconds = (e: MouseEvent) => {
       e.stopPropagation()
-      if (state.times === 0) return
-      state.times -= config.times.step
-      emit('times-change', index, state.times)
+      if (state.seconds === 0) return
+      state.seconds -= config.seconds.step
+      emit('seconds-change', index, state.seconds)
     }
 
-    const addTimes = (e: MouseEvent) => {
+    const addSeconds = (e: MouseEvent) => {
       e.stopPropagation()
-      if (state.times === config.times.max) return
-      state.times += config.times.step
-      emit('times-change', index, state.times)
+      if (state.seconds === config.seconds.max) return
+      state.seconds += config.seconds.step
+      emit('seconds-change', index, state.seconds)
     }
 
     const reduceSet = (e: MouseEvent) => {
       e.stopPropagation()
       if (state.set === 0) return
       state.set -= config.set.step
-      emit('set-change', index, state.times)
+      emit('set-change', index, state.set)
     }
 
     const addSet = (e: MouseEvent) => {
       e.stopPropagation()
       if (state.set === config.set.max) return
       state.set += config.set.step
-      emit('set-change', index, state.times)
+      emit('set-change', index, state.set)
     }
 
     return {
       state,
-      reduceTimes,
-      addTimes,
+      reduceSeconds,
+      addSeconds,
       reduceSet,
       addSet
     }
@@ -100,5 +100,5 @@ export default createComponent<LegRaiseResultType, {}>({
 </script>
 
 <style lang="scss" scoped>
-@import '../results';
+@import url('../results.scss');
 </style>

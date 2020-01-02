@@ -10,7 +10,7 @@
           <result-field
             weight
             :value="state.weight"
-            :reduce="reduceWeight"
+            :remove="reduceWeight"
             :add="addWeight"
           />
         </v-col>
@@ -20,7 +20,7 @@
         <result-field
           times
           :value="state.times"
-          :reduce="reduceTimes"
+          :remove="reduceTimes"
           :add="addTimes"
         />
       </v-col>
@@ -29,7 +29,7 @@
         <result-field
           set
           :value="state.set"
-          :reduce="reduceSet"
+          :remove="reduceSet"
           :add="addSet"
         />
       </v-col>
@@ -111,14 +111,14 @@ export default createComponent<BackExtensionResultType, {}>({
       e.stopPropagation()
       if (state.set === 0) return
       state.set -= config.set.step
-      emit('set-change', index, state.times)
+      emit('set-change', index, state.set)
     }
 
     const addSet = (e: MouseEvent) => {
       e.stopPropagation()
       if (state.set === config.set.max) return
       state.set += config.set.step
-      emit('set-change', index, state.times)
+      emit('set-change', index, state.set)
     }
 
     return {
