@@ -49,16 +49,25 @@ describe('molecules/fields/ResultField.vue', () => {
       const value = 10
       wrapper = mount(ResultField, {
         ...options,
-        propsData: { value: 10, times: true, add, remove }
+        propsData: { value, times: true, add, remove }
       })
       expect(wrapper.find('.input-value').text()).toBe(`${value}回`)
+    })
+
+    it('seconds属性を指定した場合、"秒"が表示される', () => {
+      const value = 30
+      wrapper = mount(ResultField, {
+        ...options,
+        propsData: { value, seconds: true, add, remove }
+      })
+      expect(wrapper.find('.input-value').text()).toBe(`${value}秒`)
     })
 
     it('set属性を指定した場合、"セット"が表示される', () => {
       const value = 3
       wrapper = mount(ResultField, {
         ...options,
-        propsData: { value: 3, set: true, add, remove }
+        propsData: { value, set: true, add, remove }
       })
       expect(wrapper.find('.input-value').text()).toBe(`${value}セット`)
     })

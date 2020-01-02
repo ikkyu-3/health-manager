@@ -16,13 +16,17 @@ storiesOf('molecules.fields', module).add('ResultField', () => ({
         <result-field times :value="times" :remove="reduceTimes" :add="addTimes"/>
       </section>
       <section>
+        <h2>Seconds</h2>
+        <result-field seconds :value="seconds" :remove="reduceSeconds" :add="addSeconds"/>
+      </section>
+      <section>
         <h2>Set</h2>
         <result-field set :value="set" :remove="reduceSet" :add="addSet"/>
       </section>
     </article>
   `,
   data() {
-    return { weight: 0, times: 0, set: 0 }
+    return { weight: 0, times: 0, seconds: 0, set: 0 }
   },
   methods: {
     reduceWeight(this: { weight: number }) {
@@ -48,6 +52,18 @@ storiesOf('molecules.fields', module).add('ResultField', () => ({
         return false
       }
       this.times += 1
+    },
+    reduceSeconds(this: { seconds: number }) {
+      if (this.seconds <= 0) {
+        return false
+      }
+      this.seconds -= 1
+    },
+    addSeconds(this: { seconds: number }) {
+      if (this.seconds >= 200) {
+        return false
+      }
+      this.seconds += 1
     },
     reduceSet(this: { set: number }) {
       if (this.set <= 0) {
