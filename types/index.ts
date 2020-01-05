@@ -114,6 +114,13 @@ export type WorkoutBySecondsWithWeightsPanelContentProps = {
   ) => void
 }
 
+export type WorkoutPanelContentProps =
+  | WorkoutByWeightMachinePanelContentProps
+  | WorkoutByNumberOfTimePanelContentProps
+  | WorkoutByNumberOfTimeWithWeightsPanelContentProps
+  | WorkoutBySecondsPanelContentProps
+  | WorkoutBySecondsWithWeightsPanelContentProps
+
 export type WorkoutContext = {
   index: string
   name: string

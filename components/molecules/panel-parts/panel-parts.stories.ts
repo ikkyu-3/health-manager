@@ -76,6 +76,20 @@ storiesOf('molecules.panel-parts', module).add('WorkoutPanelContent', () => ({
         endTime: '2019-01-01T00:01:23.000Z'
       },
       {
+        name: 'Ab Roller',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
+        name: 'Back Extension',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
         name: 'Crunch',
         results: [],
         memo: '',
@@ -91,13 +105,6 @@ storiesOf('molecules.panel-parts', module).add('WorkoutPanelContent', () => ({
       },
       {
         name: 'Sit Up',
-        results: [],
-        memo: '',
-        startTime: '2019-01-01T00:00:00.000Z',
-        endTime: '2019-01-01T00:01:23.000Z'
-      },
-      {
-        name: 'Back Extension',
         results: [],
         memo: '',
         startTime: '2019-01-01T00:00:00.000Z',
