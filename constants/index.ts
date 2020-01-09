@@ -44,14 +44,14 @@ export const workoutMenu = [
   },
   {
     target: 'Back',
-    workouts: ['Lat Pulldown', 'Back Extension']
+    workouts: ['Lat Pulldown', 'Back Extension', 'Back Extension']
   },
   {
     target: 'Pectoral',
-    workouts: ['Bench Press', 'Chest Press']
+    workouts: ['Bench Press', 'Chest Press', 'Push Up']
   },
   {
     target: 'Abdominal',
-    workouts: ['Crunch', 'Leg Raise', 'Sit Up']
+    workouts: ['Ab Roller', 'Crunch', 'Leg Raise', 'Plank', 'Sit Up']
   }
 ]
