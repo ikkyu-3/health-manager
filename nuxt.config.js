@@ -94,5 +94,13 @@ export default {
       }
     }
   },
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify']
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+  pwa: {
+    manifest: {
+      name: 'Muscle Training App',
+      background_color: '#1976D2',
+      lang: 'ja',
+      display: 'standalone'
+    }
+  }
 }
