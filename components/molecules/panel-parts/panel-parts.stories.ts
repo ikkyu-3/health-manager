@@ -34,6 +34,13 @@ storiesOf('molecules.panel-parts', module).add('WorkoutPanelContent', () => ({
   data: () => ({
     workouts: [
       {
+        name: 'Treadmill',
+        results: [],
+        memo: '',
+        startTime: '2019-01-01T00:00:00.000Z',
+        endTime: '2019-01-01T00:01:23.000Z'
+      },
+      {
         name: 'Bench Press',
         results: [],
         memo: '',

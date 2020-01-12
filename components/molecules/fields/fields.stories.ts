@@ -16,6 +16,10 @@ storiesOf('molecules.fields', module).add('ResultField', () => ({
         <result-field times :value="times" :remove="reduceTimes" :add="addTimes"/>
       </section>
       <section>
+        <h2>Minutes</h2>
+        <result-field minutes :value="minutes" :remove="reduceMinutes" :add="addMinutes"/>
+      </section>
+      <section>
         <h2>Seconds</h2>
         <result-field seconds :value="seconds" :remove="reduceSeconds" :add="addSeconds"/>
       </section>
@@ -26,7 +30,7 @@ storiesOf('molecules.fields', module).add('ResultField', () => ({
     </article>
   `,
   data() {
-    return { weight: 0, times: 0, seconds: 0, set: 0 }
+    return { weight: 0, times: 0, minutes: 0, seconds: 0, set: 0 }
   },
   methods: {
     reduceWeight(this: { weight: number }) {
@@ -52,6 +56,18 @@ storiesOf('molecules.fields', module).add('ResultField', () => ({
         return false
       }
       this.times += 1
+    },
+    reduceMinutes(this: { minutes: number }) {
+      if (this.minutes <= 0) {
+        return false
+      }
+      this.minutes -= 1
+    },
+    addMinutes(this: { minutes: number }) {
+      if (this.minutes >= 200) {
+        return false
+      }
+      this.minutes += 1
     },
     reduceSeconds(this: { seconds: number }) {
       if (this.seconds <= 0) {

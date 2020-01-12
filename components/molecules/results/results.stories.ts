@@ -3,6 +3,11 @@ import { action } from '@storybook/addon-actions'
 import BaseResult from './BaseResult.vue'
 import WorkoutTimeResult from './WorkoutTimeResult.vue'
 
+// machine training
+import TreadmillResult, {
+  initResult as teadmillInitResult
+} from './machine-trainings/TreadmillResult.vue'
+
 // weight machine training
 import BenchPressResult, {
   initResult as benchPressInitResult
@@ -68,6 +73,7 @@ storiesOf('molecules.results', module).add('WorkoutTimeResult', () => ({
 
 storiesOf('molecules.results', module).add('WorkoutResult', () => ({
   components: {
+    TreadmillResult,
     BenchPressResult,
     ChestPressResult,
     CrunchResult,
@@ -85,6 +91,10 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
   template: `
     <article>
       <h1>WorkoutResult</h1>
+      <section>
+        <h2>TreadmillResult</h2>
+        <treadmill-result :index="index" :result="treadmillResult" :delete-result="action"/>
+      </section>
       <section>
         <h2>BenchPressResult</h2>
         <bench-press-result :index="index" :result="benchPressResult" :delete-result="action"/>
@@ -141,6 +151,7 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
   `,
   data: () => ({
     index: 0,
+    treadmillResult: teadmillInitResult(),
     benchPressResult: benchPressInitResult(),
     chestPressResult: chestPressInitResult(),
     crunchResult: crunchInitResult(),

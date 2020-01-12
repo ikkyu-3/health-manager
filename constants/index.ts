@@ -53,5 +53,9 @@ export const workoutMenu = [
   {
     target: 'Abdominal',
     workouts: ['Ab Roller', 'Crunch', 'Leg Raise', 'Plank', 'Sit Up']
+  },
+  {
+    target: 'All',
+    workouts: ['Treadmill']
   }
 ]

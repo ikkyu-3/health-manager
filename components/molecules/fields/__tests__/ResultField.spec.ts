@@ -54,6 +54,15 @@ describe('molecules/fields/ResultField.vue', () => {
       expect(wrapper.find('.input-value').text()).toBe(`${value}回`)
     })
 
+    it('minutes属性を指定した場合、"分"が表示される', () => {
+      const value = 30
+      wrapper = mount(ResultField, {
+        ...options,
+        propsData: { value, minutes: true, add, remove }
+      })
+      expect(wrapper.find('.input-value').text()).toBe(`${value}分`)
+    })
+
     it('seconds属性を指定した場合、"秒"が表示される', () => {
       const value = 30
       wrapper = mount(ResultField, {

@@ -19,6 +19,7 @@ export type ResultInputType = {
   value: number
   weight: boolean
   times: boolean
+  minutes: boolean
   seconds: boolean
   set: boolean
   add: () => void
@@ -30,18 +31,20 @@ export default createComponent<ResultInputType>({
     value: Number,
     weight: Boolean,
     times: Boolean,
+    minutes: Boolean,
     seconds: Boolean,
     set: Boolean,
     add: Function,
     remove: Function
   },
   setup(props) {
-    const { weight, times, seconds, set } = props
+    const { weight, times, minutes, seconds, set } = props
 
     let unit = ''
 
     if (weight) unit = 'kg'
     if (times) unit = '回'
+    if (minutes) unit = '分'
     if (seconds) unit = '秒'
     if (set) unit = 'セット'
 

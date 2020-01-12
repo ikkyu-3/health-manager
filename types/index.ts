@@ -33,6 +33,10 @@ export type WorkoutResultBySeconds = {
   seconds: number
 } & BaseWorkoutResult
 
+export type WorkoutResultByMinutes = {
+  minutes: number
+} & BaseWorkoutResult
+
 export type WorkoutResultBySecondsWithWeights = {
   hasWeight: boolean
   weight: number
@@ -44,6 +48,7 @@ export type WorkoutResult =
   | WorkoutResultByNumberOfTimeWithWeights
   | WorkoutResultBySeconds
   | WorkoutResultBySecondsWithWeights
+  | WorkoutResultByMinutes
 
 // Workout
 export type BaseWorkout = {
@@ -60,6 +65,7 @@ export type Workout = BaseWorkout & {
     | WorkoutResultByNumberOfTimeWithWeights
     | WorkoutResultBySeconds
     | WorkoutResultBySecondsWithWeights
+    | WorkoutResultByMinutes
   )[]
 }
 
@@ -114,12 +120,23 @@ export type WorkoutBySecondsWithWeightsPanelContentProps = {
   ) => void
 }
 
+export type WorkoutByMinutesPanelContentProps = {
+  index: number
+  workout: BaseWorkout & { results: WorkoutResultByMinutes[] }
+  finish: (
+    index: number,
+    results: WorkoutResultByMinutes[],
+    memo: string
+  ) => void
+}
+
 export type WorkoutPanelContentProps =
   | WorkoutByWeightMachinePanelContentProps
   | WorkoutByNumberOfTimePanelContentProps
   | WorkoutByNumberOfTimeWithWeightsPanelContentProps
   | WorkoutBySecondsPanelContentProps
   | WorkoutBySecondsWithWeightsPanelContentProps
+  | WorkoutByMinutesPanelContentProps
 
 export type WorkoutContext = {
   index: string

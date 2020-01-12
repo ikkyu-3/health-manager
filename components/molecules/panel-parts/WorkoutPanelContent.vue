@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import { createComponent, reactive } from '@vue/composition-api'
+import TreadmillPanelContent from './workout-contents/machine-trainings/TreadmillPanelContent.vue'
 import BenchPressPanelContent from './workout-contents/weight-machine-trainings/BenchPressPanelContent.vue'
 import ChestPressPanelContent from './workout-contents/weight-machine-trainings/ChestPressPanelContent.vue'
 import LatPulldownPanelContent from './workout-contents/weight-machine-trainings/LatPulldownPanelContent.vue'
@@ -26,6 +27,7 @@ import { WorkoutPanelContentProps } from '@/types'
 
 export default createComponent<WorkoutPanelContentProps, {}>({
   components: {
+    TreadmillPanelContent,
     BenchPressPanelContent,
     ChestPressPanelContent,
     LatPulldownPanelContent,
