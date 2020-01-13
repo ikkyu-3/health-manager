@@ -8,7 +8,7 @@ const options = {
 }
 
 describe('molecules/fields/ResultField.vue', () => {
-  let wrapper: Wrapper<ResultField>
+  let wrapper: Wrapper<any>
   const add = jest.fn()
   const remove = jest.fn()
 

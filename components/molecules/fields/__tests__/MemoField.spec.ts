@@ -8,7 +8,7 @@ const options = {
 }
 
 describe('molecules/fields/MemoField.vue', () => {
-  let wrapper: Wrapper<MemoField>
+  let wrapper: Wrapper<any>
 
   beforeAll(() => {
     wrapper = mount(MemoField, {

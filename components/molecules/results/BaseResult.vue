@@ -32,7 +32,8 @@ export default createComponent({
   setup() {
     const state: {
       isOpen: boolean
-      deleteButtonAreaClass: Array<any>
+      slotClass: any
+      deleteButtonAreaClass: any
     } = reactive({
       isOpen: false,
       slotClass: computed(() => {
