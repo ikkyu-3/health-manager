@@ -15,6 +15,7 @@
       :to="button.to"
       :disabled="button.disabled"
       nuxt
+      class="navi-button"
       @click="changeTitle(button.text)"
     >
       <span class="button-text">{{ button.text }}</span>
@@ -51,5 +52,10 @@ export default createComponent({
 .button-text {
   font-size: 90%;
   font-weight: 500;
+}
+
+// production buildするとレイアウトが崩れるため
+.navi-button {
+  height: 100% !important;
 }
 </style>

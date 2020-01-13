@@ -108,7 +108,7 @@ export default createComponent({
   height: 100%;
   justify-content: center;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
   margin: 0;
 }
