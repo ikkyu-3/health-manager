@@ -47,7 +47,7 @@ class IndexedDB {
             date,
             ...workout
           }
-          objectStore.add(saveData)
+          objectStore.put(saveData)
         })
       }
 
