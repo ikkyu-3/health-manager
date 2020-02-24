@@ -65,8 +65,7 @@ export type Workout = BaseWorkout & {
     | WorkoutResultByNumberOfTimeWithWeights
     | WorkoutResultBySeconds
     | WorkoutResultBySecondsWithWeights
-    | WorkoutResultByMinutes
-  )[]
+    | WorkoutResultByMinutes)[]
 }
 
 // Panel Content Props
