@@ -43,6 +43,9 @@ import LegRaiseResult, {
 import PlankResult, {
   initResult as plankInitResult
 } from './weight-trainings/PlankResult.vue'
+import PullUpResult, {
+  initResult as pullUpInitResult
+} from './weight-trainings/PullUpResult.vue'
 import PushUpResult, {
   initResult as pushUpInitResult
 } from './weight-trainings/PushUpResult.vue'
@@ -85,6 +88,7 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
     BackExtensionResult,
     LegRaiseResult,
     PlankResult,
+    PullUpResult,
     PushUpResult,
     SitUpResult
   },
@@ -140,6 +144,10 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
         <plank-result :index="index" :result="plankResult" :delete-result="action"/>
       </section>
       <section>
+        <h2>PullUpResult</h2>
+        <pull-up-result :index="index" :result="pullUpResult" :delete-result="action"/>
+      </section>
+      <section>
         <h2>PushUpResult</h2>
         <push-up-result :index="index" :result="pushUpResult" :delete-result="action"/>
       </section>
@@ -164,6 +172,7 @@ storiesOf('molecules.results', module).add('WorkoutResult', () => ({
     legRaiseResult: legRaiseInitResult(),
     sitUpResult: sitUpInitResult(),
     plankResult: plankInitResult(),
+    pullUpResult: pullUpInitResult(),
     pushUpResult: pushUpInitResult()
   }),
   methods: {

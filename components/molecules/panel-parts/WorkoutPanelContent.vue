@@ -21,6 +21,7 @@ import BackExtensionPanelContent from './workout-contents/weight-trainings/BackE
 import CrunchPanelContent from './workout-contents/weight-trainings/CrunchPanelContent.vue'
 import LegRaisePanelContent from './workout-contents/weight-trainings/LegRaisePanelContent.vue'
 import PlankPanelContent from './workout-contents/weight-trainings/PlankPanelContent.vue'
+import PullUpPanelContent from './workout-contents/weight-trainings/PullUpPanelContent.vue'
 import PushUpPanelContent from './workout-contents/weight-trainings/PushUpPanelContent.vue'
 import SitUpPanelContent from './workout-contents/weight-trainings/SitUpPanelContent.vue'
 import { WorkoutPanelContentProps } from '@/types'
@@ -39,6 +40,7 @@ export default createComponent<WorkoutPanelContentProps, {}>({
     CrunchPanelContent,
     LegRaisePanelContent,
     PlankPanelContent,
+    PullUpPanelContent,
     PushUpPanelContent,
     SitUpPanelContent
   },

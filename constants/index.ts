@@ -44,7 +44,7 @@ export const workoutMenu = [
   },
   {
     target: 'Back',
-    workouts: ['Lat Pulldown', 'Back Extension']
+    workouts: ['Lat Pulldown', 'Back Extension', 'Pull Up']
   },
   {
     target: 'Pectoral',
